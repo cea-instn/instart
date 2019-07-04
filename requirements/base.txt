@@ -1,0 +1,10 @@
+boto3==1.9.96
+django-configurations==2.1
+# Superior versions of django-storages are not compatible with
+# ManifestStaticFilesStorage
+django-storages==1.6.3
+dockerflow==2019.6.0
+gunicorn==19.9.0
+psycopg2-binary==2.7.7
+richie==1.5.0
+sentry-sdk==0.9.5
