@@ -349,6 +349,11 @@ code-point-at@^1.0.0:
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
   integrity sha1-DQcLTQQ6W+ozovGkDi7bPZpMz3c=
 
+codyhouse-framework@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/codyhouse-framework/-/codyhouse-framework-2.1.0.tgz#a0e13197372c84e74dce6443646a1abde1265d2d"
+  integrity sha512-ckzGbt8K//i9KgP4rA06MTGfD5sWrdB+kEAhvdVRRospqVJ5AEa8109NkhJ6SyVE5//PewOlf8VKkig2PVQ1Bg==
+
 collection-visit@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/collection-visit/-/collection-visit-1.0.0.tgz#4bc0373c164bc3291b4d368c829cf1a80a59dca0"
