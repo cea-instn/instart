@@ -29,7 +29,11 @@ $richie-section-highlights-item-gutter: 0.625rem !default;
             text-align: $richie-section-highlights-title-textalign;
             @include breakpoint(md) {
                 @include make-container();
+<<<<<<< HEAD
                 @include make-container-max-widths();
+=======
+                //@include make-container-max-widths(); // TODO : replace with something else
+>>>>>>> :lipstick: add css starter framework
             }
         }
     }
@@ -41,7 +45,11 @@ $richie-section-highlights-item-gutter: 0.625rem !default;
             flex-wrap: wrap;
             @include breakpoint(md) {
                 @include make-container();
+<<<<<<< HEAD
                 @include make-container-max-widths();
+=======
+                //@include make-container-max-widths(); // TODO : replace with something else
+>>>>>>> :lipstick: add css starter framework
             }
 
             // Some have to take 100% on default behavior

@@ -674,6 +674,7 @@
   content: "";
   display: table;
   clear: both;
+<<<<<<< HEAD
 }
 
 
@@ -693,3 +694,6 @@ $rem-calc-base-font-size: 16px !default;
     $remSize: $size / $rem-calc-base-font-size;
     @return #{$remSize}rem;
 }
+=======
+}
+>>>>>>> :lipstick: add css starter framework

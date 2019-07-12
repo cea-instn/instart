@@ -5,7 +5,11 @@ $richie-category-detail-banner-logo-sizing-xl: 25rem !default;
 
 .category-detail {
     @include make-container();
+<<<<<<< HEAD
     @include make-container-max-widths();
+=======
+    //@include make-container-max-widths(); // TODO : replace with something else
+>>>>>>> :lipstick: add css starter framework
     padding-bottom: 1rem;
     background: var(--richie-content-container-bg);
 

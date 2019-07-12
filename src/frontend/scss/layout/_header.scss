@@ -1,30 +1,50 @@
 // Main body header
 
+<<<<<<< HEAD
 $richie-topbar-breakpoint: lg;
 
+=======
+$richie-topbar-breakpoint: lg !default;
+
+$richie-topbar-shadow: 0 0 rem-calc(3px) rem-calc(3px) rgba($gray40, 0.2) !default;
+>>>>>>> :lipstick: add css starter framework
 $richie-topbar-background: $white !default;
 
 $richie-topbar-hamburger-paddding: 0 1rem !default;
 $richie-topbar-hamburger-fontsize: 2rem !default;
+<<<<<<< HEAD
 $richie-topbar-hamburger-fontcolor: var(--color-primary) !default;
 $richie-topbar-hamburger-fontcolor-hover: var(--color-primary) !default;
 
 $richie-topbar-brand-margin: 0 2rem 0 0!default;
 
 $richie-topbar-brand-link-width: rem-calc(172px) !default;
+=======
+$richie-topbar-hamburger-fontcolor: $dodgerblue7 !default;
+$richie-topbar-hamburger-fontcolor-hover: $dodgerblue7 !default;
+
+$richie-topbar-brand-height: rem-calc(60px) !default;
+$richie-topbar-brand-paddding: 0 0.4rem !default;
+>>>>>>> :lipstick: add css starter framework
 
 $richie-topbar-menu-list-margin: 0 !default;
 $richie-topbar-menu-list-padding: 0 !default;
 
 $richie-topbar-menu-list-fontcolor: $white !default;
+<<<<<<< HEAD
 $richie-topbar-menu-list-fontcolor-lg: var(--color-primary) !default;
 $richie-topbar-menu-list-background: var(--color-primary) !default;
+=======
+$richie-topbar-menu-list-fontcolor-lg: $dodgerblue7 !default;
+$richie-topbar-menu-list-background: $dodgerblue7 !default;
+>>>>>>> :lipstick: add css starter framework
 $richie-topbar-menu-list-background-lg: transparent !default;
 
 $richie-topbar-menu-item-margin: 0 !default;
 $richie-topbar-menu-item-padding: 0 !default;
 $richie-topbar-menu-item-fontcolor: inherit !default;
 
+<<<<<<< HEAD
 $richie-topbar-menu-link-padding: 0.313rem 1rem 0.375rem !default;
 $richie-topbar-menu-link-fontsize: 0.938rem !default;
 $richie-topbar-menu-link-fontcolor: inherit !default;
@@ -46,6 +66,28 @@ $richie-topbar-menu-item-active-border: rem-calc(4px) solid lightness(var(--colo
 $richie-topbar-menu-item-active-fontweight-lg: 900 !default;
 $richie-topbar-menu-item-active-border-height-lg: rem-calc(3px) !default;
 $richie-topbar-menu-item-active-border-color-lg: var(--color-primary) !default;
+=======
+$richie-topbar-menu-link-padding: 0.8rem 1rem !default;
+$richie-topbar-menu-link-fontsize: 1rem !default;
+$richie-topbar-menu-link-fontcolor: inherit !default;
+
+$richie-topbar-menu-link-padding-md: 1rem 0.7rem !default;
+$richie-topbar-menu-link-fontsize-md: 0.9rem !default;
+$richie-topbar-menu-link-fontcolor-md: inherit !default;
+
+$richie-topbar-menu-link-padding-lg: 1rem !default;
+$richie-topbar-menu-link-fontsize-lg: 1rem !default;
+$richie-topbar-menu-link-fontcolor-lg: inherit !default;
+
+$richie-topbar-menu-link-fontcolor-hover: $white !default;
+$richie-topbar-menu-link-background-hover: lighten($dodgerblue7, 2%) !default;
+
+$richie-topbar-menu-item-active-fontweight: bold !default;
+$richie-topbar-menu-item-active-border: rem-calc(4px) solid lighten($dodgerblue7, 8%) !default;
+$richie-topbar-menu-item-active-fontweight-lg: bold !default;
+$richie-topbar-menu-item-active-border-height-lg: rem-calc(3px) !default;
+$richie-topbar-menu-item-active-border-color-lg: $dodgerblue7 !default;
+>>>>>>> :lipstick: add css starter framework
 
 $richie-topbar-menu-cta-fontcolor: $white !default;
 $richie-topbar-menu-cta-fontweight: bold !default;
@@ -62,17 +104,27 @@ $richie-topbar-menu-item-divider-border: 1px solid $dodgerblue5 !default;
 $richie-topbar-menu-item-divider-border-lg: 1px solid $white !default;
 
 .topbar {
+<<<<<<< HEAD
     @include make-container();
     @include make-container-max-widths();
     $topbar-selector: &;
     display: flex;
     flex-direction: column;
     padding: 1.625rem 1rem 1.375rem;
+=======
+    $topbar-selector: &;
+    display: flex;
+    flex-direction: column;
+    box-shadow: $richie-topbar-shadow;
+>>>>>>> :lipstick: add css starter framework
     position: relative;
     z-index: 200;
 
     @include breakpoint($richie-topbar-breakpoint) {
+<<<<<<< HEAD
         align-items: center;
+=======
+>>>>>>> :lipstick: add css starter framework
         flex-direction: row;
         background-color: $richie-topbar-background;
     }
@@ -102,10 +154,18 @@ $richie-topbar-menu-item-divider-border-lg: 1px solid $white !default;
     &__brand {
         @include sv-flex(1, 0, auto);
         display: flex;
+<<<<<<< HEAD
         flex-direction: row;
         align-items: stretch;
         background: $richie-topbar-background;
         justify-content: space-between;
+=======
+        height: $richie-topbar-brand-height;
+        flex-direction: row;
+        align-items: stretch;
+        background: $richie-topbar-background;
+        box-shadow: $richie-topbar-shadow;
+>>>>>>> :lipstick: add css starter framework
 
         @include breakpoint($richie-topbar-breakpoint) {
             @include sv-flex(0, 0, auto);
@@ -114,10 +174,16 @@ $richie-topbar-menu-item-divider-border-lg: 1px solid $white !default;
 
         // Clickable logo
         &__link {
+<<<<<<< HEAD
             @include sv-flex(0, 0, auto);
             padding: $richie-topbar-brand-margin;
             order: 1;
             width: $richie-topbar-brand-link-width;
+=======
+            @include sv-flex(1, 0, auto);
+            padding: $richie-topbar-brand-paddding;
+            order: 1;
+>>>>>>> :lipstick: add css starter framework
 
             @include breakpoint($richie-topbar-breakpoint) {
                 @include sv-flex(0, 0, auto);
@@ -135,10 +201,15 @@ $richie-topbar-menu-item-divider-border-lg: 1px solid $white !default;
         display: none;
         flex-direction: row;
         flex-wrap: wrap;
+<<<<<<< HEAD
         margin-top: rem-calc(7px);
 
         @include breakpoint($richie-topbar-breakpoint) {
             align-items: center;
+=======
+
+        @include breakpoint($richie-topbar-breakpoint) {
+>>>>>>> :lipstick: add css starter framework
             display: flex;
             flex-wrap: nowrap;
         }
@@ -159,7 +230,10 @@ $richie-topbar-menu-item-divider-border-lg: 1px solid $white !default;
                 @include sv-flex(1, 0, auto);
                 display: flex;
                 flex-direction: row;
+<<<<<<< HEAD
                 justify-content: center;
+=======
+>>>>>>> :lipstick: add css starter framework
                 color: $richie-topbar-menu-list-fontcolor-lg;
                 background: $richie-topbar-menu-list-background-lg;
             }
@@ -168,15 +242,19 @@ $richie-topbar-menu-item-divider-border-lg: 1px solid $white !default;
             &__item {
                 $item-selector: &;
 
+<<<<<<< HEAD
                 &:first-child:before {
                     display: none;
                 }
 
+=======
+>>>>>>> :lipstick: add css starter framework
                 @include sv-flex(1, 0, auto);
                 display: flex;
                 margin: $richie-topbar-menu-item-margin;
                 padding: $richie-topbar-menu-item-padding;
                 color: $richie-topbar-menu-item-fontcolor;
+<<<<<<< HEAD
                 font-weight: 900;
                 letter-spacing: 0.075em;
                 line-height: calc(19 / 16);
@@ -200,6 +278,11 @@ $richie-topbar-menu-item-divider-border-lg: 1px solid $white !default;
                         transform: translate(-50%,-50%);
                         width: 13px;
                     }
+=======
+
+                @include breakpoint($richie-topbar-breakpoint) {
+                    @include sv-flex(0, 0, auto);
+>>>>>>> :lipstick: add css starter framework
                 }
 
                 &--language {
@@ -218,7 +301,10 @@ $richie-topbar-menu-item-divider-border-lg: 1px solid $white !default;
                     padding: $richie-topbar-menu-link-padding;
                     font-size: $richie-topbar-menu-link-fontsize;
                     color: $richie-topbar-menu-link-fontcolor;
+<<<<<<< HEAD
                     text-decoration: none;
+=======
+>>>>>>> :lipstick: add css starter framework
 
                     @include breakpoint($richie-topbar-breakpoint) {
                         padding: $richie-topbar-menu-link-padding-lg;
@@ -229,6 +315,10 @@ $richie-topbar-menu-item-divider-border-lg: 1px solid $white !default;
                     &:hover {
                         color: $richie-topbar-menu-link-fontcolor-hover;
                         text-decoration: none;
+<<<<<<< HEAD
+=======
+                        background: $richie-topbar-menu-link-background-hover;
+>>>>>>> :lipstick: add css starter framework
                     }
                 }
 
@@ -236,6 +326,7 @@ $richie-topbar-menu-item-divider-border-lg: 1px solid $white !default;
                 &--selected,
                 &--ancestor {
                     #{$item-selector}__link {
+<<<<<<< HEAD
                         border-left: $richie-topbar-menu-item-active-border;
 
                         &:hover {
@@ -253,6 +344,23 @@ $richie-topbar-menu-item-divider-border-lg: 1px solid $white !default;
                                 bottom: rem-calc(-26px);
                                 left: 50%;
                                 transform: translateX(-50%);
+=======
+                        font-weight: $richie-topbar-menu-item-active-fontweight;
+                        border-left: $richie-topbar-menu-item-active-border;
+
+                        @include breakpoint($richie-topbar-breakpoint) {
+                            position: relative;
+                            font-weight: $richie-topbar-menu-item-active-fontweight-lg;
+                            border-left: 0;
+                            &::after {
+                                content: '';
+                                position: absolute;
+                                bottom: 0;
+                                left: 0;
+                                right: 0;
+                                height: $richie-topbar-menu-item-active-border-height-lg;
+                                background-color: $richie-topbar-menu-item-active-border-color-lg;
+>>>>>>> :lipstick: add css starter framework
                             }
                         }
                     }
@@ -284,6 +392,7 @@ $richie-topbar-menu-item-divider-border-lg: 1px solid $white !default;
             &--aside {
                 @include sv-flex(0, 0, 100%);
 
+<<<<<<< HEAD
                 #{$list-selector}__item{
                     font-weight: normal;
                     margin-left: rem-calc(10px);
@@ -320,6 +429,10 @@ $richie-topbar-menu-item-divider-border-lg: 1px solid $white !default;
                         }
                     }
 
+=======
+                @include breakpoint($richie-topbar-breakpoint) {
+                    @include sv-flex(0, 0, auto);
+>>>>>>> :lipstick: add css starter framework
                 }
             }
 

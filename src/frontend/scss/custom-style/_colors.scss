@@ -6,11 +6,19 @@
 
 :root, [data-theme="default"] {
   // main
+<<<<<<< HEAD
   @include defineColorHSL(--color-primary-darker, 215, 52%, 15%);
   @include defineColorHSL(--color-primary-dark, 201, 90%, 29%);
   @include defineColorHSL(--color-primary, 201, 90%, 39%);
   @include defineColorHSL(--color-primary-light, 201, 90%, 49%);
   @include defineColorHSL(--color-primary-lighter, 201, 90%, 59%);
+=======
+  @include defineColorHSL(--color-primary-darker, 220, 90%, 36%);
+  @include defineColorHSL(--color-primary-dark, 220, 90%, 46%);
+  @include defineColorHSL(--color-primary, 220, 90%, 56%);
+  @include defineColorHSL(--color-primary-light, 220, 90%, 66%);
+  @include defineColorHSL(--color-primary-lighter, 220, 90%, 76%);
+>>>>>>> :lipstick: add css starter framework
 
   @include defineColorHSL(--color-accent-darker, 349, 75%, 31%);
   @include defineColorHSL(--color-accent-dark, 349, 75%, 41%);

@@ -107,6 +107,7 @@
 }
 
 
+<<<<<<< HEAD
 
 // --------------------------------
 
@@ -305,12 +306,17 @@ $container-max-widths: (
 @include _assert-ascending($container-max-widths, "$container-max-widths");
 
 
+=======
+>>>>>>> :lipstick: add css starter framework
 /// Grid system
 //
 // Generate semantic grid columns with these mixins.
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> :lipstick: add css starter framework
 @mixin make-container($gutter: var(--grid-gutter-width)) {
     width: 100%;
     padding-right: $gutter / 2;
@@ -321,13 +327,24 @@ $container-max-widths: (
 
 
 // For each breakpoint, define the maximum width of the container in a media query
+<<<<<<< HEAD
 @mixin make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints) {
     @each $breakpoint, $container-max-width in $max-widths {
         @include media-breakpoint-up($breakpoint, $breakpoints) {
+=======
+/*
+@mixin make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints) {
+    @each $breakpoint, $container-max-width in $max-widths {
+        @include breakpoint($breakpoint, $breakpoints) {
+>>>>>>> :lipstick: add css starter framework
             max-width: $container-max-width;
         }
     }
 }
+<<<<<<< HEAD
+=======
+*/
+>>>>>>> :lipstick: add css starter framework
 
 @mixin make-row($gutter: var(--grid-gutter-width)) {
     display: flex;

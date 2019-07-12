@@ -1,7 +1,11 @@
 $richie-person-detail-media-size: 10rem;
 
 .person-detail {
+<<<<<<< HEAD
     @include make-container-max-widths();
+=======
+    //@include make-container-max-widths(); // TODO : replace with something else
+>>>>>>> :lipstick: add css starter framework
     margin: 0 auto;
     padding: 1rem var(--grid-gutter-width);
     background: var(--richie-content-container-bg);
