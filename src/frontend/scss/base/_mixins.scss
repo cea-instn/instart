@@ -1,0 +1,174 @@
+// edit font rendering -> tip: use for light text on dark backgrounds
+@mixin fontSmooth {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// crop top space on text elements - caused by line height
+@mixin lhCrop($line-height, $capital-letter: 1) {
+  &::before {
+    content: '';
+    display: block;
+    height: 0;
+    width: 0;
+    margin-top: calc((#{$capital-letter} - #{$line-height}) * 0.5em);
+  }
+}
+
+// CSS triangle
+@mixin triangle ($direction: up, $width: 12px, $color: red) {
+  width: 0;
+  height: 0;
+  border: $width solid transparent;
+
+  @if( $direction == left ) {
+    border-right-color: $color;
+  } @else if( $direction == right ) {
+    border-left-color: $color;
+  } @else if( $direction == down ) {
+    border-top-color: $color;
+  } @else {
+    border-bottom-color: $color;
+  }
+}
+
+// reset user agent style
+@mixin reset {
+  background-color: transparent;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  color: inherit;
+  line-height: inherit;
+  appearance: none;
+}
+
+// --------------------------------
+
+// Color functions
+
+// --------------------------------
+
+// define HSL color variable
+@mixin defineColorHSL($color, $hue, $saturation, $lightness){
+  #{$color}: unquote("hsl(#{$hue}, #{$saturation}, #{$lightness})");#{$color}-h: #{$hue};#{$color}-s: #{$saturation};#{$color}-l: #{$lightness};
+}
+
+// return color with different opacity value
+@function alpha($color, $opacity){
+  $color: str-replace($color, 'var(');
+  $color: str-replace($color, ')');
+  $color-h: var(#{$color+'-h'});
+  $color-s: var(#{$color+'-s'});
+  $color-l: var(#{$color+'-l'});
+  @return hsla($color-h, $color-s, $color-l, $opacity);
+}
+
+// return color with different lightness value
+@function lightness($color, $lightnessMultiplier){
+  $color: str-replace($color, 'var(');
+  $color: str-replace($color, ')');
+  $color-h: var(#{$color+'-h'});
+  $color-s: var(#{$color+'-s'});
+  $color-l: var(#{$color+'-l'});
+  @return hsl($color-h, $color-s, calc(#{$color-l} * #{$lightnessMultiplier}));
+}
+
+// replace substring with another string
+// credits: https://css-tricks.com/snippets/sass/str-replace-function/
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+  @return $string;
+}
+
+// --------------------------------
+
+// Edit Units
+
+// --------------------------------
+
+@mixin spaceUnit($space-unit) { // edit space unit on a component level
+  --space-unit:  #{$space-unit};
+  --space-xxxxs: calc(0.125 * #{$space-unit});
+  --space-xxxs:  calc(0.25 * #{$space-unit});
+  --space-xxs:   calc(0.375 * #{$space-unit});
+  --space-xs:    calc(0.5 * #{$space-unit});
+  --space-sm:    calc(0.75 * #{$space-unit});
+  --space-md:    calc(1.25 * #{$space-unit});
+  --space-lg:    calc(2 * #{$space-unit});
+  --space-xl:    calc(3.25 * #{$space-unit});
+  --space-xxl:   calc(5.25 * #{$space-unit});
+  --space-xxxl:  calc(8.5 * #{$space-unit});
+  --space-xxxxl: calc(13.75 * #{$space-unit});
+  --component-padding: var(--space-md);
+}
+
+
+/// Grid system
+//
+// Generate semantic grid columns with these mixins.
+
+@mixin make-container($gutter: var(--grid-gutter-width)) {
+    width: 100%;
+    padding-right: $gutter / 2;
+    padding-left: $gutter / 2;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+// For each breakpoint, define the maximum width of the container in a media query
+/*
+@mixin make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints) {
+    @each $breakpoint, $container-max-width in $max-widths {
+        @include breakpoint($breakpoint, $breakpoints) {
+            max-width: $container-max-width;
+        }
+    }
+}
+*/
+
+@mixin make-row($gutter: var(--grid-gutter-width)) {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -$gutter / 2;
+    margin-left: -$gutter / 2;
+}
+
+@mixin make-col-ready($gutter: var(--grid-gutter-width)) {
+    position: relative;
+    // Prevent columns from becoming too narrow when at smaller grid tiers by
+    // always setting `width: 100%;`. This works because we use `flex` values
+    // later on to override this initial width.
+    width: 100%;
+    padding-right: $gutter / 2;
+    padding-left: $gutter / 2;
+}
+
+@mixin make-col($size, $columns: $grid-columns) {
+    flex: 0 0 percentage($size / $columns);
+    // Add a `max-width` to ensure content within each column does not blow out
+    // the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
+    // do not appear to require this.
+    max-width: percentage($size / $columns);
+}
+
+@mixin make-col-offset($size, $columns: $grid-columns) {
+    $num: $size / $columns;
+    margin-left: if($num == 0, 0, percentage($num));
+}
+
+
+/// Helper to clear inner floats
+/// @author Nicolas Gallagher
+/// @link http://nicolasgallagher.com/micro-clearfix-hack/ Micro Clearfix
+@mixin clearfix{
+    &:after{
+        content: '';
+        display: table;
+        clear: both;
+    }
+}

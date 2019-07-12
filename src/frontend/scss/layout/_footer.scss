@@ -1,0 +1,158 @@
+// Main body footer
+
+$richie-footer-padding: 0 1rem !default;
+$richie-footer-fontcolor: $white !default;
+$richie-footer-background: $dodgerblue1 !default;
+
+$richie-footer-menu-border: 1px solid lighten($dodgerblue1, 10%) !default;
+
+$richie-footer-menu-item-margin: 0 !default;
+$richie-footer-menu-item-padding: 0 !default;
+$richie-footer-menu-item-margin-lg: 0 !default;
+$richie-footer-menu-item-padding-lg: 0 !default;
+
+$richie-footer-menu-link-padding: 1rem 0.8rem !default;
+$richie-footer-menu-link-fontweight: bold !default;
+$richie-footer-menu-link-fontcolor: $white !default;
+$richie-footer-menu-link-fontcolor-hover: $dodgerblue7 !default;
+
+$richie-footer-brand-padding: 1rem 0 !default;
+$richie-footer-mentions-padding: 1rem 0 !default;
+
+$richie-footer-mentions-fontsize: 0.9rem !default;
+$richie-footer-mentions-texttransform: uppercase !default;
+
+$richie-footer-poweredby-padding: 1rem 0 !default;
+$richie-footer-poweredby-link-fontcolor: $white !default;
+
+.body-footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: $richie-footer-padding;
+    color: $richie-footer-fontcolor;
+    background: $richie-footer-background;
+
+    &__menu {
+        @include sv-flex(1, 0, 100%);
+        display: flex;
+        border-bottom: $richie-footer-menu-border;
+
+        &__list {
+            width: 100%;
+            max-width: var(--max-width-xl);
+            margin: 0 auto;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            &__item {
+                @include sv-flex(1, 0, 100%);
+                display: flex;
+                margin: $richie-footer-menu-item-margin;
+                padding: $richie-footer-menu-item-padding;
+                color: inherit;
+
+                @include breakpoint(lg) {
+                    @include sv-flex(0, 0, auto);
+                    margin: $richie-footer-menu-item-margin-lg;
+                    padding: $richie-footer-menu-item-padding-lg;
+                }
+
+                &__link {
+                    @include sv-flex(1, 0, 100%);
+                    display: block;
+                    padding: $richie-footer-menu-link-padding;
+                    font-weight: $richie-footer-menu-link-fontweight;
+                    color: $richie-footer-menu-link-fontcolor;
+
+                    &:hover {
+                        color: $richie-footer-menu-link-fontcolor-hover;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+
+    &__brand {
+        @include sv-flex(0, 0, auto);
+        display: flex;
+        padding: $richie-footer-brand-padding;
+        order: 1;
+
+        &__link {
+            @include sv-flex(1, 0, auto);
+            display: block;
+        }
+
+        &__badge {
+            @include sv-flex(1, 0, auto);
+            display: block;
+            margin-left: 1rem;
+            font-size: 2.4rem;
+            color: $gray40;
+
+            &:hover {
+                color: $white;
+                text-decoration: none;
+            }
+        }
+    }
+
+    &__mentions {
+        @include sv-flex(1, 0, 100%);
+        display: flex;
+        padding: $richie-footer-mentions-padding;
+        align-content: center;
+        order: 3;
+
+        @include breakpoint(lg) {
+            @include sv-flex(0, 0, auto);
+            order: 2;
+        }
+
+        p {
+            @include sv-flex(1, 0, 100%);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            font-size: $richie-footer-mentions-fontsize;
+            text-transform: $richie-footer-mentions-texttransform;
+            justify-content: center;
+        }
+    }
+
+    &__poweredby {
+        @include sv-flex(0, 0, auto);
+        display: flex;
+        padding: $richie-footer-poweredby-padding;
+        order: 2;
+
+        @include breakpoint(lg) {
+            order: 3;
+        }
+
+        &__link {
+            @include sv-flex(1, 0, 100%);
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: center;
+            color: $richie-footer-poweredby-link-fontcolor;
+
+            small {
+                @include sv-flex(0, 0, auto);
+                line-height: 1.1;
+            }
+
+            strong {
+                @include sv-flex(0, 0, auto);
+                font-size: 1.4em;
+                line-height: 1.1;
+            }
+        }
+    }
+}

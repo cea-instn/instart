@@ -1,0 +1,275 @@
+// Main body header
+
+$richie-topbar-breakpoint: lg !default;
+
+$richie-topbar-shadow: 0 0 rem-calc(3px) rem-calc(3px) rgba($gray40, 0.2) !default;
+$richie-topbar-background: $white !default;
+
+$richie-topbar-hamburger-paddding: 0 1rem !default;
+$richie-topbar-hamburger-fontsize: 2rem !default;
+$richie-topbar-hamburger-fontcolor: $dodgerblue7 !default;
+$richie-topbar-hamburger-fontcolor-hover: $dodgerblue7 !default;
+
+$richie-topbar-brand-height: rem-calc(60px) !default;
+$richie-topbar-brand-paddding: 0 0.4rem !default;
+
+$richie-topbar-menu-list-margin: 0 !default;
+$richie-topbar-menu-list-padding: 0 !default;
+
+$richie-topbar-menu-list-fontcolor: $white !default;
+$richie-topbar-menu-list-fontcolor-lg: $dodgerblue7 !default;
+$richie-topbar-menu-list-background: $dodgerblue7 !default;
+$richie-topbar-menu-list-background-lg: transparent !default;
+
+$richie-topbar-menu-item-margin: 0 !default;
+$richie-topbar-menu-item-padding: 0 !default;
+$richie-topbar-menu-item-fontcolor: inherit !default;
+
+$richie-topbar-menu-link-padding: 0.8rem 1rem !default;
+$richie-topbar-menu-link-fontsize: 1rem !default;
+$richie-topbar-menu-link-fontcolor: inherit !default;
+
+$richie-topbar-menu-link-padding-md: 1rem 0.7rem !default;
+$richie-topbar-menu-link-fontsize-md: 0.9rem !default;
+$richie-topbar-menu-link-fontcolor-md: inherit !default;
+
+$richie-topbar-menu-link-padding-lg: 1rem !default;
+$richie-topbar-menu-link-fontsize-lg: 1rem !default;
+$richie-topbar-menu-link-fontcolor-lg: inherit !default;
+
+$richie-topbar-menu-link-fontcolor-hover: $white !default;
+$richie-topbar-menu-link-background-hover: lighten($dodgerblue7, 2%) !default;
+
+$richie-topbar-menu-item-active-fontweight: bold !default;
+$richie-topbar-menu-item-active-border: rem-calc(4px) solid lighten($dodgerblue7, 8%) !default;
+$richie-topbar-menu-item-active-fontweight-lg: bold !default;
+$richie-topbar-menu-item-active-border-height-lg: rem-calc(3px) !default;
+$richie-topbar-menu-item-active-border-color-lg: $dodgerblue7 !default;
+
+$richie-topbar-menu-cta-fontcolor: $white !default;
+$richie-topbar-menu-cta-fontweight: bold !default;
+$richie-topbar-menu-cta-background: $firebrick6 !default;
+
+$richie-topbar-menu-cta-hollow-fontcolor: $firebrick6 !default;
+$richie-topbar-menu-cta-hollow-fontweight: bold !default;
+$richie-topbar-menu-cta-hollow-background: $white !default;
+
+$richie-topbar-menu-divider-border: 1px solid $dodgerblue5 !default;
+$richie-topbar-menu-divider-border-lg: 0 !default;
+
+$richie-topbar-menu-item-divider-border: 1px solid $dodgerblue5 !default;
+$richie-topbar-menu-item-divider-border-lg: 1px solid $white !default;
+
+.topbar {
+    $topbar-selector: &;
+    display: flex;
+    flex-direction: column;
+    box-shadow: $richie-topbar-shadow;
+    position: relative;
+    z-index: 200;
+
+    @include breakpoint($richie-topbar-breakpoint) {
+        flex-direction: row;
+        background-color: $richie-topbar-background;
+    }
+
+    // Will show only on mobile breakpoints
+    &__hamburger {
+        @include sv-flex(0, 0, auto);
+        padding: $richie-topbar-hamburger-paddding;
+        border: 0;
+        font-size: $richie-topbar-hamburger-fontsize;
+        line-height: 1;
+        color: $richie-topbar-hamburger-fontcolor;
+        background: inherit;
+        cursor: pointer;
+        order: 2;
+
+        @include breakpoint($richie-topbar-breakpoint) {
+            display: none;
+        }
+
+        &:hover {
+            color: $richie-topbar-hamburger-fontcolor-hover;
+        }
+    }
+
+    // Brand part with hamburger and clickable logo
+    &__brand {
+        @include sv-flex(1, 0, auto);
+        display: flex;
+        height: $richie-topbar-brand-height;
+        flex-direction: row;
+        align-items: stretch;
+        background: $richie-topbar-background;
+        box-shadow: $richie-topbar-shadow;
+
+        @include breakpoint($richie-topbar-breakpoint) {
+            @include sv-flex(0, 0, auto);
+            box-shadow: none;
+        }
+
+        // Clickable logo
+        &__link {
+            @include sv-flex(1, 0, auto);
+            padding: $richie-topbar-brand-paddding;
+            order: 1;
+
+            @include breakpoint($richie-topbar-breakpoint) {
+                @include sv-flex(0, 0, auto);
+            }
+        }
+
+        &__logo {
+            display: block;
+        }
+    }
+
+    // Main menu for pages
+    &__menu {
+        @include sv-flex(1, 0, auto);
+        display: none;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        @include breakpoint($richie-topbar-breakpoint) {
+            display: flex;
+            flex-wrap: nowrap;
+        }
+
+        &__list {
+            $list-selector: &;
+
+            @include sv-flex(1, 0, 100%);
+            display: flex;
+            margin: $richie-topbar-menu-list-margin;
+            padding: $richie-topbar-menu-list-padding;
+            flex-direction: column;
+            list-style-type: none;
+            color: $richie-topbar-menu-list-fontcolor;
+            background: $richie-topbar-menu-list-background;
+
+            @include breakpoint($richie-topbar-breakpoint) {
+                @include sv-flex(1, 0, auto);
+                display: flex;
+                flex-direction: row;
+                color: $richie-topbar-menu-list-fontcolor-lg;
+                background: $richie-topbar-menu-list-background-lg;
+            }
+
+            // Menu item container
+            &__item {
+                $item-selector: &;
+
+                @include sv-flex(1, 0, auto);
+                display: flex;
+                margin: $richie-topbar-menu-item-margin;
+                padding: $richie-topbar-menu-item-padding;
+                color: $richie-topbar-menu-item-fontcolor;
+
+                @include breakpoint($richie-topbar-breakpoint) {
+                    @include sv-flex(0, 0, auto);
+                }
+
+                &--language {
+                    text-transform: uppercase;
+                }
+
+                &--active {
+                    font-weight: bold;
+                }
+
+                // Item link where every spacing is done
+                &__link {
+                    @include sv-flex(1, 0, 100%);
+                    display: block;
+                    flex-direction: row;
+                    padding: $richie-topbar-menu-link-padding;
+                    font-size: $richie-topbar-menu-link-fontsize;
+                    color: $richie-topbar-menu-link-fontcolor;
+
+                    @include breakpoint($richie-topbar-breakpoint) {
+                        padding: $richie-topbar-menu-link-padding-lg;
+                        font-size: $richie-topbar-menu-link-fontsize-lg;
+                        color: $richie-topbar-menu-link-fontcolor-lg;
+                    }
+
+                    &:hover {
+                        color: $richie-topbar-menu-link-fontcolor-hover;
+                        text-decoration: none;
+                        background: $richie-topbar-menu-link-background-hover;
+                    }
+                }
+
+                // Current page item or current ancestor
+                &--selected,
+                &--ancestor {
+                    #{$item-selector}__link {
+                        font-weight: $richie-topbar-menu-item-active-fontweight;
+                        border-left: $richie-topbar-menu-item-active-border;
+
+                        @include breakpoint($richie-topbar-breakpoint) {
+                            position: relative;
+                            font-weight: $richie-topbar-menu-item-active-fontweight-lg;
+                            border-left: 0;
+                            &::after {
+                                content: '';
+                                position: absolute;
+                                bottom: 0;
+                                left: 0;
+                                right: 0;
+                                height: $richie-topbar-menu-item-active-border-height-lg;
+                                background-color: $richie-topbar-menu-item-active-border-color-lg;
+                            }
+                        }
+                    }
+                }
+
+                // Specicif displays for some special button
+                &--cta {
+                    color: $richie-topbar-menu-cta-fontcolor;
+                    font-weight: $richie-topbar-menu-cta-fontweight;
+                    background-color: $richie-topbar-menu-cta-background;
+                }
+
+                &--cta-hollow {
+                    color: $richie-topbar-menu-cta-hollow-fontcolor;
+                    font-weight: $richie-topbar-menu-cta-hollow-fontweight;
+                    background-color: $richie-topbar-menu-cta-hollow-background;
+                }
+
+                // Item divider
+                & + #{$item-selector} {
+                    border-top: $richie-topbar-menu-item-divider-border;
+                    @include breakpoint($richie-topbar-breakpoint) {
+                        border-top: 0;
+                        border-left: $richie-topbar-menu-item-divider-border-lg;
+                    }
+                }
+            }
+
+            &--aside {
+                @include sv-flex(0, 0, 100%);
+
+                @include breakpoint($richie-topbar-breakpoint) {
+                    @include sv-flex(0, 0, auto);
+                }
+            }
+
+            // Menu divider
+            & + #{$list-selector} {
+                border-top: $richie-topbar-menu-divider-border;
+                @include breakpoint($richie-topbar-breakpoint) {
+                    border-top: $richie-topbar-menu-divider-border-lg;
+                }
+            }
+        }
+    }
+
+    // Opened state for mobile mode
+    &.is-open {
+        #{$topbar-selector}__menu {
+            display: flex;
+        }
+    }
+}
