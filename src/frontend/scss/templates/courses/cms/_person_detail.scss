@@ -1,7 +1,7 @@
 $richie-person-detail-media-size: 10rem;
 
 .person-detail {
-    //@include make-container-max-widths(); // TODO : replace with something else
+    @include make-container-max-widths();
     margin: 0 auto;
     padding: 1rem var(--grid-gutter-width);
     background: var(--richie-content-container-bg);

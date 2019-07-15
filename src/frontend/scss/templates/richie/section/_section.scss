@@ -29,7 +29,7 @@ $richie-section-highlights-item-gutter: 0.625rem !default;
             text-align: $richie-section-highlights-title-textalign;
             @include breakpoint(md) {
                 @include make-container();
-                //@include make-container-max-widths(); // TODO : replace with something else
+                @include make-container-max-widths();
             }
         }
     }
@@ -41,7 +41,7 @@ $richie-section-highlights-item-gutter: 0.625rem !default;
             flex-wrap: wrap;
             @include breakpoint(md) {
                 @include make-container();
-                //@include make-container-max-widths(); // TODO : replace with something else
+                @include make-container-max-widths();
             }
 
             // Some have to take 100% on default behavior

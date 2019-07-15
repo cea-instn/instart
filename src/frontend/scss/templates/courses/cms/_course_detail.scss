@@ -65,7 +65,7 @@ $richie-course-detail-aside-main-org-padding: 2rem !default;
 $richie-course-detail-aside-main-org-background: $white !default;
 
 .course-detail {
-    //@include make-container-max-widths(); // TODO : replace with something else
+    @include make-container-max-widths();
     margin: 0 auto;
     padding: 0;
 

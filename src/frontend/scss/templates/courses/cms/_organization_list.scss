@@ -9,7 +9,7 @@ $richie-org-list-content-padding: 1rem 0 !default;
 
 .organization-list {
     @include make-container();
-    //@include make-container-max-widths(); // TODO : replace with something else
+    @include make-container-max-widths();
     padding-bottom: $richie-org-list-divider;
     background: var(--richie-content-container-bg);
 

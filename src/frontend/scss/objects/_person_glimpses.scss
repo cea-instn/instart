@@ -31,7 +31,7 @@ $richie-person-glimpse-caption-background: $gray80 !default;
 // Common container for glimpse list
 .person-glimpse-list {
     @if $richie-person-glimpse-list-maxwidth-constraint {
-        //@include make-container-max-widths(); // TODO : replace with something else
+        @include make-container-max-widths();
     }
     display: flex;
     margin: $richie-blogpost-glimpse-list-margin;

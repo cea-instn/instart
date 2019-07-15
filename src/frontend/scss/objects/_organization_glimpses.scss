@@ -23,7 +23,7 @@ $richie-org-glimpse-item-empty-textalign: left !default;
 
 .organization-glimpse-list {
     @if $richie-org-glimpse-list-maxwidth-constraint {
-        //@include make-container-max-widths(); // TODO : replace with something else
+        @include make-container-max-widths();
     }
     display: flex;
     margin: $richie-org-glimpse-list-margin;

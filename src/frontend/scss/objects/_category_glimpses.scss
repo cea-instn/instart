@@ -35,7 +35,7 @@ $richie-category-glimpse-body-fontcolor: $black !default;
 
 .category-glimpse-list {
     @if $richie-category-glimpse-list-maxwidth-constraint {
-        //@include make-container-max-widths(); // TODO : replace with something else
+        @include make-container-max-widths();
     }
     display: flex;
     margin: $richie-category-glimpse-list-margin;

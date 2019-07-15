@@ -1,6 +1,6 @@
 .single-column {
     @include make-container();
-    //@include make-container-max-widths(); // TODO : replace with something else
+    @include make-container-max-widths();
     padding: 1rem;
     background: var(--instart-content-container-bg);
 

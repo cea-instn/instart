@@ -5,7 +5,7 @@ $richie-category-detail-banner-logo-sizing-xl: 25rem !default;
 
 .category-detail {
     @include make-container();
-    //@include make-container-max-widths(); // TODO : replace with something else
+    @include make-container-max-widths();
     padding-bottom: 1rem;
     background: var(--richie-content-container-bg);
 
