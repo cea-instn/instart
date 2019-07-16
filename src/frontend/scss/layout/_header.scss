@@ -61,10 +61,13 @@ $richie-topbar-menu-item-divider-border: 1px solid $dodgerblue5 !default;
 $richie-topbar-menu-item-divider-border-lg: 1px solid $white !default;
 
 .topbar {
+    @include make-container();
+    @include make-container-max-widths();
     $topbar-selector: &;
     display: flex;
     flex-direction: column;
     box-shadow: $richie-topbar-shadow;
+    padding: 1.625rem 0 1.375rem;
     position: relative;
     z-index: 200;
 
