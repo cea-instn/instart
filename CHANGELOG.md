@@ -8,5 +8,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- Upgrade to Richie 1.5.2
 
 [unreleased]: https://github.com/openfun/instart-learning/master

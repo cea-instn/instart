@@ -1306,10 +1306,10 @@ load-json-file@^1.0.0:
     pinkie-promise "^2.0.0"
     strip-bom "^2.0.0"
 
-lodash-es@4.17.11:
-  version "4.17.11"
-  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.11.tgz#145ab4a7ac5c5e52a3531fb4f310255a152b4be0"
-  integrity sha512-DHb1ub+rMjjrxqlB3H56/6MXtm1lSksDp2rA2cNWjG8mlDUYFhUj3Di2Zn5IwSU87xLv8tNIQ7sSwE/YOX/D/Q==
+lodash-es@4.17.14:
+  version "4.17.14"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.14.tgz#12a95a963cc5955683cee3b74e85458954f37ecc"
+  integrity sha512-7zchRrGa8UZXjD/4ivUWP1867jDkhzTG2c/uj739utSd7O/pFFdxspCemIFKEEjErbcqRzn8nKnGsi7mvTgRPA==
 
 lodash.assign@^4.2.0:
   version "4.2.0"
@@ -2121,14 +2121,14 @@ ret@~0.1.10:
   resolved "https://registry.yarnpkg.com/ret/-/ret-0.1.15.tgz#b8a4825d5bdb1fc3f6f53c2bc33f81388681c7bc"
   integrity sha512-TTlYpa+OL+vMMNG24xSlQGEJ3B/RzEfUlLct7b5G/ytav+wPrplCpVMFuwzXbkecJrb6IYo1iFb0S9v37754mg==
 
-richie-education@1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/richie-education/-/richie-education-1.5.0.tgz#4529ac5e8e79c34736bacc30317bbe579b577a4f"
-  integrity sha512-NiFKGgjabETMaZ8MecLnhdXqHRzfky237LpsmS8RtmyvCx3yc2dD6qG2CsOUaeYdjRLOScAJC63iRJDzGJYyag==
+richie-education@1.5.2:
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/richie-education/-/richie-education-1.5.2.tgz#819f8066b1a65a40b1fcff4aa363484ae2f9c70f"
+  integrity sha512-PTp5MAUYCAtjJ3MQWuvAYQJ+ciIifHjIKTkgadNWUUrI7c6iFU+LaycgSynfRIlWLsPwnVx1uvKp5BjZgIj5Xg==
   dependencies:
     bootstrap "4.3.1"
     core-js "3"
-    lodash-es "4.17.11"
+    lodash-es "4.17.14"
     query-string "6.8.1"
     react "16.8.6"
     react-autosuggest "9.4.3"
