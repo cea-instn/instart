@@ -43,6 +43,7 @@ $richie-topbar-menu-link-background-hover: lighten($dodgerblue7, 2%) !default;
 $richie-topbar-menu-item-active-fontweight: bold !default;
 $richie-topbar-menu-item-active-border: rem-calc(4px) solid lighten($dodgerblue7, 8%) !default;
 $richie-topbar-menu-item-active-fontweight-lg: bold !default;
+$richie-topbar-menu-item-active-fontweight-lg: 900 !default;
 $richie-topbar-menu-item-active-border-height-lg: rem-calc(3px) !default;
 $richie-topbar-menu-item-active-border-color-lg: $dodgerblue7 !default;
 
@@ -169,6 +170,12 @@ $richie-topbar-menu-item-divider-border-lg: 1px solid $white !default;
                 margin: $richie-topbar-menu-item-margin;
                 padding: $richie-topbar-menu-item-padding;
                 color: $richie-topbar-menu-item-fontcolor;
+                font-weight: 900;
+                margin: $richie-topbar-menu-item-margin;
+                padding: $richie-topbar-menu-item-padding;
+                color: $richie-topbar-menu-item-fontcolor;
+                letter-spacing: 0.075em;
+                text-transform: uppercase;
 
                 @include breakpoint($richie-topbar-breakpoint) {
                     @include sv-flex(0, 0, auto);
@@ -190,6 +197,7 @@ $richie-topbar-menu-item-divider-border-lg: 1px solid $white !default;
                     padding: $richie-topbar-menu-link-padding;
                     font-size: $richie-topbar-menu-link-fontsize;
                     color: $richie-topbar-menu-link-fontcolor;
+                    text-decoration: none;
 
                     @include breakpoint($richie-topbar-breakpoint) {
                         padding: $richie-topbar-menu-link-padding-lg;
