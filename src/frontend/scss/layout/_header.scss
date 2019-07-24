@@ -13,6 +13,8 @@ $richie-topbar-hamburger-fontcolor-hover: $dodgerblue7 !default;
 $richie-topbar-brand-height: rem-calc(60px) !default;
 $richie-topbar-brand-margin: 0 2rem 0 0!default;
 
+$richie-topbar-brand-link-width: rem-calc(172px) !default;
+
 $richie-topbar-menu-list-margin: 0 !default;
 $richie-topbar-menu-list-padding: 0 !default;
 
@@ -117,6 +119,7 @@ $richie-topbar-menu-item-divider-border-lg: 1px solid $white !default;
             @include sv-flex(1, 0, auto);
             padding: $richie-topbar-brand-margin;
             order: 1;
+            width: $richie-topbar-brand-link-width;
 
             @include breakpoint($richie-topbar-breakpoint) {
                 @include sv-flex(0, 0, auto);
