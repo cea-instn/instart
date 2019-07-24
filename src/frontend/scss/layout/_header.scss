@@ -235,21 +235,23 @@ $richie-topbar-menu-item-divider-border-lg: 1px solid $white !default;
                 &--selected,
                 &--ancestor {
                     #{$item-selector}__link {
-                        font-weight: $richie-topbar-menu-item-active-fontweight;
                         border-left: $richie-topbar-menu-item-active-border;
+
+                        &:hover {
+                            color: var(--color-primary);
+                        }
 
                         @include breakpoint($richie-topbar-breakpoint) {
                             position: relative;
-                            font-weight: $richie-topbar-menu-item-active-fontweight-lg;
                             border-left: 0;
-                            &::after {
+
+                            &:after {
+                                @include triangle(up, 24px, var(--color-primary));
                                 content: '';
                                 position: absolute;
-                                bottom: 0;
-                                left: 0;
-                                right: 0;
-                                height: $richie-topbar-menu-item-active-border-height-lg;
-                                background-color: $richie-topbar-menu-item-active-border-color-lg;
+                                bottom: rem-calc(-26px);
+                                left: 50%;
+                                transform: translateX(-50%);
                             }
                         }
                     }
