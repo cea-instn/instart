@@ -2,7 +2,6 @@
 
 $richie-topbar-breakpoint: lg;
 
-$richie-topbar-shadow: 0 0 rem-calc(3px) rem-calc(3px) rgba($gray40, 0.2) !default;
 $richie-topbar-background: $white !default;
 
 $richie-topbar-hamburger-paddding: 0 1rem !default;
@@ -68,7 +67,6 @@ $richie-topbar-menu-item-divider-border-lg: 1px solid $white !default;
     $topbar-selector: &;
     display: flex;
     flex-direction: column;
-    box-shadow: $richie-topbar-shadow;
     padding: 1.625rem 0 1.375rem;
     position: relative;
     z-index: 200;
@@ -107,7 +105,6 @@ $richie-topbar-menu-item-divider-border-lg: 1px solid $white !default;
         flex-direction: row;
         align-items: stretch;
         background: $richie-topbar-background;
-        box-shadow: $richie-topbar-shadow;
 
         @include breakpoint($richie-topbar-breakpoint) {
             @include sv-flex(0, 0, auto);
