@@ -6,10 +6,9 @@ $richie-topbar-background: $white !default;
 
 $richie-topbar-hamburger-paddding: 0 1rem !default;
 $richie-topbar-hamburger-fontsize: 2rem !default;
-$richie-topbar-hamburger-fontcolor: $dodgerblue7 !default;
-$richie-topbar-hamburger-fontcolor-hover: $dodgerblue7 !default;
+$richie-topbar-hamburger-fontcolor: var(--color-primary) !default;
+$richie-topbar-hamburger-fontcolor-hover: var(--color-primary) !default;
 
-$richie-topbar-brand-height: rem-calc(60px) !default;
 $richie-topbar-brand-margin: 0 2rem 0 0!default;
 
 $richie-topbar-brand-link-width: rem-calc(172px) !default;
@@ -18,34 +17,35 @@ $richie-topbar-menu-list-margin: 0 !default;
 $richie-topbar-menu-list-padding: 0 !default;
 
 $richie-topbar-menu-list-fontcolor: $white !default;
-$richie-topbar-menu-list-fontcolor-lg: $dodgerblue7 !default;
-$richie-topbar-menu-list-background: $dodgerblue7 !default;
+$richie-topbar-menu-list-fontcolor-lg: var(--color-primary) !default;
+$richie-topbar-menu-list-background: var(--color-primary) !default;
 $richie-topbar-menu-list-background-lg: transparent !default;
 
 $richie-topbar-menu-item-margin: 0 !default;
 $richie-topbar-menu-item-padding: 0 !default;
 $richie-topbar-menu-item-fontcolor: inherit !default;
 
-$richie-topbar-menu-link-padding: 0.8rem 1rem !default;
+$richie-topbar-menu-link-padding: 0.313rem 1rem 0.375rem !default;
 $richie-topbar-menu-link-fontsize: 1rem !default;
 $richie-topbar-menu-link-fontcolor: inherit !default;
 
-$richie-topbar-menu-link-padding-md: 1rem 0.7rem !default;
-$richie-topbar-menu-link-fontsize-md: 0.9rem !default;
-$richie-topbar-menu-link-fontcolor-md: inherit !default;
-
-$richie-topbar-menu-link-padding-lg: 1rem 1.5rem !default;
+$richie-topbar-menu-link-padding-lg: 0.313rem 1.5rem 0.375rem !default;
 $richie-topbar-menu-link-fontsize-lg: 1rem !default;
 $richie-topbar-menu-link-fontcolor-lg: inherit !default;
 
-$richie-topbar-menu-link-fontcolor-hover: $white !default;
-$richie-topbar-menu-link-background-hover: lighten($dodgerblue7, 2%) !default;
+$richie-topbar-aside-menu-link-padding: 0.313rem 1rem 0.375rem !default;
+$richie-topbar-aside-menu-link-padding-md: 0.313rem 0.7rem 0.375rem !default;
+$richie-topbar-aside-menu-link-padding-lg: 0.313rem 0.375rem !default;
+
+
+$richie-topbar-menu-link-fontcolor-hover: var(--color-primary-light) !default;
+$richie-topbar-menu-link-background-hover: lightness(var(--color-primary), 2%) !default;
 
 $richie-topbar-menu-item-active-fontweight: bold !default;
-$richie-topbar-menu-item-active-border: rem-calc(4px) solid lighten($dodgerblue7, 8%) !default;
+$richie-topbar-menu-item-active-border: rem-calc(4px) solid lightness(var(--color-primary), 8%) !default;
 $richie-topbar-menu-item-active-fontweight-lg: 900 !default;
 $richie-topbar-menu-item-active-border-height-lg: rem-calc(3px) !default;
-$richie-topbar-menu-item-active-border-color-lg: $dodgerblue7 !default;
+$richie-topbar-menu-item-active-border-color-lg: var(--color-primary) !default;
 
 $richie-topbar-menu-cta-fontcolor: $white !default;
 $richie-topbar-menu-cta-fontweight: bold !default;
@@ -72,6 +72,7 @@ $richie-topbar-menu-item-divider-border-lg: 1px solid $white !default;
     z-index: 200;
 
     @include breakpoint($richie-topbar-breakpoint) {
+        align-items: center;
         flex-direction: row;
         background-color: $richie-topbar-background;
     }
@@ -101,10 +102,10 @@ $richie-topbar-menu-item-divider-border-lg: 1px solid $white !default;
     &__brand {
         @include sv-flex(1, 0, auto);
         display: flex;
-        height: $richie-topbar-brand-height;
         flex-direction: row;
         align-items: stretch;
         background: $richie-topbar-background;
+        justify-content: space-between;
 
         @include breakpoint($richie-topbar-breakpoint) {
             @include sv-flex(0, 0, auto);
@@ -113,7 +114,7 @@ $richie-topbar-menu-item-divider-border-lg: 1px solid $white !default;
 
         // Clickable logo
         &__link {
-            @include sv-flex(1, 0, auto);
+            @include sv-flex(0, 0, auto);
             padding: $richie-topbar-brand-margin;
             order: 1;
             width: $richie-topbar-brand-link-width;
@@ -134,8 +135,10 @@ $richie-topbar-menu-item-divider-border-lg: 1px solid $white !default;
         display: none;
         flex-direction: row;
         flex-wrap: wrap;
+        margin-top: rem-calc(7px);
 
         @include breakpoint($richie-topbar-breakpoint) {
+            align-items: center;
             display: flex;
             flex-wrap: nowrap;
         }
@@ -175,6 +178,7 @@ $richie-topbar-menu-item-divider-border-lg: 1px solid $white !default;
                 color: $richie-topbar-menu-item-fontcolor;
                 font-weight: 900;
                 letter-spacing: 0.075em;
+                line-height: calc(19 / 16);
                 position: relative;
                 text-transform: uppercase;
 
@@ -224,7 +228,6 @@ $richie-topbar-menu-item-divider-border-lg: 1px solid $white !default;
                     &:hover {
                         color: $richie-topbar-menu-link-fontcolor-hover;
                         text-decoration: none;
-                        background: $richie-topbar-menu-link-background-hover;
                     }
                 }
 
@@ -278,11 +281,40 @@ $richie-topbar-menu-item-divider-border-lg: 1px solid $white !default;
             &--aside {
                 @include sv-flex(0, 0, 100%);
 
+                #{$list-selector}__item{
+                    font-weight: normal;
+                    margin-left: rem-calc(10px);
+                    letter-spacing: 0.05em;
+
+                    &--active {
+                        font-weight: bold;
+
+                        a,
+                        a:hover {
+                            background-color: var(--color-primary-darker);
+                        }
+                    }
+                }
+                #{$list-selector}__item__link {
+                    background-color: var(--color-primary);
+                    color: var(--color-white);
+                    padding-left: 0.563rem;
+                    padding-right: 0.563rem;
+
+
+                    &:hover {
+                        background-color: var(--color-primary-light);
+                    }
+                }
+
                 @include breakpoint($richie-topbar-breakpoint) {
                     @include sv-flex(0, 0, auto);
 
-                    .topbar__menu__list__item:before {
-                        display: none;
+                    .topbar__menu__list__item{
+
+                        &:before {
+                            display: none;
+                        }
                     }
 
                 }
