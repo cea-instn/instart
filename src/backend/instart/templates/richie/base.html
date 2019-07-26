@@ -7,20 +7,22 @@
 
 {% block body_footer %}
 <div class="body-footer">
-    <div class="body-footer__partner">
-        <a href="/" class="body-footer__partner__link">
-            <img src="{% static "images/logo-instn.png" %}" class="body-footer__partner__logo" alt="">
-        </a>
-    </div>
-    <div class="body-footer__menu">
-        <ul class="body-footer__menu__list">
-            {% show_menu_below_id "annex" 0 100 100 100 "menu/footer_menu.html" %}
-        </ul>
-    </div>
-    <div class="body-footer__partner">
-        <a href="/" class="body-footer__partner__link">
-            <img src="{% static "images/logo-cea.png" %}" class="body-footer__partner__logo" alt="">
-        </a>
+    <div class="body-footer-inner">
+        <div class="body-footer__partner">
+            <a href="/" class="body-footer__partner__link">
+                <img src="{% static "images/logo-instn.png" %}" class="body-footer__partner__logo" alt="Instn">
+            </a>
+        </div>
+        <div class="body-footer__menu">
+            <ul class="body-footer__menu__list">
+                {% show_menu_below_id "annex" 0 100 100 100 "menu/footer_menu.html" %}
+            </ul>
+        </div>
+        <div class="body-footer__partner">
+            <a href="/" class="body-footer__partner__link">
+                <img src="{% static "images/logo-cea.png" %}" class="body-footer__partner__logo" alt="CEA">
+            </a>
+        </div>
     </div>
 </div>
 {% endblock body_footer %}
