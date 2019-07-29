@@ -10,6 +10,14 @@ $richie-template-search-title-textalign: center !default;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+
+    @include breakpoint(lg) {
+        min-height: calc(100vh - 12.250rem);
+
+        .cms-toolbar-expanded & {
+            min-height: calc(100vh - 15.125rem);
+        }
+    }
 }
 
 .search-template {
