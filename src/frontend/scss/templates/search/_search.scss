@@ -1,6 +1,4 @@
 $richie-template-search-margin: null !default;
-$richie-template-search-padding: 1rem 0 0 !default;
-
 $richie-template-search-title-margin: null !default;
 $richie-template-search-title-padding: null !default;
 $richie-template-search-title-textalign: center !default;
@@ -21,12 +19,13 @@ $richie-template-search-title-textalign: center !default;
 }
 
 .search-template {
+    @include make-container();
+    @include make-container-max-widths();
     flex-grow: 1;
     display: flex;
     flex-direction: column;
 
     margin: $richie-template-search-margin;
-    padding: $richie-template-search-padding;
 
     &__content {
         flex-grow: 1;
@@ -44,5 +43,10 @@ $richie-template-search-title-textalign: center !default;
         margin: $richie-template-search-title-margin;
         padding: $richie-template-search-title-padding;
         text-align: $richie-template-search-title-textalign;
+    }
+
+    .search {
+        display: flex;
+        justify-content: space-between;
     }
 }
