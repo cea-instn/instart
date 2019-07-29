@@ -1,7 +1,7 @@
 // Main body footer
 
 .body-footer {
-    padding: 1rem;
+    padding: 1rem 0;
     color: var(--color-primary-darker);
     background: var(--color-white);
 
@@ -93,4 +93,5 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    padding: 0 1rem;
 }
