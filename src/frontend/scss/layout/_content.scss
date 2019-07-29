@@ -1,5 +1,4 @@
 // Main body content container
-$richie-body-content-background: $snow2 !default;
 
 $richie-caesura-padding: 1rem 2.5rem !default;
 $richie-caesura-button-fontcolor: $dodgerblue7 !default;
@@ -11,7 +10,8 @@ $richie-caesura-button-background-hover: $white !default;
 $richie-caesura-button-border-hover: 1px solid $firebrick3 !default;
 
 .body-content {
-    background: $richie-body-content-background;
+    background-color: var(--color-primary-darker);
+    background-image: linear-gradient(to bottom, #13243c, #1c1a2c, #1b131d, #130a10, #000000);
 }
 
 // Caesura block for single centered button on its own row
