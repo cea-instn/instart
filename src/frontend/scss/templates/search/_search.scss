@@ -1,0 +1,40 @@
+$richie-template-search-margin: null !default;
+$richie-template-search-padding: 1rem 0 0 !default;
+
+$richie-template-search-title-margin: null !default;
+$richie-template-search-title-padding: null !default;
+$richie-template-search-title-textalign: center !default;
+
+// Enable flex on the `.body-content` so children can grow to occupy the available vertical space
+.body-content--flex-mode {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.search-template {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+
+    margin: $richie-template-search-margin;
+    padding: $richie-template-search-padding;
+
+    &__content {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+
+        & > .fun-react--search {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    &__title {
+        margin: $richie-template-search-title-margin;
+        padding: $richie-template-search-title-padding;
+        text-align: $richie-template-search-title-textalign;
+    }
+}

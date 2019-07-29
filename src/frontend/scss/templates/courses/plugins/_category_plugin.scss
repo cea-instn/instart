@@ -1,0 +1,42 @@
+$richie-category-plugin-tag-margin: 0 0 0.3rem 0;
+$richie-category-plugin-tag-padding: 0.25rem 0.4rem;
+$richie-category-plugin-tag-fontsize: 0.7rem;
+$richie-category-plugin-tag-fontcolor: $white;
+$richie-category-plugin-tag-background: $gray7;
+$richie-category-plugin-tag-divider-margin: 0.3rem;
+
+$richie-category-plugin-body-fontsize: small !default;
+$richie-category-plugin-body-fontcolor: $black !default;
+$richie-category-plugin-title-textalign: center !default;
+
+.category-plugin-tag {
+    @include sv-flex(0, 0, auto);
+    margin: $richie-category-plugin-tag-margin;
+    padding: $richie-category-plugin-tag-padding;
+    font-size: $richie-category-plugin-tag-fontsize;
+    color: $richie-category-plugin-tag-fontcolor;
+    background: $richie-category-plugin-tag-background;
+    text-decoration: none;
+
+    &:hover {
+        color: $richie-category-plugin-tag-fontcolor;
+    }
+
+    & + & {
+        margin-left: $richie-category-plugin-tag-divider-margin;
+    }
+}
+
+.category-plugin-container {
+    @include make-col-ready();
+    @include breakpoint(sm) {
+        @include make-col(6);
+    }
+    @include breakpoint(md) {
+        @include make-col(4);
+    }
+    @include breakpoint(lg) {
+        @include make-col(2);
+    }
+    display: flex;
+}

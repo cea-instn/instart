@@ -1,0 +1,372 @@
+// edit font rendering -> tip: use for light text on dark backgrounds
+@mixin fontSmooth {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// crop top space on text elements - caused by line height
+@mixin lhCrop($line-height, $capital-letter: 1) {
+  &::before {
+    content: '';
+    display: block;
+    height: 0;
+    width: 0;
+    margin-top: calc((#{$capital-letter} - #{$line-height}) * 0.5em);
+  }
+}
+
+// CSS triangle
+@mixin triangle ($direction: up, $width: 12px, $color: red) {
+  width: 0;
+  height: 0;
+  border: $width solid transparent;
+
+  @if( $direction == left ) {
+    border-right-color: $color;
+  } @else if( $direction == right ) {
+    border-left-color: $color;
+  } @else if( $direction == down ) {
+    border-top-color: $color;
+  } @else {
+    border-bottom-color: $color;
+  }
+}
+
+// reset user agent style
+@mixin reset {
+  background-color: transparent;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  color: inherit;
+  line-height: inherit;
+  appearance: none;
+}
+
+// --------------------------------
+
+// Color functions
+
+// --------------------------------
+
+// define HSL color variable
+@mixin defineColorHSL($color, $hue, $saturation, $lightness){
+  #{$color}: unquote("hsl(#{$hue}, #{$saturation}, #{$lightness})");#{$color}-h: #{$hue};#{$color}-s: #{$saturation};#{$color}-l: #{$lightness};
+}
+
+// return color with different opacity value
+@function alpha($color, $opacity){
+  $color: str-replace($color, 'var(');
+  $color: str-replace($color, ')');
+  $color-h: var(#{$color+'-h'});
+  $color-s: var(#{$color+'-s'});
+  $color-l: var(#{$color+'-l'});
+  @return hsla($color-h, $color-s, $color-l, $opacity);
+}
+
+// return color with different lightness value
+@function lightness($color, $lightnessMultiplier){
+  $color: str-replace($color, 'var(');
+  $color: str-replace($color, ')');
+  $color-h: var(#{$color+'-h'});
+  $color-s: var(#{$color+'-s'});
+  $color-l: var(#{$color+'-l'});
+  @return hsl($color-h, $color-s, calc(#{$color-l} * #{$lightnessMultiplier}));
+}
+
+// replace substring with another string
+// credits: https://css-tricks.com/snippets/sass/str-replace-function/
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+  @return $string;
+}
+
+// --------------------------------
+
+// Edit Units
+
+// --------------------------------
+
+@mixin spaceUnit($space-unit) { // edit space unit on a component level
+  --space-unit:  #{$space-unit};
+  --space-xxxxs: calc(0.125 * #{$space-unit});
+  --space-xxxs:  calc(0.25 * #{$space-unit});
+  --space-xxs:   calc(0.375 * #{$space-unit});
+  --space-xs:    calc(0.5 * #{$space-unit});
+  --space-sm:    calc(0.75 * #{$space-unit});
+  --space-md:    calc(1.25 * #{$space-unit});
+  --space-lg:    calc(2 * #{$space-unit});
+  --space-xl:    calc(3.25 * #{$space-unit});
+  --space-xxl:   calc(5.25 * #{$space-unit});
+  --space-xxxl:  calc(8.5 * #{$space-unit});
+  --space-xxxxl: calc(13.75 * #{$space-unit});
+  --component-padding: var(--space-md);
+}
+
+
+
+// --------------------------------
+
+// IMPORTS BOOTSTRAP
+
+// --------------------------------
+
+
+// Breakpoint viewport sizes and media queries.
+//
+// Breakpoints are defined as a map of (name: minimum width), order from small to large:
+//
+//    (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px)
+//
+// The map defined in the `$grid-breakpoints` global variable is used as the `$breakpoints` argument by default.
+
+// Name of the next breakpoint, or null for the last breakpoint.
+//
+//    >> breakpoint-next(sm)
+//    md
+//    >> breakpoint-next(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+//    md
+//    >> breakpoint-next(sm, $breakpoint-names: (xs sm md lg xl))
+//    md
+@function breakpoint-next($name, $breakpoints: $grid-breakpoints, $breakpoint-names: map-keys($breakpoints)) {
+    $n: index($breakpoint-names, $name);
+    @return if($n != null and $n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+}
+
+// Minimum breakpoint width. Null for the smallest (first) breakpoint.
+//
+//    >> breakpoint-min(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+//    576px
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+    $min: map-get($breakpoints, $name);
+    @return if($min != 0, $min, null);
+}
+
+// Maximum breakpoint width. Null for the largest (last) breakpoint.
+// The maximum value is calculated as the minimum of the next one less 0.02px
+// to work around the limitations of `min-` and `max-` prefixes and viewports with fractional widths.
+// See https://www.w3.org/TR/mediaqueries-4/#mq-min-max
+// Uses 0.02px rather than 0.01px to work around a current rounding bug in Safari.
+// See https://bugs.webkit.org/show_bug.cgi?id=178261
+//
+//    >> breakpoint-max(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+//    767.98px
+@function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
+    $next: breakpoint-next($name, $breakpoints);
+    @return if($next, breakpoint-min($next, $breakpoints) - .02, null);
+}
+
+// Returns a blank string if smallest breakpoint, otherwise returns the name with a dash in front.
+// Useful for making responsive utilities.
+//
+//    >> breakpoint-infix(xs, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+//    ""  (Returns a blank string)
+//    >> breakpoint-infix(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+//    "-sm"
+@function breakpoint-infix($name, $breakpoints: $grid-breakpoints) {
+    @return if(breakpoint-min($name, $breakpoints) == null, "", "-#{$name}");
+}
+
+// Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
+// Makes the @content apply to the given breakpoint and wider.
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+    $min: breakpoint-min($name, $breakpoints);
+    @if $min {
+        @media (min-width: $min) {
+            @content;
+        }
+    } @else {
+        @content;
+    }
+}
+
+// Media of at most the maximum breakpoint width. No query for the largest breakpoint.
+// Makes the @content apply to the given breakpoint and narrower.
+@mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
+    $max: breakpoint-max($name, $breakpoints);
+    @if $max {
+        @media (max-width: $max) {
+            @content;
+        }
+    } @else {
+        @content;
+    }
+}
+
+// Media that spans multiple breakpoint widths.
+// Makes the @content apply between the min and max breakpoints
+@mixin media-breakpoint-between($lower, $upper, $breakpoints: $grid-breakpoints) {
+    $min: breakpoint-min($lower, $breakpoints);
+    $max: breakpoint-max($upper, $breakpoints);
+
+    @if $min != null and $max != null {
+        @media (min-width: $min) and (max-width: $max) {
+            @content;
+        }
+    } @else if $max == null {
+        @include media-breakpoint-up($lower, $breakpoints) {
+            @content;
+        }
+    } @else if $min == null {
+        @include media-breakpoint-down($upper, $breakpoints) {
+            @content;
+        }
+    }
+}
+
+// Media between the breakpoint's minimum and maximum widths.
+// No minimum for the smallest breakpoint, and no maximum for the largest one.
+// Makes the @content apply only to the given breakpoint, not viewports any wider or narrower.
+@mixin media-breakpoint-only($name, $breakpoints: $grid-breakpoints) {
+    $min: breakpoint-min($name, $breakpoints);
+    $max: breakpoint-max($name, $breakpoints);
+
+    @if $min != null and $max != null {
+        @media (min-width: $min) and (max-width: $max) {
+            @content;
+        }
+    } @else if $max == null {
+        @include media-breakpoint-up($name, $breakpoints) {
+            @content;
+        }
+    } @else if $min == null {
+        @include media-breakpoint-down($name, $breakpoints) {
+            @content;
+        }
+    }
+}
+
+
+// Bootstrap functions
+//
+// Utility mixins and functions for evaluating source code across our variables, maps, and mixins.
+
+// Ascending
+// Used to evaluate Sass maps like our grid breakpoints.
+@mixin _assert-ascending($map, $map-name) {
+    $prev-key: null;
+    $prev-num: null;
+    @each $key, $num in $map {
+        @if $prev-num == null or unit($num) == "%" {
+            // Do nothing
+        } @else if not comparable($prev-num, $num) {
+            @warn "Potentially invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} whose unit makes it incomparable to #{$prev-num}, the value of the previous key '#{$prev-key}' !";
+        } @else if $prev-num >= $num {
+            @warn "Invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} which isn't greater than #{$prev-num}, the value of the previous key '#{$prev-key}' !";
+        }
+        $prev-key: $key;
+        $prev-num: $num;
+    }
+}
+
+// Starts at zero
+// Used to ensure the min-width of the lowest breakpoint starts at 0.
+@mixin _assert-starts-at-zero($map, $map-name: "$grid-breakpoints") {
+    $values: map-values($map);
+    $first-value: nth($values, 1);
+    @if $first-value != 0 {
+        @warn "First breakpoint in #{$map-name} must start at 0, but starts at #{$first-value}.";
+    }
+}
+
+// Grid breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+
+$grid-breakpoints: (
+        xs: 0,
+        sm: 512px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px,
+        xxl: 1440px,
+) !default;
+
+@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+@include _assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
+
+
+// Grid containers
+//
+// Define the maximum width of `.container` for different screen sizes.
+
+$container-max-widths: (
+        sm: 480px,
+        md: 720px,
+        lg: 960px,
+        xl: 1140px,
+        xxl: 1360px,
+) !default;
+
+@include _assert-ascending($container-max-widths, "$container-max-widths");
+
+
+/// Grid system
+//
+// Generate semantic grid columns with these mixins.
+
+
+
+@mixin make-container($gutter: var(--grid-gutter-width)) {
+    width: 100%;
+    padding-right: $gutter / 2;
+    padding-left: $gutter / 2;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+// For each breakpoint, define the maximum width of the container in a media query
+@mixin make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints) {
+    @each $breakpoint, $container-max-width in $max-widths {
+        @include media-breakpoint-up($breakpoint, $breakpoints) {
+            max-width: $container-max-width;
+        }
+    }
+}
+
+@mixin make-row($gutter: var(--grid-gutter-width)) {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -$gutter / 2;
+    margin-left: -$gutter / 2;
+}
+
+@mixin make-col-ready($gutter: var(--grid-gutter-width)) {
+    position: relative;
+    // Prevent columns from becoming too narrow when at smaller grid tiers by
+    // always setting `width: 100%;`. This works because we use `flex` values
+    // later on to override this initial width.
+    width: 100%;
+    padding-right: $gutter / 2;
+    padding-left: $gutter / 2;
+}
+
+@mixin make-col($size, $columns: $grid-columns) {
+    flex: 0 0 percentage($size / $columns);
+    // Add a `max-width` to ensure content within each column does not blow out
+    // the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
+    // do not appear to require this.
+    max-width: percentage($size / $columns);
+}
+
+@mixin make-col-offset($size, $columns: $grid-columns) {
+    $num: $size / $columns;
+    margin-left: if($num == 0, 0, percentage($num));
+}
+
+
+/// Helper to clear inner floats
+/// @author Nicolas Gallagher
+/// @link http://nicolasgallagher.com/micro-clearfix-hack/ Micro Clearfix
+@mixin clearfix{
+    &:after{
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
