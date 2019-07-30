@@ -68,6 +68,7 @@ $richie-course-glimpse-foot-cta-background-hover: $firebrick6 !default;
         //@include make-container-max-widths(); // TODO : replace with something else
 >>>>>>> :lipstick: add css starter framework
     }
+    color: var(--color-white);
     display: flex;
     margin: $richie-course-glimpse-list-margin;
     padding-top: $richie-course-glimpse-list-vertical-padding;

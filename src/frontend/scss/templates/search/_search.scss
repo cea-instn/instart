@@ -1,7 +1,6 @@
 $richie-template-search-margin: null !default;
 $richie-template-search-title-margin: null !default;
 $richie-template-search-title-padding: null !default;
-$richie-template-search-title-textalign: center !default;
 
 // Enable flex on the `.body-content` so children can grow to occupy the available vertical space
 .body-content--flex-mode {
@@ -40,13 +39,61 @@ $richie-template-search-title-textalign: center !default;
     }
 
     &__title {
+        color: var(--color-white);
         margin: $richie-template-search-title-margin;
         padding: $richie-template-search-title-padding;
-        text-align: $richie-template-search-title-textalign;
+        text-transform: uppercase;
     }
 
     .search {
         display: flex;
+        flex-grow: 1;
+        height: 100%;
         justify-content: space-between;
     }
+}
+
+.search__filters {
+    background-image: linear-gradient(to top, #13243c, #1a385a, #1d4d79, #1b6499, #0a7cbb);
+    display: none;
+    flex-grow: 1;
+    padding: rem-calc(75px) 1rem 1rem;
+    width: calc((404 / 1392) * 100%);
+
+    .cms-ready & {
+        display: block;
+    }
+}
+
+.search__results {
+    flex-grow: 1;
+    padding: rem-calc(75px) 1rem 1rem rem-calc(34px);
+    width: calc((988 / 1392) * 100%);
+
+    @include breakpoint(lg) {
+        padding: rem-calc(75px) 1rem 1rem rem-calc(169px);
+    }
+}
+
+.search-filters-pane__title {
+    color: var(--color-white);
+    font-size: rem-calc(30px);
+    font-weight: 500;
+    letter-spacing: 0.075em;
+    margin-bottom: rem-calc(40px);
+    position: relative;
+    
+    &:after {
+        background: url('../../images/arrow-marker.svg') rem-calc(-55px) 0 no-repeat;
+        background-size: cover;
+        content: '';
+        display: block;
+        height: 70px;
+        left: 0;
+        position: absolute;
+        top: 50%;
+        transform: translate(-100%,-50%);
+        width: 278px;
+    }
+    
 }
