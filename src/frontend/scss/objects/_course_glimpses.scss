@@ -64,6 +64,7 @@ $richie-course-glimpse-foot-cta-background-hover: $firebrick6 !default;
     @if $richie-course-glimpse-list-maxwidth-constraint {
         @include make-container-max-widths();
     }
+    color: var(--color-white);
     display: flex;
     margin: $richie-course-glimpse-list-margin;
     padding-top: $richie-course-glimpse-list-vertical-padding;
