@@ -7,20 +7,24 @@
   border-radius: var(--form-control-radius, 0.25em);
 
   &::-webkit-input-placeholder {
-    color: var(--color-contrast-medium, hsl(240, 1%, 48%));
+    color: var(--color-contrast-low);
+      letter-spacing: 0.05em;
   }
 
   &::-moz-placeholder {
     opacity: 1;
-    color: var(--color-contrast-medium, hsl(240, 1%, 48%));
+    color: var(--color-contrast-low);
+      letter-spacing: 0.05em;
   }
 
   &:-ms-input-placeholder {
-    color: var(--color-contrast-medium, hsl(240, 1%, 48%));
+    color: var(--color-contrast-low);
+      letter-spacing: 0.05em;
   }
 
   &:-moz-placeholder {
-    color: var(--color-contrast-medium, hsl(240, 1%, 48%));
+    color: var(--color-contrast-low);
+      letter-spacing: 0.05em;
   }
 }
 

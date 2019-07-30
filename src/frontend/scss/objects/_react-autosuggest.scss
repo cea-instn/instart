@@ -9,6 +9,7 @@
 
     &__input {
         @extend .form-control;
+        width: 100%;
 
         &--open {
         }
