@@ -12,4 +12,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Upgrade to Richie 1.5.2
 
+### Security
+
+- Upgrade lodash to 4.17.15, and lodash.mergewith to 4.6.2.
+
 [unreleased]: https://github.com/openfun/instart-learning/master
