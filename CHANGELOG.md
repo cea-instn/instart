@@ -14,6 +14,6 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Security
 
-- Upgrade lodash to 4.17.15.
+- Upgrade lodash to 4.17.15, and lodash.mergewith to 4.6.2.
 
 [unreleased]: https://github.com/openfun/instart-learning/master
