@@ -6,11 +6,7 @@
 
 :root {
   // font family
-<<<<<<< HEAD
   --font-primary: 'Raleway', sans-serif;
-=======
-  --font-primary: sans-serif;
->>>>>>> :lipstick: add css starter framework
 
   // body font size
   --text-base-size: 1em;
@@ -33,18 +29,7 @@
   --font-primary-capital-letter: 1;
 }
 
-<<<<<<< HEAD
-=======
-@supports(--css: variables) {
-  :root {
-    @include breakpoint(md) {
-      --text-base-size: 1.25em;
-      --text-scale-ratio: 1.25;
-    }
-  }
-}
 
->>>>>>> :lipstick: add css starter framework
 // --------------------------------
 
 // (END) Global Editor Code

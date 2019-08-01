@@ -65,11 +65,7 @@ $richie-course-detail-aside-main-org-padding: 2rem !default;
 $richie-course-detail-aside-main-org-background: $white !default;
 
 .course-detail {
-<<<<<<< HEAD
     @include make-container-max-widths();
-=======
-    //@include make-container-max-widths(); // TODO : replace with something else
->>>>>>> :lipstick: add css starter framework
     margin: 0 auto;
     padding: 0;
 

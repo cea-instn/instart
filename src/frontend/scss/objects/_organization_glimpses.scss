@@ -23,11 +23,7 @@ $richie-org-glimpse-item-empty-textalign: left !default;
 
 .organization-glimpse-list {
     @if $richie-org-glimpse-list-maxwidth-constraint {
-<<<<<<< HEAD
         @include make-container-max-widths();
-=======
-        //@include make-container-max-widths(); // TODO : replace with something else
->>>>>>> :lipstick: add css starter framework
     }
     display: flex;
     margin: $richie-org-glimpse-list-margin;

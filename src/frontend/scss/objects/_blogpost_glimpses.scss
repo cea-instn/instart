@@ -66,11 +66,7 @@ $richie-blogpost-glimpse-foot-cta-background-hover: $firebrick6 !default;
 
 .blogpost-glimpse-list {
     @if $richie-blogpost-glimpse-list-maxwidth-constraint {
-<<<<<<< HEAD
         @include make-container-max-widths();
-=======
-        //@include make-container-max-widths(); // TODO : replace with something else
->>>>>>> :lipstick: add css starter framework
     }
     display: flex;
     margin: $richie-blogpost-glimpse-list-margin;

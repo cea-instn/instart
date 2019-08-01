@@ -62,11 +62,7 @@ $richie-course-glimpse-foot-cta-background-hover: $firebrick6 !default;
 
 .course-glimpse-list {
     @if $richie-course-glimpse-list-maxwidth-constraint {
-<<<<<<< HEAD
         @include make-container-max-widths();
-=======
-        //@include make-container-max-widths(); // TODO : replace with something else
->>>>>>> :lipstick: add css starter framework
     }
     color: var(--color-white);
     display: flex;
