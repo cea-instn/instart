@@ -18,18 +18,32 @@ $richie-template-search-title-padding: null !default;
 }
 
 .search-template {
-    @include make-container();
-    @include make-container-max-widths();
+    @include make-outter-paddings();
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-
     margin: $richie-template-search-margin;
+    overflow: hidden;
+    position: relative;
+
+    &:before {
+        background-image: linear-gradient(to top, #13243c, #1a385a, #1d4d79, #1b6499, #0a7cbb);
+        content: '';
+        display: block;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 50%;
+        z-index: 1;
+    }
 
     &__content {
         flex-grow: 1;
         display: flex;
         flex-direction: column;
+        position: relative;
+        z-index: 2;
 
         & > .fun-react--search {
             flex-grow: 1;
@@ -66,6 +80,8 @@ $richie-template-search-title-padding: null !default;
 }
 
 .search__results {
+    background-color: var(--color-primary-darker);
+    background-image: linear-gradient(to bottom, #13243c, #1c1a2c, #1b131d, #130a10, #000000);
     flex-grow: 1;
     padding: rem-calc(75px) 1rem 1rem rem-calc(34px);
     width: calc((988 / 1392) * 100%);

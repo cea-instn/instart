@@ -9,16 +9,9 @@ $richie-course-glimpse-list-vertical-padding: 1rem !default;
 $richie-course-glimpse-list-title-margin: null !default;
 $richie-course-glimpse-list-title-padding: 0.5rem !default;
 
-$richie-course-glimpse-container-width-sm: null !default;
-$richie-course-glimpse-container-width-md: 50% !default;
-$richie-course-glimpse-container-width-lg: 33.3333% !default;
-$richie-course-glimpse-container-width-xl: 25% !default;
 $richie-course-glimpse-container-gutter: 0.5rem !default;
 $richie-course-glimpse-container-background: $white !default;
-$richie-course-glimpse-container-border: 1px solid $gray80 !default;
-$richie-course-glimpse-container-border-hover: 1px solid $firebrick6 !default;
 
-$richie-course-glimpse-media-margin: 0 0 1rem 0 !default;
 
 $richie-course-glimpse-caption-width: 60% !default;
 $richie-course-glimpse-caption-margin: 0 !default;
@@ -32,31 +25,17 @@ $richie-course-glimpse-caption-background: $gray80 !default;
 
 $richie-course-glimpse-content-fontsize: 0.9rem !default;
 $richie-course-glimpse-content-fontcolor: $gray40 !default;
-$richie-course-glimpse-content-textalign: center !default;
 
-$richie-course-glimpse-title-fontsize: 1rem !default;
-$richie-course-glimpse-title-fontweight: bold !default;
-$richie-course-glimpse-title-fontcolor: $dodgerblue3 !default;
 
-$richie-course-glimpse-wrapper-padding: 0.6rem !default;
+$richie-course-glimpse-wrapper-padding: 1.563rem 1.25rem !default;
 
 $richie-course-glimpse-foot-divider: null !default;
 
-$richie-course-glimpse-foot-border: 1px solid $gray80 !default;
-
 $richie-course-glimpse-foot-date-width: 55% !default;
-$richie-course-glimpse-foot-date-padding: 0.3rem 0.5rem !default;
-$richie-course-glimpse-foot-date-fontsize: 0.9rem !default;
-$richie-course-glimpse-foot-date-fontcolor: $gray40 !default;
-$richie-course-glimpse-foot-date-textalign: center !default;
-$richie-course-glimpse-foot-date-background: null !default;
+$richie-course-glimpse-foot-date-padding: 1rem 1.25rem !default;
 
-$richie-course-glimpse-foot-cta-width: 45% !default;
-$richie-course-glimpse-foot-cta-padding: 0.3rem 0.5rem !default;
+$richie-course-glimpse-foot-cta-padding: 1rem 0.5rem !default;
 $richie-course-glimpse-foot-cta-fontsize: 0.9rem !default;
-$richie-course-glimpse-foot-cta-fontweight: bold !default;
-$richie-course-glimpse-foot-cta-fontcolor: $white !default;
-$richie-course-glimpse-foot-cta-textalign: center !default;
 $richie-course-glimpse-foot-cta-background: $dodgerblue5 !default;
 $richie-course-glimpse-foot-cta-background-hover: $firebrick6 !default;
 
@@ -71,6 +50,7 @@ $richie-course-glimpse-foot-cta-background-hover: $firebrick6 !default;
     padding-bottom: $richie-course-glimpse-list-vertical-padding;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: flex-start;
 
     &__title {
         @include sv-flex(1, 0, 100%);
@@ -80,7 +60,7 @@ $richie-course-glimpse-foot-cta-background-hover: $firebrick6 !default;
 
     &__count {
         flex-basis: 100%; // Should not wrap with actual course glimpses
-        margin-left: $richie-course-glimpse-container-gutter;
+        margin-bottom: rem-calc(47px);
 
         &:first-child {
             margin-top: -$richie-course-glimpse-list-vertical-padding; // Cancel out top padding
@@ -90,18 +70,19 @@ $richie-course-glimpse-foot-cta-background-hover: $firebrick6 !default;
 
 .course-glimpse {
     $glimpse-item-selector: &;
+    margin-bottom: var(--space-lg);
+    text-decoration: none;
+
     // Cell base width for lowest breakpoint
     @include sv-flex(
                     1,
                     0,
-                    calc(100% - #{$richie-course-glimpse-container-gutter * 2})
+                    100%
     );
 
     // Apply card styles for elements
     @include m-o-card(
-            $border: $richie-course-glimpse-container-border,
             $background: $richie-course-glimpse-container-background,
-            $media-margin: $richie-course-glimpse-media-margin,
             $caption-width: $richie-course-glimpse-caption-width,
             $caption-margin: $richie-course-glimpse-caption-margin,
             $caption-padding: $richie-course-glimpse-caption-padding,
@@ -112,18 +93,28 @@ $richie-course-glimpse-foot-cta-background-hover: $firebrick6 !default;
             $methodology: 'bem'
     );
 
-    // Apply gutter
-    margin: $richie-course-glimpse-container-gutter;
-
     &__content {
         font-size: $richie-course-glimpse-content-fontsize;
-        color: $richie-course-glimpse-content-fontcolor;
-        text-align: $richie-course-glimpse-content-textalign;
+        color: var(--color-primary-darker);
 
-        &__title {
-            font-size: $richie-course-glimpse-title-fontsize;
-            font-weight: $richie-course-glimpse-title-fontweight;
-            color: $richie-course-glimpse-title-fontcolor;
+        &__wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+
+        p {
+            order: 1;
+        }
+
+        p.course-glimpse__content__title {
+            color: var(--color-primary);
+            font-size: 1rem;
+            font-weight: 900;
+            letter-spacing: 0.075em;
+            line-height: calc(19 / 16);
+            margin-top: 1.25rem;
+            order: 2;
+            text-transform: uppercase;
         }
     }
 
@@ -146,40 +137,49 @@ $richie-course-glimpse-foot-cta-background-hover: $firebrick6 !default;
     // A little specific makeup onto footer elements
     &__footer {
         display: flex;
-        border-top: $richie-course-glimpse-foot-border;
+        flex-direction: column;
 
         &__date {
             @include sv-flex-cell-width(auto);
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            font-weight: bold;
+            letter-spacing: 0.075em;
+            justify-content: center;
             margin: 0;
             padding: $richie-course-glimpse-foot-date-padding;
-            font-size: $richie-course-glimpse-foot-date-fontsize;
-            color: $richie-course-glimpse-foot-date-fontcolor;
-            justify-content: center;
-            text-align: $richie-course-glimpse-foot-date-textalign;
-            background: $richie-course-glimpse-foot-date-background;
+
+            span {
+                text-transform: uppercase;
+            }
         }
 
         &__cta {
-            @include sv-flex-cell-width($richie-course-glimpse-foot-cta-width);
-            display: flex;
 
             .button {
                 @include sv-flex-cell-width(100%);
+                background-color: var(--color-primary-dark);
+                border: 0;
+                border-top: 1px solid var(--color-primary-darker);
+                color: var(--color-white);
+                cursor: pointer;
+                font-size: 1rem;
+                font-weight: bold;
+                letter-spacing: 0.075em;
                 margin: 0;
                 padding: $richie-course-glimpse-foot-cta-padding;
-                font-size: $richie-course-glimpse-foot-cta-fontsize;
-                font-weight: $richie-course-glimpse-foot-cta-fontweight;
-                color: $richie-course-glimpse-foot-cta-fontcolor;
-                background: $richie-course-glimpse-foot-cta-background;
-                border: 0;
-                cursor: pointer;
+                transition: background 200ms linear;
+                width: 100%;
+
+                &:hover {
+                    background-color: var(--color-primary);
+                }
             }
         }
     }
 
     &:hover,
     &:focus {
-        border: $richie-course-glimpse-container-border-hover;
 
         #{$glimpse-item-selector}__foot__cta .button {
             background: $richie-course-glimpse-foot-cta-background-hover;
@@ -187,52 +187,40 @@ $richie-course-glimpse-foot-cta-background-hover: $firebrick6 !default;
     }
 
     // Responsive adjustments
-    @if $richie-course-glimpse-container-width-sm {
-        @include breakpoint(md) {
-            @include sv-flex(
-                            1,
-                            0,
-                            calc(
-                                    #{$richie-course-glimpse-container-width-sm} - #{$richie-course-glimpse-container-gutter *
-            2}
-                            )
-            );
+    @include breakpoint(md) {
+        @include sv-flex(
+                        1,
+                        0,
+                        100%
+        );
+    }
+
+    @include breakpoint(md) {
+        @include sv-flex(
+                        1,
+                        0,
+                        48%
+        );
+        margin-left: 4%;
+
+        &:nth-of-type(2n + 1) {
+            margin-left: 0;
         }
     }
-    @if $richie-course-glimpse-container-width-md {
-        @include breakpoint(md) {
-            @include sv-flex(
-                            1,
-                            0,
-                            calc(
-                                    #{$richie-course-glimpse-container-width-md} - #{$richie-course-glimpse-container-gutter *
-            2}
-                            )
-            );
+
+    @include breakpoint(lg) {
+        @include sv-flex(
+                        1,
+                        0,
+                        31%
+        );
+        margin-left: 3.5%;
+
+        &:nth-of-type(2n + 1) {
+            margin-left: 3.5%;
         }
-    }
-    @if $richie-course-glimpse-container-width-lg {
-        @include breakpoint(lg) {
-            @include sv-flex(
-                            1,
-                            0,
-                            calc(
-                                    #{$richie-course-glimpse-container-width-lg} - #{$richie-course-glimpse-container-gutter *
-            2}
-                            )
-            );
-        }
-    }
-    @if $richie-course-glimpse-container-width-xl {
-        @include breakpoint(xl) {
-            @include sv-flex(
-                            1,
-                            0,
-                            calc(
-                                    #{$richie-course-glimpse-container-width-xl} - #{$richie-course-glimpse-container-gutter *
-            2}
-                            )
-            );
+        &:nth-of-type(3n + 1) {
+            margin-left: 0;
         }
     }
 
@@ -241,17 +229,12 @@ $richie-course-glimpse-foot-cta-background-hover: $firebrick6 !default;
         @include sv-flex(
                         1,
                         0,
-                        calc(100% - #{$richie-course-glimpse-container-gutter * 2})
+                        100%
         );
         padding: 1rem;
         font-style: italic;
         color: $gray40;
         text-align: center;
         cursor: default;
-
-        &:hover,
-        &:focus {
-            border: $richie-course-glimpse-container-border;
-        }
     }
 }

@@ -329,6 +329,19 @@ $container-max-widths: (
     }
 }
 
+// For each breakpoint, define the width of the window's width minus the container's width divided by 2 in a media query
+@mixin make-outter-paddings($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints) {
+    @each $breakpoint, $container-max-width in $max-widths {
+        @include media-breakpoint-up($breakpoint, $breakpoints) {
+            $out: $container-max-width;
+            padding-left: calc((100% - #{$out}) / 2);
+            padding-right: calc((100% - #{$out}) / 2);
+        }
+    }
+}
+
+
+
 @mixin make-row($gutter: var(--grid-gutter-width)) {
     display: flex;
     flex-wrap: wrap;
