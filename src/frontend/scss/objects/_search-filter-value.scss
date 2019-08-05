@@ -1,11 +1,9 @@
-$richie-search-filter-value-padding: 0.4rem 0.5rem !default;
-$richie-search-filter-value-fontsize: 0.9rem !default;
-$richie-search-filter-value-fontcolor: rgba($white, 0.85) !default;
-$richie-search-filter-value-fontcolor-hover: $white !default;
-$richie-search-filter-value-divider-border: 1px solid $gray80 !default;
+$richie-search-filter-value-padding: 0.4rem 0.5rem 0.4rem 0 !default;
+$richie-search-filter-value-fontcolor: rgba(var(--color-white), 0.85) !default;
+$richie-search-filter-value-fontcolor-hover: var(--color-white) !default;
 
-$richie-search-filter-value-active-fontcolor: $white !default;
-$richie-search-filter-value-active-divider-border: 1px solid $white !default;
+$richie-search-filter-value-active-fontcolor: var(--color-white) !default;
+$richie-search-filter-value-active-divider-border: 1px solid var(--color-white) !default;
 
 .search-filter-value-leaf,
 .search-filter-value-parent__self__label {
@@ -14,7 +12,7 @@ $richie-search-filter-value-active-divider-border: 1px solid $white !default;
     border: none;
     background: inherit;
     color: $richie-search-filter-value-fontcolor;
-    font-size: $richie-search-filter-value-fontsize;
+    font-size: 1rem;
     cursor: pointer;
 
     &:hover,
@@ -34,17 +32,15 @@ $richie-search-filter-value-active-divider-border: 1px solid $white !default;
         align-self: start;
         margin-right: 0.5rem;
         margin-top: 0.2rem;
-        font-size: 110%;
+        font-size: 1rem;
     }
 
     &__content {
         flex-grow: 1;
+        padding: 0 0 0 2rem;
         text-align: start;
 
         &__count {
-            //@extend .badge; // TODO : replace with something else
-            //@extend .badge-pill; // TODO : replace with something else
-
             display: inline; // So &nbsp; can prevent linebreaks between the name and the count badge
             color: $white;
             background: $firebrick6;
@@ -66,12 +62,7 @@ $richie-search-filter-value-active-divider-border: 1px solid $white !default;
 .search-filter-value-leaf,
 .search-filter-value-parent__self {
     display: flex;
-    border-top: $richie-search-filter-value-divider-border;
     padding: $richie-search-filter-value-padding;
-
-    &.active {
-        border-top: $richie-search-filter-value-active-divider-border;
-    }
 }
 
 .search-filter-value-parent {
@@ -107,4 +98,44 @@ $richie-search-filter-value-active-divider-border: 1px solid $white !default;
         flex-direction: column;
         margin-left: 1.5rem;
     }
+}
+
+
+/* input Checkbox */
+
+.search-filter-value-leaf__checkbox {
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+
+    &:focus {
+        display: none;
+    }
+}
+
+.search-filter-value-leaf__checkbox + .search-filter-value-leaf__content {
+    cursor: pointer;
+    display: inline-block;
+    line-height: calc(22 / 16);
+    margin-bottom: 0;
+    position: relative;
+    vertical-align: middle;
+}
+
+.search-filter-value-leaf__checkbox + .search-filter-value-leaf__content:before {
+    border: 3px solid var(--color-white);
+    content: '';
+    display: inline-block;
+    height: 15px;
+    left: 0px;
+    position: absolute;
+    top: 3px;
+    vertical-align: middle;
+    width: 15px;
+}
+
+.search-filter-value-leaf__checkbox:checked + .search-filter-value-leaf__content:before {
+    background: var(--color-white);
 }

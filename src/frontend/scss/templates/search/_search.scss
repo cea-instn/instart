@@ -71,7 +71,7 @@ $richie-template-search-title-padding: null !default;
     background-image: linear-gradient(to top, #13243c, #1a385a, #1d4d79, #1b6499, #0a7cbb);
     display: none;
     flex-grow: 1;
-    padding: rem-calc(75px) 1rem 1rem;
+    padding: rem-calc(75px) 1rem 3rem;
     width: calc((404 / 1392) * 100%);
 
     .cms-ready & {
@@ -86,30 +86,60 @@ $richie-template-search-title-padding: null !default;
     padding: rem-calc(75px) 1rem 1rem rem-calc(34px);
     width: calc((988 / 1392) * 100%);
 
+    &__title {
+        color: var(--color-white);
+        font-weight: 500;
+        margin-bottom: var(--space-sm);
+        text-transform: uppercase;
+    }
+
     @include breakpoint(lg) {
         padding: rem-calc(75px) 1rem 1rem rem-calc(169px);
     }
 }
 
-.search-filters-pane__title {
-    color: var(--color-white);
-    font-size: rem-calc(30px);
-    font-weight: 500;
-    letter-spacing: 0.075em;
-    margin-bottom: rem-calc(40px);
-    position: relative;
-    
-    &:after {
-        background: url('../../images/arrow-marker.svg') rem-calc(-55px) 0 no-repeat;
-        background-size: cover;
-        content: '';
-        display: block;
-        height: 70px;
-        left: 0;
-        position: absolute;
-        top: 50%;
-        transform: translate(-100%,-50%);
-        width: 278px;
+.search-filters-pane {
+
+    &__title {
+        color: var(--color-white);
+        font-size: rem-calc(30px);
+        font-weight: 500;
+        margin-bottom: rem-calc(40px);
+        position: relative;
+
+        &:after {
+            background: url('../../images/arrow-marker.svg') rem-calc(-55px) 0 no-repeat;
+            background-size: cover;
+            content: '';
+            display: block;
+            height: 70px;
+            left: 0;
+            position: absolute;
+            top: 50%;
+            transform: translate(-100%,-50%);
+            width: 278px;
+        }
     }
-    
+
+    &__clear {
+        color: var(--color-white);
+        display: block;
+    }
+}
+
+.search-filter-group {
+    margin-top: var(--space-lg);
+
+    &__title {
+        border-bottom: 3px solid var(--color-white);
+        color: var(--color-white);
+        font-size: rem-calc(20px);
+        padding-bottom: 5px;
+        text-transform: uppercase;
+        width: 100%;
+    }
+
+    &__list {
+        margin-top: var(--space-xxs);
+    }
 }
