@@ -26,18 +26,6 @@ $richie-template-search-title-padding: null !default;
     overflow: hidden;
     position: relative;
 
-    &:before {
-        background-image: linear-gradient(to top, #13243c, #1a385a, #1d4d79, #1b6499, #0a7cbb);
-        content: '';
-        display: block;
-        height: 100%;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 50%;
-        z-index: 1;
-    }
-
     &__content {
         flex-grow: 1;
         display: flex;
@@ -61,36 +49,66 @@ $richie-template-search-title-padding: null !default;
 
     .search {
         display: flex;
+        flex-direction: column;
         flex-grow: 1;
         height: 100%;
         justify-content: space-between;
+
+        @include breakpoint(sm) {
+            flex-direction: row;
+        }
+    }
+
+    @include breakpoint(sm) {
+        &:before {
+            background-image: linear-gradient(to top, #13243c, #1a385a, #1d4d79, #1b6499, #0a7cbb);
+            content: '';
+            display: block;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 50%;
+            z-index: 1;
+        }
     }
 }
 
 .search__filters {
-    background-image: linear-gradient(to top, #13243c, #1a385a, #1d4d79, #1b6499, #0a7cbb);
     display: none;
     flex-grow: 1;
-    padding: rem-calc(75px) 1rem 3rem;
-    width: calc((404 / 1392) * 100%);
+    padding: 2rem 1rem;
 
     .cms-ready & {
+        background-image: linear-gradient(to top, #13243c, #1a385a, #1d4d79, #1b6499, #0a7cbb);
         display: block;
+    }
+
+    @include breakpoint(sm) {
+        padding: rem-calc(75px) 1rem 3rem;
+        width: calc((404 / 1392) * 100%);
     }
 }
 
 .search__results {
     background-color: var(--color-primary-darker);
-    background-image: linear-gradient(to bottom, #13243c, #1c1a2c, #1b131d, #130a10, #000000);
     flex-grow: 1;
-    padding: rem-calc(75px) 1rem 1rem rem-calc(34px);
-    width: calc((988 / 1392) * 100%);
+    padding: 2rem 1rem;
+
+    .cms-ready & {
+        background-image: linear-gradient(to bottom, #13243c, #1c1a2c, #1b131d, #130a10, #000000);
+    }
 
     &__title {
         color: var(--color-white);
         font-weight: 500;
         margin-bottom: var(--space-sm);
         text-transform: uppercase;
+    }
+
+    @include breakpoint(sm) {
+        padding: rem-calc(75px) 1rem 1rem rem-calc(34px);
+        width: calc((988 / 1392) * 100%);
     }
 
     @include breakpoint(lg) {
