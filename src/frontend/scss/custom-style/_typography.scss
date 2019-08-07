@@ -21,10 +21,6 @@
   --text-xxl: calc(var(--text-xl) * var(--text-scale-ratio));
   --text-xxxl: calc(var(--text-xxl) * var(--text-scale-ratio));
 
-  // line-height
-  --body-line-height: 1.4;
-  --heading-line-height: 1.2;
-
   // capital letters - used in combo with the lhCrop mixin
   --font-primary-capital-letter: 1;
 }

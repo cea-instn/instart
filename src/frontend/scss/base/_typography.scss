@@ -1,19 +1,20 @@
 :root {
   // line-height
-  --body-line-height: 1.4;
+  --body-line-height: calc(28 / 16);
   --heading-line-height: 1.2;
 }
 
 body {
+  color: var(--color-white);
   font-size: var(--text-base-size, 1em);
   font-family: var(--font-primary, sans-serif);
   font-weight: 500;
-  color: var(--color-primary-darker);
   letter-spacing: 0.05em;
+  line-height: var(--body-line-height);
 }
 
 h1, h2, h3, h4 {
-  color: var(--color-contrast-higher, hsl(240, 8%, 12%));
+  color: var(--color-white);
   line-height: var(--heading-line-height, 1.2);
   letter-spacing: 0.075em;
 }
