@@ -319,6 +319,10 @@ $richie-course-detail-aside-main-org-background: $white !default;
                 width: 100%;
             }
 
+            .link-persons {
+                margin-top: pxtoem(54);
+            }
+
             .person-glimpse {
                 @include sv-flex(0, 0);
                 background: none;
