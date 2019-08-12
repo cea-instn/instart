@@ -1,30 +1,7 @@
-$richie-category-plugin-tag-margin: 0 0 0.3rem 0;
-$richie-category-plugin-tag-padding: 0.25rem 0.4rem;
-$richie-category-plugin-tag-fontsize: 0.7rem;
-$richie-category-plugin-tag-fontcolor: $white;
-$richie-category-plugin-tag-background: $gray7;
-$richie-category-plugin-tag-divider-margin: 0.3rem;
-
-$richie-category-plugin-body-fontsize: small !default;
-$richie-category-plugin-body-fontcolor: $black !default;
-$richie-category-plugin-title-textalign: center !default;
-
 .category-plugin-tag {
-    @include sv-flex(0, 0, auto);
-    margin: $richie-category-plugin-tag-margin;
-    padding: $richie-category-plugin-tag-padding;
-    font-size: $richie-category-plugin-tag-fontsize;
-    color: $richie-category-plugin-tag-fontcolor;
-    background: $richie-category-plugin-tag-background;
-    text-decoration: none;
-
-    &:hover {
-        color: $richie-category-plugin-tag-fontcolor;
-    }
-
-    & + & {
-        margin-left: $richie-category-plugin-tag-divider-margin;
-    }
+    @extend .btn;
+    @extend .btn--primary;
+    margin-right: rem-calc(10px);
 }
 
 .category-plugin-container {
@@ -39,4 +16,25 @@ $richie-category-plugin-title-textalign: center !default;
         @include make-col(2);
     }
     display: flex;
+}
+
+.category-plugin-icon {
+    &__figure {
+        position: relative;
+        width: 100%;
+        margin-bottom: 1rem;
+        padding-bottom: 56.25%; // Aspect ratio 16/9
+
+        &__image {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+        }
+    }
 }

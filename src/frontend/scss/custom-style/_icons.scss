@@ -1,4 +1,11 @@
-.icon {
-  // make sure to include the font-family declaration if you are using an icon font
-  // font-family: 'fontName';
+.icon-duration {
+    background: url('../../images/icon-clock@2x.png') 3px 50% no-repeat;
+    height: rem-calc(20px);
+    width: rem-calc(28px);
+}
+
+.icon-effort {
+    background: url('../../images/icon-effort@2x.png') 0 50% no-repeat;
+    height: rem-calc(20px);
+    width: rem-calc(28px);
 }

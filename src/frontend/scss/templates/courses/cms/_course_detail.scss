@@ -2,41 +2,16 @@ $richie-course-detail-content-width-large: 70% !default;
 
 $richie-course-detail-row-title-fontcolor: $dodgerblue3 !default;
 
-$richie-course-detail-categories-padding: 0.5rem 1rem 0 !default;
-$richie-course-detail-categories-justify: center !default;
 $richie-course-detail-categories-empty-fontcolor: $gray40 !default;
 $richie-course-detail-categories-empty-textalign: center !default;
 
 $richie-course-detail-organizations-item-gutter: 0.625rem !default;
-
-$richie-course-detail-run-background: $dodgerblue1 !default;
-$richie-course-detail-run-gutter: 0.5rem !default;
-$richie-course-detail-run-width-large: 33.33% !default;
-$richie-course-detail-run-margin: 0 !default;
-$richie-course-detail-run-padding: 1rem 2rem !default;
-$richie-course-detail-run-fontcolor: $white !default;
-
-$richie-course-detail-synopsis-background: $dodgerblue1 !default;
-$richie-course-detail-synopsis-margin: 0 !default;
-$richie-course-detail-synopsis-padding: 1rem 2rem !default;
-$richie-course-detail-synopsis-fontcolor: $white !default;
-
-$richie-course-detail-socialnetworks-background: $dodgerblue1 !default;
-$richie-course-detail-socialnetworks-margin: 0 !default;
-$richie-course-detail-socialnetworks-padding: 1rem 2rem !default;
-$richie-course-detail-socialnetworks-fontcolor: $white !default;
 
 $richie-course-detail-license-margin: 1rem 0 0 0 !default;
 $richie-course-detail-license-title-margin: 0 0 0.75rem 0 !default;
 $richie-course-detail-license-title-fontcolor: $dodgerblue3 !default;
 
 $richie-course-detail-aside-with-large: 30% !default;
-$richie-course-detail-aside-margin: 0 !default;
-$richie-course-detail-aside-padding: 0 !default;
-
-$richie-course-detail-aside-main-org-margin: 0 !default;
-$richie-course-detail-aside-main-org-padding: 2rem !default;
-$richie-course-detail-aside-main-org-background: $white !default;
 
 .course-detail {
     @include make-container();
@@ -55,19 +30,27 @@ $richie-course-detail-aside-main-org-background: $white !default;
         flex-direction: row;
     }
 
+    &__header {
+        margin: 0 0 pxtoem(110);
+
+        @include breakpoint(lg) {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+        }
+    }
+
     &__content {
         @include sv-flex-cell-width(100%);
         background: var(--richie-content-container-bg);
-        padding-bottom: rem-calc(150px);
 
         @include breakpoint(lg) {
+            @include sv-flex-cell-width($richie-course-detail-content-width-large);
             padding-right: pxtopc(169,1360);
         }
 
         &--two {
-            @include breakpoint(lg) {
-                @include sv-flex-cell-width($richie-course-detail-content-width-large);
-            }
+            padding-bottom: rem-calc(150px);
         }
 
         &__snapshot {
@@ -140,7 +123,6 @@ $richie-course-detail-aside-main-org-background: $white !default;
             margin: 1rem;
             padding: 1rem;
             color: $white;
-            background: $richie-course-detail-run-background;
 
             &__title {
                 width: 100%;
@@ -154,32 +136,12 @@ $richie-course-detail-aside-main-org-background: $white !default;
 
             &__block {
                 padding: 1rem 0;
-                margin: $richie-course-detail-run-gutter;
 
                 @include sv-flex(
                                 1,
                                 0,
-                                calc(100% - #{$richie-course-detail-run-gutter * 2})
+                                100%
                 );
-
-                @include breakpoint(lg) {
-                    @include sv-flex(
-                                    1,
-                                    0,
-                                    calc(
-                                            #{$richie-course-detail-run-width-large} - #{$richie-course-detail-run-gutter *
-                2}
-                                    )
-                    );
-                }
-
-                &--full {
-                    @include sv-flex(
-                                    1,
-                                    0,
-                                    calc(100% - #{$richie-course-detail-run-gutter * 2})
-                    );
-                }
 
                 a {
                     color: white;
@@ -235,10 +197,13 @@ $richie-course-detail-aside-main-org-background: $white !default;
 
         &__categories {
             display: flex;
-            padding: $richie-course-detail-categories-padding;
             flex-direction: row;
             flex-wrap: wrap;
-            justify-content: $richie-course-detail-categories-justify;
+            margin: 0;
+
+            .category-plugin-tag {
+                margin-bottom: rem-calc(10px);
+            }
 
             &__placeholder {
                 @include sv-flex(1, 0, 100%);
@@ -255,7 +220,7 @@ $richie-course-detail-aside-main-org-background: $white !default;
 
         &__teaser {
             @include sv-flex-cell-width(100%);
-            margin: pxtoem(110) 0 0;
+            margin: 0;
             padding: 0;
             /**
             * Code below replicate .reponsive-embed from Bootstrap with forced 16/9
@@ -397,99 +362,119 @@ $richie-course-detail-aside-main-org-background: $white !default;
 
     &__aside {
         @include sv-flex-cell-width(100%);
-        margin: $richie-course-detail-aside-margin;
-        padding: $richie-course-detail-aside-padding;
+        margin: 0;
+        padding: 0;
 
         @include breakpoint(lg) {
             @include sv-flex-cell-width(#{$richie-course-detail-aside-with-large});
         }
 
         &__main-org-logo {
-            position: relative;
-            display: block;
-            margin: $richie-course-detail-aside-main-org-margin;
-            background: $richie-course-detail-aside-main-org-background;
-            padding: 0 0 56.25%; // Aspect ratio 16/9
-            // Use a border to emulate the padding as we need padding for aspect ratio enforcement
-            border: $richie-course-detail-aside-main-org-padding solid $richie-course-detail-aside-main-org-background;
-
-            img {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                object-fit: contain;
-                object-position: center;
-            }
-
-            @include m-o-media_empty($width: 100%, $height: 20vh, $absolute: false);
+            display: none;
         }
 
         &__cover {
-            margin-top: 1.4rem;
-            @include breakpoint(lg) {
-                margin-top: unset;
-            }
-
-            img {
-                display: block;
-                width: 100%;
-                max-width: 100%;
-            }
-
-            @include m-o-media_empty(
-                    $width: 100%,
-                    $height: 15vh,
-                    $background: $gray97,
-                    $absolute: false
-            );
+            display: none;
         }
 
         &__synopsis {
-            margin: $richie-course-detail-synopsis-margin;
-            padding: $richie-course-detail-synopsis-padding;
-            color: $richie-course-detail-synopsis-fontcolor;
-            background: $richie-course-detail-synopsis-background;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 0;
+            position: relative;
 
-            span[class^='icon-'] {
-                display: inline-block;
-                margin-right: 0.7rem;
-            }
-
-            dl {
-                float: left;
+            &:before,
+            &:after {
+                background: var(--color-white);
+                bottom: 0;
+                content: '';
+                display: block;
+                height: 3px;
+                position: absolute;
                 width: 100%;
             }
 
+            &:before {
+                bottom: auto;
+                top: 0;
+            }
+
+            &__label {
+                @include srHide;
+            }
+
+
+            span[class^='icon-'] {
+                background-size: contain;
+                display: inline-block;
+                margin-right: 0.7rem;
+                vertical-align: middle;
+            }
+
+            dl {
+                display: flex;
+                flex-wrap: wrap;
+                margin: 1em 0;
+                width: 49%;
+            }
+
             dt {
-                float: left;
-                clear: left;
-                margin-right: 0.5rem;
+                display: inline-block;
+                vertical-align: middle;
+                width: 38px;
             }
 
             dd {
-                float: left;
+                display: inline-block;
+                vertical-align: middle;
+                width: calc(100% - 38px);
+            }
+
+            &__icons {
+                margin: 1em 0;
+                width: 49%;
+            }
+            .category-plugin-icon {
+                color: var(--color-white);
+                display: block;
+                margin: 0;
+
+                &__figure {
+                    height: 28px;
+                    margin-bottom: 0;
+                    padding-bottom: 0;
+                    width: 45px;
+
+                    &__caption {
+                        left: 55px;
+                        position: absolute;
+                    }
+
+                    &__image {
+                        top: 50%;
+                        object-position: left;
+                        transform: translateY(-50%);
+                    }
+                }
             }
         }
 
         &__social-networks {
-            margin: $richie-course-detail-socialnetworks-margin;
-            padding: $richie-course-detail-socialnetworks-padding;
-            color: $richie-course-detail-socialnetworks-fontcolor;
-            background: $richie-course-detail-socialnetworks-background;
+            display: none;
         }
 
         &__run {
-            margin: $richie-course-detail-run-margin;
-            padding: $richie-course-detail-run-padding;
-            color: $richie-course-detail-run-fontcolor;
-            background: $richie-course-detail-run-background;
+            background: var(--color-primary);
+            margin-top: pxtoem(60);
+            padding: pxtoem(26) pxtoem(32);
 
             &__title {
                 margin: 0;
-                padding: 0 0.1rem 0;
-                font-size: 1.8rem;
-                line-height: 1.1;
-                text-align: center;
+                padding: 0 0 rem-calc(12px);
+                font-size: 1.25rem;
+                position: relative;
+                text-transform: uppercase;
             }
 
             @include m-o-media_empty(
@@ -503,17 +488,20 @@ $richie-course-detail-aside-main-org-background: $white !default;
             &__block {
                 $block-selector: &;
 
-                position: relative;
+                border-top: 3px solid var(--color-white);
                 margin: 0;
-                padding: 2rem 0;
+                padding: 0.75rem 0 1.75rem;
+                position: relative;
+
+                &:last-of-type {
+                    padding-bottom: 0;
+                }
 
                 a {
                     color: $white;
                 }
 
                 dt {
-                    font-weight: bold;
-                    text-transform: uppercase;
 
                     &:not(:first-child) {
                         margin-top: 0.8rem;
@@ -521,23 +509,24 @@ $richie-course-detail-aside-main-org-background: $white !default;
                 }
 
                 dd {
+                    font-weight: bold;
                     margin-bottom: 0;
                 }
 
                 &__cta {
-                    display: block;
-                    width: 100%;
-                    padding: 0.3rem;
-                    color: $white;
-                    text-align: center;
-                    text-transform: uppercase;
-                    background: $dodgerblue5;
+                    background: var(--color-primary-dark);
+                    color: var(--color-white);
                     border: 0;
+                    display: inline-block;
+                    margin-top: pxtoem(28);
+                    padding: 1rem 2.25rem;
+                    text-align: center;
+                    text-decoration: none;
 
                     &:hover {
-                        color: $white;
+                        background: var(--color-primary-darker);
+                        color: var(--color-white);
                         text-decoration: none;
-                        background: lighten($dodgerblue5, 5%);
                     }
 
                     &--archived,

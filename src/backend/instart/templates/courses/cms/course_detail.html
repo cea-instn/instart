@@ -12,60 +12,60 @@
 
     {% with course=current_page.course header_level=2 %}
 
+    <div class="course-detail__header">
+
+        <div class="course-detail__content">
+
+            {% if request.current_page.parent_page.course %}
+            <div class="course-detail__content__snapshot">
+                <div class="course-detail__content__snapshot__date">
+                    {% blocktrans with creation_date=request.current_page.creation_date|date:"SHORT_DATE_FORMAT" %}
+                    Archived on {{ creation_date }}
+                    {% endblocktrans %}
+                </div>
+                <a href="{{ request.current_page.parent_page.get_absolute_url }}">{% trans "Go to current version" %}</a>
+            </div>
+            {% endif %}
+
+            <h1 class="course-detail__content__title">
+                {% if request.current_page.parent_page.course %}
+                {{ request.current_page.parent_page.get_title }}
+                {% else %}
+                {% render_model request.current_page "title" %}
+                {% endif %}
+            </h1>
+
+            {% if current_page.publisher_is_draft or not current_page|is_empty_placeholder:"course_introduction" %}
+            <div class="course-detail__content__row course-detail__content__introduction">
+                {% page_placeholder "course_introduction" current_page %}
+            </div>
+            {% endif %}
+
+
+        </div>
+
+        <div class="course-detail__aside">
+
+            <div class="course-detail__content__row course-detail__content__categories">
+                {% with form_factor="tag" %}
+                {% page_placeholder "course_categories" current_page or %}
+                <p class="course-detail__content__categories__placeholder">
+                    {% trans "No associated categories" %}
+                </p>
+                {% endpage_placeholder %}
+                {% endwith %}
+            </div>
+
+        </div>
+    </div>
+
     <div class="course-detail__content course-detail__content--two">
 
-        {% if request.current_page.parent_page.course %}
-        <div class="course-detail__content__snapshot">
-            <div class="course-detail__content__snapshot__date">
-                {% blocktrans with creation_date=request.current_page.creation_date|date:"SHORT_DATE_FORMAT" %}
-                Archived on {{ creation_date }}
-                {% endblocktrans %}
-            </div>
-            <a href="{{ request.current_page.parent_page.get_absolute_url }}">{% trans "Go to current version" %}</a>
-        </div>
-        {% endif %}
-
-        <h1 class="course-detail__content__title">
-            {% if request.current_page.parent_page.course %}
-            {{ request.current_page.parent_page.get_title }}
-            {% else %}
-            {% render_model request.current_page "title" %}
-            {% endif %}
-        </h1>
-
-        {% if current_page.publisher_is_draft or not current_page|is_empty_placeholder:"course_introduction" %}
-        <div class="course-detail__content__row course-detail__content__introduction">
-            {% page_placeholder "course_introduction" current_page %}
-        </div>
-        {% endif %}
-
-
-        {% if current_page.publisher_is_draft or not current_page|is_empty_placeholder:"course_icons" %}
-        <div class="course-detail__content__row course-detail__content__icons">
-            {% with form_factor="icon" %}
-            {% placeholder "course_icons" or %}
-            <p class="course-detail__content__icons__empty">
-                {% trans "No associated icons" %}
-            </p>
-            {% endplaceholder %}
-            {% endwith %}
-        </div>
-        {% endif %}
-
         {% include "courses/cms/fragment_course_content.html" with page=current_page %}
+
     </div>
 
     <div class="course-detail__aside">
-
-        <div class="course-detail__content__row course-detail__content__categories">
-            {% with form_factor="tag" %}
-            {% page_placeholder "course_categories" current_page or %}
-            <p class="course-detail__content__categories__placeholder">
-                {% trans "No associated categories" %}
-            </p>
-            {% endpage_placeholder %}
-            {% endwith %}
-        </div>
 
         {% if current_page.publisher_is_draft %}
         <div class="course-detail__aside__cover">
@@ -110,18 +110,32 @@
 
         {% if course.duration or course.effort or current_page.publisher_is_draft %}
         <div class="course-detail__aside__synopsis">
+
             <dl>
                 {% render_model_block course "duration,effort" %}
                 {% if instance.duration or current_page.publisher_is_draft %}
-                <dt><span class="icon-duration"></span>{% trans "Duration:" %}</dt>
+                <dt><span class="icon-duration"></span><span class="course-detail__aside__synopsis__label">{% trans "Duration:" %}</span></dt>
                 <dd>{{ instance.get_duration_display|default:"NA" }}</dd>
                 {% endif %}
                 {% if instance.effort or current_page.publisher_is_draft %}
-                <dt><span class="icon-effort"></span>{% trans "Effort:" %}</dt>
+                <dt><span class="icon-effort"></span><span class="course-detail__aside__synopsis__label">{% trans "Effort:" %}</span></dt>
                 <dd>{{ instance.get_effort_display|default:"NA" }}</dd>
                 {% endif %}
                 {% endrender_model_block %}
             </dl>
+
+            {% if current_page.publisher_is_draft or not current_page|is_empty_placeholder:"course_icons" %}
+            <div class="course-detail__aside__synopsis__icons">
+                {% with form_factor="icon" %}
+                {% placeholder "course_icons" or %}
+                <p class="course-detail__content__icons__empty">
+                    {% trans "No associated icons" %}
+                </p>
+                {% endplaceholder %}
+                {% endwith %}
+            </div>
+            {% endif %}
+
         </div>
         {% endif %}
 
@@ -153,7 +167,7 @@
                     {% endif %}
                 </dl>
                 {% if run.state.call_to_action %}
-                <a class="course-detail__aside__run__block__cta" href="{{ run.extended_object.get_absolute_url }}">
+                <a class="course-detail__aside__run__block__cta btn" href="{{ run.extended_object.get_absolute_url }}">
                     {{ run.state.call_to_action|capfirst }}
                 </a>
                 {% else %}
