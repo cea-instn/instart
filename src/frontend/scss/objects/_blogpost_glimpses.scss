@@ -1,0 +1,140 @@
+// Blogpost glimpses
+//
+// A flex grid of blogpost entries
+
+// Available object settings
+
+.blogpost-glimpse-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: rem-calc(60px);
+
+    &__title {
+        @include make-inner-paddings();
+        @include page-title;
+        margin: 0 0 rem-calc(45px);
+        padding: 0;
+        width: 100%;
+    }
+}
+
+.blogpost-glimpse {
+    $glimpse-item-selector: &;
+
+    // Cell base width for lowest breakpoint
+    @include sv-flex(
+                    1,
+                    0,
+                    100%
+    );
+
+    background: var(--color-primary-darker);
+    margin: 0;
+    padding: pxtoem(24) 5%;
+    text-decoration: none;
+
+    &:nth-of-type(even) {
+        background: linear-gradient(0deg, var(--color-primary-darker) 0%, var(--color-black) 100%);
+    }
+
+    &__content {
+        color: var(--color-white);
+
+        &__title {
+            font-size: rem-calc(20px);
+            margin: 0 0 1em;
+        }
+    }
+
+    &__media {
+        display: none;
+    }
+
+    // A little specific makeup onto header elements
+    &__header {
+        display: flex;
+
+        &__date {
+            color: var(--color-primary);
+            font-size: 1em;
+            line-height: calc(19 / 16);
+            letter-spacing: 0.075em;
+            margin: 0 0 pxtoem(25);
+            padding: 0 0 15px;
+            position: relative;
+
+            &:after {
+                background: var(--color-primary);
+                bottom: 0;
+                content: '';
+                display: block;
+                height: 3px;
+                position: absolute;
+                width: rem-calc(80px);
+            }
+
+        }
+
+    }
+
+    &__foot {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: pxtoem(50);
+    }
+
+    &:hover,
+    &:focus {
+
+        #{$glimpse-item-selector}__foot__cta {
+            background-color: var(--color-primary-dark);
+        }
+    }
+
+    // Responsive adjustments
+    @include breakpoint(md) {
+        @include sv-flex(
+                        1,
+                        0,
+                        100%
+        );
+    }
+
+    @include breakpoint(lg) {
+        @include sv-flex(
+                        1,
+                        0,
+                        50%
+        );
+
+        &:nth-of-type(even) {
+            @include make-right-padding();
+            padding-left: pxtoem(154);
+        }
+        &:nth-of-type(odd) {
+            background: linear-gradient(180deg, var(--color-primary-darker) 0%, var(--color-black) 100%);
+            @include make-left-padding();
+            padding-right: pxtoem(154);
+        }
+    }
+
+    // Special row when there is no entry
+    &--empty {
+        @include sv-flex(
+                        1,
+                        0,
+                        100%
+        );
+        padding: 1rem;
+        font-style: italic;
+        color: $gray40;
+        text-align: center;
+        cursor: default;
+
+        &:hover,
+        &:focus {
+        }
+    }
+}

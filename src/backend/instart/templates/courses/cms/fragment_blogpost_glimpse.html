@@ -1,0 +1,22 @@
+{% load i18n cms_tags extra_tags thumbnail %}
+{% comment %}Obviously, the context template variable "blogpost" is required and must be a BlogPost page extension{% endcomment %}
+{% with blogpost_page=blogpost.extended_object %}
+<a href="{{ blogpost.extended_object.get_absolute_url }}" class="blogpost-glimpse blogpost-glimpse--link {% if blogpost.extended_object.publisher_is_draft %}blogpost-glimpse--draft{% endif %}" >
+    <div class="blogpost-glimpse__content">
+        <div class="blogpost-glimpse__header">
+            <p class="blogpost-glimpse__header__date">
+                {{ blogpost_page.creation_date|date:"DATE_FORMAT" }}
+            </p>
+        </div>
+        <div class="blogpost-glimpse__content__wrapper">
+            <h2 class="blogpost-glimpse__content__title">{{ blogpost_page.get_title }}</h2>
+            <p>
+                {% show_placeholder "excerpt" blogpost_page %}
+            </p>
+        </div>
+        <div class="blogpost-glimpse__foot">
+            <p class="btn btn--primary blogpost-glimpse__foot__cta">{% trans 'Read more' %}</p>
+        </div>
+    </div>
+</a>
+{% endwith %}

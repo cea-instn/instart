@@ -1,0 +1,13 @@
+.o-menu {
+    //@extend .navbar; // TODO : replace with something else
+    //@extend .navbar-expand-md; // TODO : replace with something else
+
+    &__list {
+        //@extend .navbar-nav; // TODO : replace with something else
+
+        &__item {
+            //@extend .nav-item; // TODO : replace with something else
+            //@extend .nav-link; // TODO : replace with something else
+        }
+    }
+}

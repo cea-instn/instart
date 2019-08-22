@@ -1,0 +1,97 @@
+// Main body footer
+
+.body-footer {
+    padding: 1rem 0;
+    color: var(--color-primary-darker);
+    background: var(--color-white);
+
+
+    &__menu {
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        order: 1;
+
+        @include breakpoint(md) {
+            order: 2;
+        }
+
+        @include breakpoint(lg) {
+            margin: 0 5rem;
+        }
+
+        &__list {
+            width: 100%;
+            max-width: var(--max-width-xl);
+            margin: 1em auto;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+
+            @include breakpoint(lg) {
+                justify-content: space-between;
+                margin: 0;
+            }
+
+            &__item {
+                color: inherit;
+                display: flex;
+                font-size: 0.75rem;
+                margin: 0;
+                padding: 0;
+                text-align: center;
+                text-transform: uppercase;
+
+                &__link {
+                    display: block;
+                    padding: 0.5rem;
+                    font-weight: normal;
+                    color: var(--color-primary-darker);
+                    text-decoration: none;
+
+                    &:hover {
+                        color: var(--color-primary);
+                        text-decoration: none;
+                    }
+                    @include breakpoint(lg) {
+                        padding: 1rem 0.8rem;
+                    }
+                }
+            }
+        }
+    }
+
+    &__partner {
+
+        &:first-of-type {
+            order: 2;
+            width: rem-calc(131px);
+
+            @include breakpoint(md) {
+                order: 1;
+            }
+        }
+        &:last-of-type {
+            order: 3;
+            width: rem-calc(82px);
+        }
+
+        &__link {
+            display: block;
+        }
+    }
+
+
+}
+
+.body-footer-inner {
+    @include make-container();
+    @include make-container-max-widths();
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
