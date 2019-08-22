@@ -1,0 +1,87 @@
+// --------------------------------
+
+// (START) Global Editor code https://codyhouse.co/ds/globals/colors
+
+// --------------------------------
+
+:root {
+    --btn-font-size: 1em;
+    --btn-font-size-sm: calc(var(--btn-font-size) - 0.2em);
+    --btn-font-size-md: calc(var(--btn-font-size) + 0.2em);
+    --btn-font-size-lg: calc(var(--btn-font-size) + 0.4em);
+    --btn-padding-x: var(--space-sm); // padding left + right
+    --btn-padding-y: var(--space-xs); // padding top + bottom
+    --btn-radius: 0;
+}
+
+.btn { // basic button style
+    cursor: pointer;
+}
+
+// themes
+.btn--primary {
+    @include fontSmooth;
+}
+
+.btn--accent {
+    @include fontSmooth;
+}
+
+// feedback
+.btn--disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+// sizes
+.btn--sm {}
+.btn--md {}
+.btn--lg {}
+
+// --------------------------------
+
+// (END) Global Editor Code
+
+// --------------------------------
+
+.btn { // basic button style
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  text-decoration: none;
+  line-height: 1;
+  font-size: var(--btn-font-size, 1em);
+  font-weight: 500;
+  padding-top: var(--btn-padding-y, 0.5em);
+  padding-bottom: var(--btn-padding-y, 0.5em);
+  padding-left: var(--btn-padding-x, 0.75em);
+  padding-right: var(--btn-padding-x, 0.75em);
+  border-radius: var(--btn-radius);
+  transition: background 200ms linear;
+}
+
+// themes
+.btn--primary {
+  background-color: var(--color-primary, hsl(220, 90%, 56%));
+  color: var(--color-white, hsl(0, 0%, 100%));
+}
+
+.btn--subtle {
+  background-color: var(--color-contrast-low, hsl(240, 1%, 83%));
+  color: var(--color-contrast-higher, hsl(240, 8%, 12%));
+}
+
+.btn--accent {
+  background-color: var(--color-accent, hsl(349, 75%, 51%));
+  color: var(--color-white, hsl(0, 0%, 100%));
+}
+
+// size
+.btn--sm { font-size: var(--btn-font-size-sm, 0.8em); }
+.btn--md { font-size: var(--btn-font-size-md, 1.2em); }
+.btn--lg { font-size: var(--btn-font-size-lg, 1.4em); }
+
+// btn with icon (only)
+.btn--icon { padding: var(--btn-padding-y, 0.5em); }

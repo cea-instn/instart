@@ -1,0 +1,242 @@
+// Course glimpses
+//
+// A flex grid of course cards
+
+// Available object settings
+$richie-course-glimpse-list-maxwidth-constraint: true !default;
+$richie-course-glimpse-list-margin: 0 auto !default;
+$richie-course-glimpse-list-vertical-padding: 1rem !default;
+$richie-course-glimpse-list-title-margin: null !default;
+$richie-course-glimpse-list-title-padding: 0.5rem !default;
+
+$richie-course-glimpse-container-gutter: 0.5rem !default;
+$richie-course-glimpse-container-background: $white !default;
+
+
+$richie-course-glimpse-caption-width: 60% !default;
+$richie-course-glimpse-caption-margin: 0 !default;
+$richie-course-glimpse-caption-padding: 0.6rem 0.5rem !default;
+$richie-course-glimpse-caption-fontsize: 0.9rem !default;
+$richie-course-glimpse-caption-fontweight: bold !default;
+$richie-course-glimpse-caption-lineheight: 1.1 !default;
+$richie-course-glimpse-caption-textalign: center !default;
+$richie-course-glimpse-caption-texttransform: uppercase !default;
+$richie-course-glimpse-caption-background: $gray80 !default;
+
+$richie-course-glimpse-content-fontsize: 0.9rem !default;
+$richie-course-glimpse-content-fontcolor: $gray40 !default;
+
+
+$richie-course-glimpse-wrapper-padding: 1.563rem 1.25rem !default;
+
+$richie-course-glimpse-foot-divider: null !default;
+
+$richie-course-glimpse-foot-date-width: 55% !default;
+$richie-course-glimpse-foot-date-padding: 1rem 1.25rem !default;
+
+$richie-course-glimpse-foot-cta-padding: 1rem 0.5rem !default;
+$richie-course-glimpse-foot-cta-fontsize: 0.9rem !default;
+$richie-course-glimpse-foot-cta-background: $dodgerblue5 !default;
+$richie-course-glimpse-foot-cta-background-hover: $firebrick6 !default;
+
+.course-glimpse-list {
+    @if $richie-course-glimpse-list-maxwidth-constraint {
+        @include make-container-max-widths();
+    }
+    color: var(--color-white);
+    display: flex;
+    margin: $richie-course-glimpse-list-margin;
+    padding-top: $richie-course-glimpse-list-vertical-padding;
+    padding-bottom: $richie-course-glimpse-list-vertical-padding;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    &__title {
+        @include sv-flex(1, 0, 100%);
+        margin: $richie-course-glimpse-list-title-margin;
+        padding: $richie-course-glimpse-list-title-padding;
+    }
+
+    &__count {
+        flex-basis: 100%; // Should not wrap with actual course glimpses
+        margin-bottom: rem-calc(47px);
+
+        &:first-child {
+            margin-top: -$richie-course-glimpse-list-vertical-padding; // Cancel out top padding
+        }
+    }
+}
+
+.course-glimpse {
+    $glimpse-item-selector: &;
+    margin-bottom: var(--space-lg);
+    text-decoration: none;
+
+    // Cell base width for lowest breakpoint
+    @include sv-flex(
+                    1,
+                    0,
+                    100%
+    );
+
+    // Apply card styles for elements
+    @include m-o-card(
+            $background: $richie-course-glimpse-container-background,
+            $caption-width: $richie-course-glimpse-caption-width,
+            $caption-margin: $richie-course-glimpse-caption-margin,
+            $caption-padding: $richie-course-glimpse-caption-padding,
+            $caption-fontsize: $richie-course-glimpse-caption-fontsize,
+            $caption-background: $richie-course-glimpse-caption-background,
+            $wrapper-padding: $richie-course-glimpse-wrapper-padding,
+            $foot-divider: $richie-course-glimpse-foot-divider,
+            $methodology: 'bem'
+    );
+
+    &__content {
+        font-size: $richie-course-glimpse-content-fontsize;
+        color: var(--color-primary-darker);
+
+        &__wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+
+        p {
+            order: 1;
+        }
+
+        p.course-glimpse__content__title {
+            color: var(--color-primary);
+            font-size: 1rem;
+            font-weight: 900;
+            letter-spacing: 0.075em;
+            line-height: calc(19 / 16);
+            margin-top: 1.25rem;
+            order: 2;
+            text-transform: uppercase;
+        }
+    }
+
+    &__media {
+        &__caption {
+            text-transform: $richie-course-glimpse-caption-texttransform;
+            font-weight: $richie-course-glimpse-caption-fontweight;
+            line-height: $richie-course-glimpse-caption-lineheight;
+            text-align: $richie-course-glimpse-caption-textalign;
+        }
+
+        @include m-o-media_empty(
+                $width: 100%,
+                $height: 16vh,
+                $background: $gray97,
+                $absolute: false
+        );
+    }
+
+    // A little specific makeup onto footer elements
+    &__footer {
+        display: flex;
+        flex-direction: column;
+
+        &__date {
+            @include sv-flex-cell-width(auto);
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            font-weight: bold;
+            letter-spacing: 0.075em;
+            line-height: 1.4;
+            justify-content: center;
+            margin: 0;
+            padding: $richie-course-glimpse-foot-date-padding;
+
+            span {
+                text-transform: uppercase;
+            }
+        }
+
+        &__cta {
+
+            .button {
+                @include sv-flex-cell-width(100%);
+                background-color: var(--color-primary-dark);
+                border: 0;
+                border-top: 1px solid var(--color-primary-darker);
+                color: var(--color-white);
+                cursor: pointer;
+                font-size: 1rem;
+                font-weight: bold;
+                letter-spacing: 0.075em;
+                line-height: 1.4;
+                margin: 0;
+                padding: $richie-course-glimpse-foot-cta-padding;
+                transition: background 200ms linear;
+                width: 100%;
+
+                &:hover {
+                    background-color: var(--color-primary);
+                }
+            }
+        }
+    }
+
+    &:hover,
+    &:focus {
+
+        #{$glimpse-item-selector}__foot__cta .button {
+            background: $richie-course-glimpse-foot-cta-background-hover;
+        }
+    }
+
+    // Responsive adjustments
+    @include breakpoint(md) {
+        @include sv-flex(
+                        1,
+                        0,
+                        100%
+        );
+    }
+
+    @include breakpoint(md) {
+        @include sv-flex(
+                        1,
+                        0,
+                        48%
+        );
+        margin-left: 4%;
+
+        &:nth-of-type(2n + 1) {
+            margin-left: 0;
+        }
+    }
+
+    @include breakpoint(lg) {
+        @include sv-flex(
+                        1,
+                        0,
+                        31%
+        );
+        margin-left: 3.5%;
+
+        &:nth-of-type(2n + 1) {
+            margin-left: 3.5%;
+        }
+        &:nth-of-type(3n + 1) {
+            margin-left: 0;
+        }
+    }
+
+    // Special row when there is no entry
+    &--empty {
+        @include sv-flex(
+                        1,
+                        0,
+                        100%
+        );
+        padding: 1rem;
+        font-style: italic;
+        color: $gray40;
+        text-align: center;
+        cursor: default;
+    }
+}
