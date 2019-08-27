@@ -1,33 +1,38 @@
-// Overridable & namespaced global variables
-$richie-blogpost-detail-title-margin: 0 !default;
-$richie-blogpost-detail-title-padding: 1rem !default;
-$richie-blogpost-detail-title-textalign: center !default;
-
 .blogpost-detail {
     @include make-container();
     @include make-container-max-widths();
-    padding-bottom: 1rem;
-    background: var(--richie-content-container-bg);
+    padding-top: calc(var(--space-lg) * 2);
+    padding-bottom: calc(var(--space-lg) * 2);
 
-    &__title {
-        margin: $richie-blogpost-detail-title-margin;
-        padding: $richie-blogpost-detail-title-padding;
-        text-align: $richie-blogpost-detail-title-textalign;
+    .col-6\@md {
+
+        @include breakpoint(md) {
+
+            &:first-child {
+                padding-right: var(--space-md);
+            }
+            &:last-child {
+                padding-left: var(--space-md);
+            }
+        }
     }
 
+    &__title {
+        @include page-title;
+    }
+
+
     &__subhead {
+        align-items: center;
         display: flex;
-        margin-bottom: 2rem;
-        flex-wrap: wrap;
-        justify-content: center;
+        justify-content: flex-start;
+        margin-bottom: var(--space-lg);
 
         &__date {
-            @include sv-flex(0, 0, auto);
             margin: 0;
         }
 
         &__author {
-            @include sv-flex(0, 0, auto);
             margin: 0;
 
             // Fix issue with cms hidden placeholder element which trouble alignment
@@ -41,52 +46,18 @@ $richie-blogpost-detail-title-textalign: center !default;
             }
         }
 
-        .social-network-badges {
-            @include sv-flex(1, 0, 100%);
-            margin: 0.5rem 0;
-            justify-content: center;
-
-            @include breakpoint(md) {
-                @include sv-flex(1, 0, 8rem);
-                margin: 0;
-                justify-content: flex-start;
-            }
-
-            &__item {
-                @include sv-flex(1, 0, 1.5rem);
-                height: 1.5rem;
-                font-size: 0.8rem;
-                background: $dodgerblue1;
-
-                &:hover {
-                    color: $white;
-                    background: $dodgerblue3;
-                    text-decoration: none;
-                }
-
-                & + .social-network-badges__item {
-                    margin-left: 0.5rem;
-                }
-            }
-
-            @include breakpoint(md) {
-
-                &::before {
-                    content: '—';
-                    margin: 0 0.4rem;
-                }
-            }
-        }
     }
 
     &__categories {
         @include sv-flex(1, 0, 50rem);
         display: flex;
-        margin: 0 auto 2rem;
+        margin: 0 0 2rem;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: flex-end;
 
         .category-plugin-tag {
+            margin-left: var(--space-sm);
+            margin-right: 0;
             @include sv-flex(0, 0, auto);
         }
     }
@@ -106,17 +77,31 @@ $richie-blogpost-detail-title-textalign: center !default;
                 $background: $gray97,
                 $absolute: false
         );
+
+        @include breakpoint(md) {
+            padding-left: var(--grid-gutter-width);
+        }
     }
 
     &__excerpt {
-        margin-bottom: 2rem;
-        padding-left: var(--grid-gutter-width);
-        padding-right: var(--grid-gutter-width);
+        margin-bottom: 1rem;
         font-size: 1.4rem;
+        padding: var(--space-sm) 0 0;
     }
 
     &__body {
-        padding-left: var(--grid-gutter-width);
-        padding-right: var(--grid-gutter-width);
+
+        .social-network-badges {
+            justify-content: flex-start;
+            margin: var(--space-lg) 0;
+
+            @include breakpoint(md) {
+                margin: 1rem 0 0;
+            }
+        }
+
+        @include breakpoint(md) {
+            padding-right: var(--grid-gutter-width);
+        }
     }
 }

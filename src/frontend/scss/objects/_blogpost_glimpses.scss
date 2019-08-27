@@ -9,7 +9,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding-top: rem-calc(60px);
+    padding-top: calc(var(--space-lg) * 2);
 
     &__title {
         @include make-inner-paddings();
