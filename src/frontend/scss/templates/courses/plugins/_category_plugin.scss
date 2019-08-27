@@ -1,7 +1,7 @@
 .category-plugin-tag {
     @extend .btn;
     @extend .btn--primary;
-    margin-right: rem-calc(10px);
+    margin-right: var(--space-sm);
 }
 
 .category-plugin-container {

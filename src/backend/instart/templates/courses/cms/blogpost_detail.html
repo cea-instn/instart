@@ -1,0 +1,85 @@
+{% extends "richie/fullwidth.html" %}
+{% load cms_tags extra_tags i18n thumbnail %}
+{% block content %}
+{% spaceless %}
+<div class="blogpost-detail">
+
+    <h1 class="blogpost-detail__title">{% render_model current_page "title" %}</h1>
+
+    <div class="blogpost-detail__excerpt">
+        {% placeholder "excerpt" or %}
+        <p class="blogpost-detail__excerpt__empty">
+            {% trans "No excerpt content" %}
+        </p>
+        {% endplaceholder %}
+    </div>
+
+    <div class="blogpost-detail__subhead">
+
+        <p class="blogpost-detail__subhead__date">
+            {{ current_page.creation_date|date:"SHORT_DATE_FORMAT" }}
+        </p>
+
+        {% with form_factor="tag" %}
+        {% if current_page.publisher_is_draft or not current_page|is_empty_placeholder:"author" %}
+        <div class="blogpost-detail__subhead__author">
+            {% page_placeholder "author" current_page or %}{% endpage_placeholder %}
+        </div>
+        {% endif %}
+        {% endwith %}
+
+    </div>
+
+
+    <div class="grid">
+        <div class="col-6@md">
+
+            <div class="blogpost-detail__body">
+                {% placeholder "body" or %}
+                <p class="blogpost-detail__body__empty">
+                    {% trans "No body content" %}
+                </p>
+                {% endplaceholder %}
+
+                {% include "social-networks/blogpost-badges.html" with page_title=request.current_page.get_title page_url=request.current_page.get_absolute_url %}
+
+            </div>
+
+        </div>
+
+        <div class="col-6@md">
+
+            <div class="blogpost-detail__cover">
+                {% get_placeholder_plugins "cover" as plugins or %}
+                <p class="blogpost-detail__cover__empty">{% trans "Cover" %}</p>
+                {% endget_placeholder_plugins %}
+                {% blockplugin plugins.0 %}
+                <img
+                        src="{% thumbnail instance.picture 500x500 subject_location=instance.picture.subject_location %}"
+                        srcset="
+                  {% thumbnail instance.picture 500x500 subject_location=instance.picture.subject_location %} 500w,
+                  {% if instance.picture.width >= 1000 %}{% thumbnail instance.picture 1000x1000 subject_location=instance.picture.subject_location %} 1000w,{% endif %}
+                  {% if instance.picture.width >= 2000 %}{% thumbnail instance.picture 2000x2000 subject_location=instance.picture.subject_location %} 2000w{% endif %}
+                "
+                        sizes="650px"
+                        alt="{% if instance.picture.default_alt_text %}{{ instance.picture.default_alt_text }}{% else %}{% trans 'blog post cover image' %}{% endif %}"
+                />
+                {% endblockplugin %}
+            </div>
+
+            {% with form_factor="tag" %}
+            {% if current_page.publisher_is_draft or not current_page|is_empty_placeholder:"categories" %}
+            <div class="blogpost-detail__categories">
+                {% page_placeholder "categories" current_page or %}
+                <span class="blogpost-detail__categories__empty">{% trans 'No categories yet.' %}</span>
+                {% endpage_placeholder %}
+            </div>
+            {% endif %}
+            {% endwith %}
+
+        </div>
+    </div>
+
+</div>
+{% endspaceless %}
+{% endblock content %}
