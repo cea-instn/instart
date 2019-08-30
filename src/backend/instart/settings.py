@@ -151,6 +151,24 @@ class Base(DRFMixin, RichieCoursesConfigurationMixin, Configuration):
         }
     ]
 
+    CMS_TEMPLATES = (
+        ("courses/cms/course_detail.html", _("Course page")),
+        ("courses/cms/course_run_detail.html", _("Course run page")),
+        ("courses/cms/organization_list.html", _("Organization list")),
+        ("courses/cms/organization_detail.html", _("Organization page")),
+        ("courses/cms/category_list.html", _("Category list")),
+        ("courses/cms/category_detail.html", _("Category page")),
+        ("courses/cms/blogpost_list.html", _("Blog post list")),
+        ("courses/cms/blogpost_detail.html", _("Blog post page")),
+        ("courses/cms/blogpost_detail_two_columns.html", _("Blog post page with two columns")),
+        ("courses/cms/person_detail.html", _("Person page")),
+        ("courses/cms/person_list.html", _("Person list")),
+        ("search/search.html", _("Search")),
+        ("richie/child_pages_list.html", _("List of child pages")),
+        ("richie/homepage.html", _("Homepage")),
+        ("richie/single_column.html", _("Single column")),
+    )
+
     MIDDLEWARE = (
         "cms.middleware.utils.ApphookReloadMiddleware",
         "django.middleware.security.SecurityMiddleware",
