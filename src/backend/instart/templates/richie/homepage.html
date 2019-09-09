@@ -1,0 +1,41 @@
+{% extends "richie/base.html" %}
+{% load cms_tags extra_tags i18n thumbnail %}
+
+{% block title %}
+    {% page_attribute "page_title" %}
+{% endblock title %}
+
+{% with form_factor="tag" %}
+{% if current_page.publisher_is_draft or not current_page|is_empty_placeholder:"home_categories" %}
+<div class="homepage__categories">
+    {% page_placeholder "home_categories" current_page or %}
+    <span class="homepage__categories__empty">{% trans 'No categories yet.' %}</span>
+    {% endpage_placeholder %}
+</div>
+{% endif %}
+{% endwith %}
+
+
+<div class="homepage__cover">
+    {% get_placeholder_plugins "home_categories_picture" as plugins or %}
+    <p class="homepage__cover__empty">{% trans "Cover" %}</p>
+    {% endget_placeholder_plugins %}
+    {% blockplugin plugins.0 %}
+    <img
+            src="{% thumbnail instance.picture 500x500 subject_location=instance.picture.subject_location %}"
+            srcset="
+                  {% thumbnail instance.picture 500x500 subject_location=instance.picture.subject_location %} 500w,
+                  {% if instance.picture.width >= 1000 %}{% thumbnail instance.picture 1000x1000 subject_location=instance.picture.subject_location %} 1000w,{% endif %}
+                  {% if instance.picture.width >= 2000 %}{% thumbnail instance.picture 2000x2000 subject_location=instance.picture.subject_location %} 2000w{% endif %}
+                "
+            sizes="650px"
+            alt="{% if instance.picture.default_alt_text %}{{ instance.picture.default_alt_text }}{% else %}{% trans 'homepage cover image' %}{% endif %}"
+    />
+    {% endblockplugin %}
+</div>
+
+{% block content %}
+{% placeholder "maincontent" %}
+{% endblock content %}
+
+
