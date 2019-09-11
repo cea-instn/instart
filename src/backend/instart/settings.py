@@ -178,14 +178,19 @@ class Base(DRFMixin, RichieCoursesConfigurationMixin, Configuration):
 
     CMS_PLACEHOLDER_CONF = {
         # Homepage
-        "richie/homepage.html home_categories": {
+        "richie/homepage.html highlightcats": {
             "name": _("Highlighted categories"),
-            "plugins": ["CategoryPlugin"],
-        },
-        "richie/homepage.html home_categories_picture": {
-            "name": _("Cover"),
-            "plugins": ["SimplePicturePlugin"],
-            "limits": {"SimplePicturePlugin": 1},
+            "plugins": ["LargeBannerPlugin", "SectionPlugin"],
+            "child_classes": {
+                "SectionPlugin": [
+                    "BlogPostPlugin",
+                    "CoursePlugin",
+                    "CategoryPlugin",
+                    "LinkPlugin",
+                    "OrganizationPlugin",
+                    "PersonPlugin",
+                ]
+            },
         },
         # Single column page
         "richie/single-column.html maincontent": {
