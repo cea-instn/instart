@@ -664,6 +664,15 @@
   padding-bottom: 75%; // 4:3
 }
 
+@mixin fitcover {
+    height: 100%;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
 // --------------------------------
 
 // Clearfix - clear float of child elements

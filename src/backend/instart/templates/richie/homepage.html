@@ -42,6 +42,83 @@
 
 </section>
 
+<section class="last-news">
+    <div class="last-news__cover">
+        {% get_placeholder_plugins "last_news_picture" as plugins or %}
+        <p class="last-news__cover__empty">{% trans "Cover" %}</p>
+        {% endget_placeholder_plugins %}
+        {% blockplugin plugins.0 %}
+        <img
+                src="{% thumbnail instance.picture 500x500 subject_location=instance.picture.subject_location %}"
+                srcset="
+                      {% thumbnail instance.picture 500x500 subject_location=instance.picture.subject_location %} 500w,
+                      {% if instance.picture.width >= 1000 %}{% thumbnail instance.picture 1000x1000 subject_location=instance.picture.subject_location %} 1000w,{% endif %}
+                      {% if instance.picture.width >= 2000 %}{% thumbnail instance.picture 2000x2000 subject_location=instance.picture.subject_location %} 2000w{% endif %}
+                    "
+                sizes="650px"
+                alt="{% if instance.picture.default_alt_text %}{{ instance.picture.default_alt_text }}{% else %}{% trans 'homepage cover image' %}{% endif %}"
+        />
+        {% endblockplugin %}
+    </div>
+    <div class="last-news__list">
+        <div class="last-news__list__head">
+            <h2 class="last-news__list__head__title">{% trans "News" %}</h2>
+            <a href="{% page_url 'blogposts' %}" class="btn btn--primary link-news">{% trans 'See all posts' %}</a>
+        </div>
+
+        <div class="last-news__list__container">
+
+            <!-- TODO : mettre en place une boucle pour afficher les 2 dernières actualités -->
+
+            <a href="/en/news/innovation-and-e-learning/" class="blogpost-glimpse blogpost-glimpse--link blogpost-glimpse--draft">
+                <div class="blogpost-glimpse__content">
+                    <div class="blogpost-glimpse__header">
+                        <p class="blogpost-glimpse__header__date">
+                            Aug. 14, 2019
+                        </p>
+                    </div>
+                    <div class="blogpost-glimpse__content__wrapper">
+                        <h2 class="blogpost-glimpse__content__title">Innovation and e-learning</h2>
+                        <p>
+                            Nulla vitae elit libero, a pharetra augue. Vestibulum id ligula porta felis euismod semper. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+
+                        </p>
+                    </div>
+                    <div class="blogpost-glimpse__foot">
+                        <p class="btn btn--primary blogpost-glimpse__foot__cta">Read more</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="/en/news/innovation-and-e-learning/" class="blogpost-glimpse blogpost-glimpse--link blogpost-glimpse--draft">
+                <div class="blogpost-glimpse__content">
+                    <div class="blogpost-glimpse__header">
+                        <p class="blogpost-glimpse__header__date">
+                            Aug. 14, 2019
+                        </p>
+                    </div>
+                    <div class="blogpost-glimpse__content__wrapper">
+                        <h2 class="blogpost-glimpse__content__title">Innovation and e-learning</h2>
+                        <p>
+                            Nulla vitae elit libero, a pharetra augue. Vestibulum id ligula porta felis euismod semper. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+
+                        </p>
+                    </div>
+                    <div class="blogpost-glimpse__foot">
+                        <p class="btn btn--primary blogpost-glimpse__foot__cta">Read more</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- TODO END -->
+
+        </div>
+
+
+
+    </div>
+</section>
+
 {% endspaceless %}
 {% endblock content %}
 
