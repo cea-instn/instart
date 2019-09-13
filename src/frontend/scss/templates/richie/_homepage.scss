@@ -40,6 +40,7 @@
 
     &__cover {
         @include aspect-ratio(930,389);
+        max-height: pxtoem(389);
         overflow: hidden;
 
         img {
@@ -63,6 +64,7 @@
 
     &__cover {
         @include aspect-ratio(930,920);
+        max-height: pxtoem(920);
         overflow: hidden;
 
         img {
@@ -71,8 +73,16 @@
     }
 
     &__list {
+        @include make-right-padding();
         padding-bottom: rem-calc(80px);
-        padding-top: rem-calc(80px);
+        padding-left: pxtopc(154,1860);
+        padding-top: calc(var(--space-lg) * 2);
+
+        &__head {
+            &__title {
+                @include section-title();
+            }
+        }
     }
 
     @include breakpoint(md) {
@@ -83,8 +93,6 @@
         }
 
         &__list {
-            padding-left: pxtopc(154,1860);
-            padding-right: pxtopc(220,1860);
 
             &__head {
                 align-items: flex-start;
@@ -108,7 +116,118 @@
     @include breakpoint(lg) {
         &__list {
             padding-left: rem-calc(154px);
-            padding-right: rem-calc(220px);
+        }
+    }
+}
+
+.courses-selection {
+
+    &__head {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        &__content {
+            @include make-left-padding();
+            background-image: linear-gradient(to bottom, #e5f4ff, #d2e8f8, #bfdbf1, #accfea, #99c3e3);
+            color: var(--color-primary);
+            padding-bottom: rem-calc(50px);
+            padding-right: pxtopc(154,1860);
+            padding-top: calc(var(--space-lg) * 2);
+
+            &__title {
+                @include section-title();
+                color: var(--color-primary);
+                margin-bottom: 1em;
+            }
+            &__foot {
+                display: flex;
+                justify-content: flex-end;
+                margin-top: rem-calc(40px);
+            }
+        }
+
+        &__cover {
+            @include aspect-ratio(930,401);
+            max-height: pxtoem(401);
+            overflow: hidden;
+
+            img {
+                @include fitcover();
+            }
+        }
+    }
+
+    &__list {
+        background-image: linear-gradient(to bottom, #e5f4ff, #d2e8f8, #bfdbf1, #accfea, #99c3e3);
+        padding-bottom: rem-calc(18px);
+        padding-top: calc(var(--space-lg) * 2);
+
+        &__content {
+            @include make-container();
+            @include make-container-max-widths();
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+    }
+
+    .course-glimpse {
+        // Responsive adjustments
+        @include breakpoint(md) {
+            @include sv-flex(
+                            1,
+                            0,
+                            100%
+            );
+        }
+
+        @include breakpoint(md) {
+            @include sv-flex(
+                            1,
+                            0,
+                            48%
+            );
+            margin-left: 4%;
+
+            &:nth-of-type(2n + 1) {
+                margin-left: 0;
+            }
+        }
+
+        @include breakpoint(lg) {
+            @include sv-flex(
+                            1,
+                            0,
+                            22%
+            );
+            margin-left: 3%;
+
+            &:nth-of-type(2n + 1) {
+                margin-left: 3%;
+            }
+            &:nth-of-type(4n + 1) {
+                margin-left: 0;
+            }
+        }
+    }
+
+    @include breakpoint(md) {
+        &__head {
+            &__cover,
+            &__content {
+                width: 50%;
+            }
+        }
+    }
+
+    @include breakpoint(lg) {
+        &__head {
+            &__content {
+                padding-right: rem-calc(154px);
+            }
         }
     }
 }

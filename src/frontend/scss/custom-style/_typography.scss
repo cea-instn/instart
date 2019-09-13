@@ -93,5 +93,10 @@ mark {
             width: 278px;
         }
     }
+}
 
+@mixin section-title {
+    font-size: rem-calc(30px);
+    font-weight: 500;
+    line-height: calc(38 / 30);
 }

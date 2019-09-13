@@ -21,7 +21,6 @@
 
     </div>
 
-
     <div class="cats-selection__cover">
         {% get_placeholder_plugins "home_categories_picture" as plugins or %}
         <p class="cats-selection__cover__empty">{% trans "Cover" %}</p>
@@ -117,6 +116,101 @@
 
 
     </div>
+</section>
+
+<section class="courses-selection">
+
+    <div class="courses-selection__head">
+
+        <div class="courses-selection__head__content">
+            <!-- TODO : mettre en place un placeholder pour le contenu -->
+            <h2 class="courses-selection__head__content__title">Courses selection</h2>
+            <p>Iussisse et propositum obstinatum quod non quod hoc quoque eius neminem numquam quod oblato hoc ob vel vitium intepescit obstinatum haec similia iussisse quod in exitiale accendente in intepescit non in quod et principes more exitiale aetatis principes exitiale quoque.</p>
+            <div class="courses-selection__head__content__foot">
+                <a class="btn btn--primary" href="#">See all</a>
+            </div>
+            <!-- TODO END -->
+        </div>
+
+        <div class="courses-selection__head__cover">
+            {% get_placeholder_plugins "courses_selection_picture" as plugins or %}
+            <p class="courses-selection__head__cover__empty">{% trans "Cover" %}</p>
+            {% endget_placeholder_plugins %}
+            {% blockplugin plugins.0 %}
+            <img
+                    src="{% thumbnail instance.picture 500x500 subject_location=instance.picture.subject_location %}"
+                    srcset="
+                      {% thumbnail instance.picture 500x500 subject_location=instance.picture.subject_location %} 500w,
+                      {% if instance.picture.width >= 1000 %}{% thumbnail instance.picture 1000x1000 subject_location=instance.picture.subject_location %} 1000w,{% endif %}
+                      {% if instance.picture.width >= 2000 %}{% thumbnail instance.picture 2000x2000 subject_location=instance.picture.subject_location %} 2000w{% endif %}
+                    "
+                    sizes="650px"
+                    alt="{% if instance.picture.default_alt_text %}{{ instance.picture.default_alt_text }}{% else %}{% trans 'homepage cover image' %}{% endif %}"
+            />
+            {% endblockplugin %}
+        </div>
+    </div>
+
+    <div class="courses-selection__list">
+        <div class="courses-selection__list__content">
+            <!-- TODO : run a loop to display the 4 last courses (or 4 chosen courses ?) -->
+            <a class="course-glimpse course-glimpse--link" href="/en/courses/first-test-course-take-online/">
+                <div class="course-glimpse__media">
+                    <img alt="" sizes="300px" src="/media/filer_public_thumbnails/filer_public/9e/44/9e44fce3-ae0e-4b4e-b50f-1a57524a10ba/par-20090727-032img.jpg__300x170_q85_crop-smart_subsampling-2.jpg" srcset="/media/filer_public_thumbnails/filer_public/9e/44/9e44fce3-ae0e-4b4e-b50f-1a57524a10ba/par-20090727-032img.jpg__300x170_q85_crop-smart_subsampling-2_upscale.jpg 300w, /media/filer_public_thumbnails/filer_public/9e/44/9e44fce3-ae0e-4b4e-b50f-1a57524a10ba/par-20090727-032img.jpg__600x340_q85_crop-smart_subsampling-2_upscale.jpg 600w, /media/filer_public_thumbnails/filer_public/9e/44/9e44fce3-ae0e-4b4e-b50f-1a57524a10ba/par-20090727-032img.jpg__900x560_q85_crop-smart_subsampling-2_upscale.jpg 900w">
+                </div>
+                <div class="course-glimpse__content">
+                    <div class="course-glimpse__content__wrapper">
+                        <p class="course-glimpse__content__title">First test course to take online</p>
+                        <p>Instn</p>
+                    </div>
+                </div>
+                <div class="course-glimpse__footer">
+                    <p class="course-glimpse__footer__date">Starting on<br><span>Sep 29, 2019</span></p>
+                    <div class="course-glimpse__footer__cta">
+                        <button class="button">Enroll now</button>
+                    </div>
+                </div>
+            </a>
+            <a class="course-glimpse course-glimpse--link" href="/en/courses/courses-title-04/">
+                <div class="course-glimpse__media">
+                    <img alt="" sizes="300px" src="/media/filer_public_thumbnails/filer_public/53/5a/535ae083-4cf7-4e46-9f6c-e36c9777b692/par-20130620-036img.jpg__300x170_q85_crop-smart_subsampling-2.jpg" srcset="/media/filer_public_thumbnails/filer_public/53/5a/535ae083-4cf7-4e46-9f6c-e36c9777b692/par-20130620-036img.jpg__300x170_q85_crop-smart_subsampling-2_upscale.jpg 300w, /media/filer_public_thumbnails/filer_public/53/5a/535ae083-4cf7-4e46-9f6c-e36c9777b692/par-20130620-036img.jpg__600x340_q85_crop-smart_subsampling-2_upscale.jpg 600w, /media/filer_public_thumbnails/filer_public/53/5a/535ae083-4cf7-4e46-9f6c-e36c9777b692/par-20130620-036img.jpg__900x560_q85_crop-smart_subsampling-2_upscale.jpg 900w">
+                </div>
+                <div class="course-glimpse__content">
+                    <div class="course-glimpse__content__wrapper">
+                        <p class="course-glimpse__content__title">Course's title 04</p>
+                        <p>Instn</p>
+                    </div>
+                </div>
+                <div class="course-glimpse__footer"><p class="course-glimpse__footer__date">To be scheduled</p></div>
+            </a>
+            <a class="course-glimpse course-glimpse--link" href="/en/courses/courses-title-09/">
+                <div class="course-glimpse__media">
+                    <img alt="" sizes="300px" src="/media/filer_public_thumbnails/filer_public/13/92/1392d332-1bd0-4e71-acc2-19c284df1c71/par-20130819-023img.jpg__300x170_q85_crop-smart_subsampling-2.jpg" srcset="/media/filer_public_thumbnails/filer_public/13/92/1392d332-1bd0-4e71-acc2-19c284df1c71/par-20130819-023img.jpg__300x170_q85_crop-smart_subsampling-2_upscale.jpg 300w, /media/filer_public_thumbnails/filer_public/13/92/1392d332-1bd0-4e71-acc2-19c284df1c71/par-20130819-023img.jpg__600x340_q85_crop-smart_subsampling-2_upscale.jpg 600w, /media/filer_public_thumbnails/filer_public/13/92/1392d332-1bd0-4e71-acc2-19c284df1c71/par-20130819-023img.jpg__900x560_q85_crop-smart_subsampling-2_upscale.jpg 900w">
+                </div>
+                <div class="course-glimpse__content">
+                    <div class="course-glimpse__content__wrapper">
+                        <p class="course-glimpse__content__title">Course's title 09</p>
+                        <p>Instn</p>
+                    </div>
+                </div>
+                <div class="course-glimpse__footer"><p class="course-glimpse__footer__date">To be scheduled</p></div>
+            </a>
+            <a class="course-glimpse course-glimpse--link" href="/en/courses/courses-title/">
+                <div class="course-glimpse__media">
+                    <img alt="" sizes="300px" src="/media/filer_public_thumbnails/filer_public/ce/89/ce890ea3-a5e6-485f-b479-41a2b0ebe5d5/par-20170428-047img.jpg__300x170_q85_crop-smart_subsampling-2.jpg" srcset="/media/filer_public_thumbnails/filer_public/ce/89/ce890ea3-a5e6-485f-b479-41a2b0ebe5d5/par-20170428-047img.jpg__300x170_q85_crop-smart_subsampling-2_upscale.jpg 300w, /media/filer_public_thumbnails/filer_public/ce/89/ce890ea3-a5e6-485f-b479-41a2b0ebe5d5/par-20170428-047img.jpg__600x340_q85_crop-smart_subsampling-2_upscale.jpg 600w, /media/filer_public_thumbnails/filer_public/ce/89/ce890ea3-a5e6-485f-b479-41a2b0ebe5d5/par-20170428-047img.jpg__900x560_q85_crop-smart_subsampling-2_upscale.jpg 900w">
+                </div>
+                <div class="course-glimpse__content">
+                    <div class="course-glimpse__content__wrapper">
+                        <p class="course-glimpse__content__title">Course's title</p>
+                        <p>Instn</p>
+                    </div>
+                </div>
+                <div class="course-glimpse__footer"><p class="course-glimpse__footer__date">To be scheduled</p></div>
+            </a>
+            <!-- TODO : END -->
+        </div>
+    </div>
+
 </section>
 
 {% endspaceless %}
