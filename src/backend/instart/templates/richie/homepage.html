@@ -213,6 +213,89 @@
 
 </section>
 
+<section class="experts-selection">
+
+    <div class="experts-selection__cover">
+        {% get_placeholder_plugins "experts_selection_picture" as plugins or %}
+        <p class="courses-selection__head__cover__empty">{% trans "Cover" %}</p>
+        {% endget_placeholder_plugins %}
+        {% blockplugin plugins.0 %}
+        <img
+                src="{% thumbnail instance.picture 500x500 subject_location=instance.picture.subject_location %}"
+                srcset="
+                      {% thumbnail instance.picture 500x500 subject_location=instance.picture.subject_location %} 500w,
+                      {% if instance.picture.width >= 1000 %}{% thumbnail instance.picture 1000x1000 subject_location=instance.picture.subject_location %} 1000w,{% endif %}
+                      {% if instance.picture.width >= 2000 %}{% thumbnail instance.picture 2000x2000 subject_location=instance.picture.subject_location %} 2000w{% endif %}
+                    "
+                sizes="650px"
+                alt="{% if instance.picture.default_alt_text %}{{ instance.picture.default_alt_text }}{% else %}{% trans 'homepage cover image' %}{% endif %}"
+        />
+        {% endblockplugin %}
+    </div>
+
+    <div class="experts-selection__list">
+        <!-- TODO : run a loop to display the 2 chosen experts and set convenient placeholders-->
+        <h2 class="experts-selection__list__title">Experts</h2>
+        <div class="experts-selection__list__content">
+
+            <div class="experts-selection__list__content__items">
+                <div class="person-glimpse">
+                    <a class="person-glimpse__media" href="/en/experts/vincent-minier/" tabindex="-1" aria-hidden="true">
+                        <img
+                        src="/media/filer_public_thumbnails/filer_public/2e/e9/2ee948dc-388b-4604-9dad-f14fd960a45c/vincent-minier.jpg__200x200_q85_crop_subsampling-2_upscale.jpg"
+                        srcset="
+          /media/filer_public_thumbnails/filer_public/2e/e9/2ee948dc-388b-4604-9dad-f14fd960a45c/vincent-minier.jpg__200x200_q85_crop_subsampling-2_upscale.jpg 200w,
+          /media/filer_public_thumbnails/filer_public/2e/e9/2ee948dc-388b-4604-9dad-f14fd960a45c/vincent-minier.jpg__400x400_q85_crop_subsampling-2_upscale.jpg 400w," sizes="200px" alt="">
+                    </a>
+                    <div class="person-glimpse__content">
+                        <div class="person-glimpse__content__wrapper">
+                            <a href="/en/experts/vincent-minier/">
+                                <h3 class="person-glimpse__content__wrapper__title">Vincent Minier</h3>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="person-glimpse__foot">
+                        <div class="person-glimpse__foot__categories">
+                            <a class="category-plugin-tag" href="/en/categories/subject/astrophysics/">Astrophysics</a>
+                            <a class="category-plugin-tag" href="/en/categories/subject/quantum-physics/">Quantum physics</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="person-glimpse">
+                    <a class="person-glimpse__media" href="/en/experts/francois-marc/" tabindex="-1" aria-hidden="true">
+                        <img
+                        src="/media/filer_public_thumbnails/filer_public/8e/70/8e703571-3557-4198-a175-78d97b91d952/m-t-elgassier-acz2hic-idk-unsplash.jpg__200x200_q85_crop_subsampling-2_upscale.jpg"
+                        srcset="/media/filer_public_thumbnails/filer_public/8e/70/8e703571-3557-4198-a175-78d97b91d952/m-t-elgassier-acz2hic-idk-unsplash.jpg__200x200_q85_crop_subsampling-2_upscale.jpg 200w,
+          /media/filer_public_thumbnails/filer_public/8e/70/8e703571-3557-4198-a175-78d97b91d952/m-t-elgassier-acz2hic-idk-unsplash.jpg__400x400_q85_crop_subsampling-2_upscale.jpg 400w,
+          /media/filer_public_thumbnails/filer_public/8e/70/8e703571-3557-4198-a175-78d97b91d952/m-t-elgassier-acz2hic-idk-unsplash.jpg__600x600_q85_crop_subsampling-2_upscale.jpg 600w
+        " sizes="200px" alt="">
+                    </a>
+                    <div class="person-glimpse__content">
+                        <div class="person-glimpse__content__wrapper">
+                            <a href="/en/experts/francois-marc/"><h3 class="person-glimpse__content__wrapper__title">François Marc</h3></a>
+                        </div>
+                    </div>
+                    <div class="person-glimpse__foot">
+                        <div class="person-glimpse__foot__categories">
+                            <a class="category-plugin-tag" href="/en/categories/subject/astrophysics/">Astrophysics</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="experts-selection__list__content__text">
+                <p>Iussisse et propositum obstinatum quod non quod hoc quoque eius neminem numquam quod oblato hoc ob vel vitium intepescit obstinatum haec similia iussisse quod in exitiale accendente in intepescit.</p>
+            </div>
+
+        </div>
+        <div class="experts-selection__list__foot">
+            <a class="btn btn--primary" href="#">See all</a>
+        </div>
+        <!-- TODO END -->
+    </div>
+
+</section>
+
 {% endspaceless %}
 {% endblock content %}
 
