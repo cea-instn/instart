@@ -14,7 +14,8 @@
         margin: 0;
         padding: rem-calc(30px) 1rem;
         width: 100%;
-        
+
+
         @include breakpoint(xs) {
             @include make-inner-paddings();
         }
