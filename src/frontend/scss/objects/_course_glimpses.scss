@@ -193,14 +193,6 @@ $richie-course-glimpse-foot-cta-background-hover: $firebrick6 !default;
         @include sv-flex(
                         1,
                         0,
-                        100%
-        );
-    }
-
-    @include breakpoint(md) {
-        @include sv-flex(
-                        1,
-                        0,
                         48%
         );
         margin-left: 4%;

@@ -13,8 +13,8 @@
         background: linear-gradient(0deg, #0F466D 0%, var(--color-primary) 100%);
         margin: 0;
         padding: rem-calc(30px) 1rem;
-        transform: none;
         width: 100%;
+
 
         @include breakpoint(xs) {
             @include make-inner-paddings();
@@ -108,6 +108,7 @@
         .category-plugin-tag {
             font-size: pxtoem(14);
             font-weight: bold;
+            margin-bottom: pxtoem(12,14);
         }
     }
 

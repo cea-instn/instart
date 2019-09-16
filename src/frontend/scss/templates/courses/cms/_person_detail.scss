@@ -1,32 +1,120 @@
 $richie-person-detail-media-size: 10rem;
 
 .person-detail {
-    @include make-container-max-widths();
-    margin: 0 auto;
-    padding: 1rem var(--grid-gutter-width);
-    background: var(--richie-content-container-bg);
+    // Cell base width for lowest breakpoint
+    @include sv-flex(
+                    1,
+                    0,
+                    100%
+    );
+
+    background: linear-gradient(0deg, var(--color-primary-darker) 0%, var(--color-primary) 100%);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0;
+    padding: pxtoem(30) 1rem;
+    text-decoration: none;
+
+    &__content {
+        padding-bottom: pxtoem(65);
+
+        @include breakpoint(lg) {
+            width: pxtopc(538,1368);
+        }
+
+        .organization-glimpse-list {
+            display: none;
+        }
+    }
+
+    &__meta {
+        .course-glimpse-list {
+            padding-top: 0;
+
+            &__title {
+                font-size: pxtoem(20);
+                margin-bottom: 2em;
+                padding: 0;
+                text-transform: uppercase;
+            }
+        }
+
+        .course-glimpse__icon {
+            display: none; // TODO : maybe this will evolve
+        }
+
+        .blogpost-glimpse-list {
+            padding-top: rem-calc(81px);
+
+            &__title {
+                font-size: pxtoem(20);
+                margin-bottom: 2em;
+                padding: 0;
+                text-transform: uppercase;
+
+                &:before {
+                    display: none;
+                }
+            }
+        }
+
+        .blogpost-glimpse {
+            padding: rem-calc(20px);
+        }
+
+        // Responsive adjustments
+        @include breakpoint(sm) {
+            .blogpost-glimpse,
+            .course-glimpse {
+                @include sv-flex(
+                                1,
+                                0,
+                                48%
+                );
+                margin-left: 4%;
+
+                &:nth-of-type(2n + 1) {
+                    margin-left: 0;
+                }
+            }
+        }
+
+        @include breakpoint(lg) {
+            width: pxtopc(538,1368);
+
+            .blogpost-glimpse,
+            .course-glimpse {
+                @include sv-flex(
+                                1,
+                                0,
+                                48%
+                );
+                margin-left: 4%;
+
+                &:nth-of-type(2n + 1) {
+                    margin-left: 0;
+                }
+
+                &:nth-of-type(3n + 1) {
+                    margin-left: inherit;
+                }
+            }
+        }
+
+    }
 
     &__card {
+        align-items: flex-start;
         display: flex;
-        flex-direction: column;
-        margin: 0 0 2rem;
-
-        @include breakpoint(sm) {
-            flex-direction: row;
-        }
+        margin: 0 0 pxtoem(65);
 
         &__media {
             flex-grow: 0;
             flex-shrink: 0;
-            align-self: center;
-            width: 10rem;
-            height: 10rem;
-            margin: 0 0 1rem;
-
-            @include breakpoint(sm) {
-                order: 1; // Media should be after content on larger screens
-                margin: 0 0 0 1rem;
-            }
+            height: rem-calc(109px);
+            margin: 0 rem-calc(30px) 1rem 0;
+            width: rem-calc(109px);
 
             & > img {
                 width: 100%;
@@ -37,8 +125,7 @@ $richie-person-detail-media-size: 10rem;
 
             img {
                 margin: 0 auto;
-                max-width: $richie-person-detail-media-size;
-                border-radius: 100%;
+                max-width: rem-calc(109px);
             }
 
             @include m-o-media_empty(
@@ -53,16 +140,23 @@ $richie-person-detail-media-size: 10rem;
             flex-grow: 1;
 
             &__title {
-                text-align: center;
-
-                @include breakpoint(sm) {
-                    text-align: left;
-                }
+                font-size: pxtoem(20);
+                line-height: 1;
+                margin-bottom: 1rem;
             }
 
             &__categories {
-                margin: 0 0 0.5rem;
+                margin: 0 0 pxtoem(55);
+
+                .category-plugin-tag {
+                    font-weight: bold;
+                    margin-bottom: pxtoem(10);
+                }
             }
         }
+    }
+
+    @include breakpoint(xs) {
+        @include make-inner-paddings();
     }
 }

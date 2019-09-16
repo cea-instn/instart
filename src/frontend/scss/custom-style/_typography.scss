@@ -75,19 +75,23 @@ mark {
     font-size: rem-calc(30px);
     font-weight: 500;
     line-height: calc(38 / 30);
-    position: relative;
     text-transform: uppercase;
 
-    &:before {
-        background: url('../../images/arrow-marker.svg') rem-calc(-55px) 0 no-repeat;
-        background-size: cover;
-        content: '';
-        display: block;
-        height: 70px;
-        left: 0;
-        position: absolute;
-        top: 50%;
-        transform: translate(-100%,-50%);
-        width: 278px;
+    span {
+        position: relative;
+
+        &:before {
+            background: url('../../images/arrow-marker.svg') rem-calc(-55px) 0 no-repeat;
+            background-size: cover;
+            content: '';
+            display: block;
+            height: 70px;
+            left: 0;
+            position: absolute;
+            top: 50%;
+            transform: translate(-100%,-50%);
+            width: 278px;
+        }
     }
+
 }

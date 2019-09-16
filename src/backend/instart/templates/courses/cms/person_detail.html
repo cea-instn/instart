@@ -1,0 +1,101 @@
+{% extends "richie/fullwidth.html" %}
+{% load cms_tags extra_tags i18n thumbnail %}
+
+{% block content %}
+{% with header_level=2 person=current_page.person %}
+<div class="person-glimpse-list">
+    <h1 class="person-glimpse-list__title"><span>{% trans 'Experts' %}</span></h1>
+</div>
+
+<div class="person-detail">
+
+    <div class="person-detail__content">
+
+        <div class="person-detail__card">
+            <div class="person-detail__card__media">
+                {% get_placeholder_plugins "portrait" as plugins or %}
+                <div class="person-detail__card__media__empty">{% trans "Portrait" %}</div>
+                {% endget_placeholder_plugins %}
+                {% blockplugin plugins.0 %}
+                <img
+                        src="{% thumbnail instance.picture 200x200 crop upscale subject_location=instance.picture.subject_location %}"
+                        srcset="
+                {% thumbnail instance.picture 200x200 crop upscale subject_location=instance.picture.subject_location %} 200w,
+                {% if instance.picture.width >= 400 %}{% thumbnail instance.picture 400x400 crop upscale subject_location=instance.picture.subject_location %} 400w,{% endif %}
+                {% if instance.picture.width >= 600 %}{% thumbnail instance.picture 600x600 crop upscale subject_location=instance.picture.subject_location %} 600w{% endif %}
+              "
+                        sizes="200px"
+                        alt="{% if instance.picture.default_alt_text %}{{ instance.picture.default_alt_text }}{% else %}{% blocktrans with title=current_page.get_title %}{{ title }} avatar{% endblocktrans %}{% endif %}"
+                />
+                {% endblockplugin %}
+            </div>
+
+            <div class="person-detail__card__content">
+                <h1 class="person-detail__card__content__title">{% render_model current_page "title" %}</h1>
+
+                {% placeholder "bio" or %}
+                <p class="person-detail__card__content__empty">{% trans "Enter your bio here..." %}</p>
+                {% endplaceholder %}
+            </div>
+        </div>
+
+        {% if current_page.publisher_is_draft or not current_page|is_empty_placeholder:"categories" %}
+        <div class="person-detail__card__content__categories">
+            {% with form_factor="tag" %}
+            {% placeholder "categories" or %}
+            <p class="person-detail__card__content__categories__empty">
+                {% trans "No associated categories" %}
+            </p>
+            {% endplaceholder %}
+            {% endwith %}
+        </div>
+        {% endif %}
+
+        {% placeholder "maincontent" %}
+
+        {% if current_page.publisher_is_draft or not current_page|is_empty_placeholder:"organizations" %}
+        <section class="organization-glimpse-list">
+            <h2 class="organization-glimpse-list__title">{% trans "Organizations" %}</h2>
+            {% placeholder "organizations" or %}
+            <p class="organization-glimpse-list__empty">
+                {% trans "No associated organizations" %}
+            </p>
+            {% endplaceholder %}
+        </section>
+        {% endif %}
+
+    </div>
+
+    <div class="person-detail__meta">
+
+        {% with courses=person.get_courses %}
+        {% if courses %}
+        <section class="course-glimpse-list">
+            <h2 class="course-glimpse-list__title">{% trans "Courses" %}</h2>
+            {% for course in courses %}
+            {% if course.extended_object.publisher_is_draft or course.check_publication %}
+            {% include "courses/cms/fragment_course_glimpse.html" with course=course %}
+            {% endif %}
+            {% endfor %}
+        </section>
+        {% endif %}
+        {% endwith %}
+
+        {% with blogposts=person.get_blogposts %}
+        {% if blogposts %}
+        <section class="blogpost-glimpse-list">
+            <h2 class="blogpost-glimpse-list__title">{% trans "Blogposts" %}</h2>
+            {% for blogpost in blogposts %}
+            {% if blogpost.extended_object.publisher_is_draft or blogpost.check_publication %}
+            {% include "courses/cms/fragment_blogpost_glimpse.html" with blogpost=blogpost %}
+            {% endif %}
+            {% endfor %}
+        </section>
+        {% endif %}
+        {% endwith %}
+
+    </div>
+
+</div>
+{% endwith %}
+{% endblock content %}
