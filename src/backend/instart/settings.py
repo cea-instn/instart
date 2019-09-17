@@ -172,8 +172,6 @@ class Base(DRFMixin, RichieCoursesConfigurationMixin, Configuration):
     RICHIE_SECTION_TEMPLATES = (
         ("richie/section/section.html", _("Default")),
         ("richie/section/section_cadenced.html", _("Highlighted items")),
-        ("richie/section/section_with_right_cover.html", _("Section with right cover")),
-        ("richie/section/section_with_left_cover.html", _("Section with left cover")),
     )
 
     CMS_PLACEHOLDER_CONF = {
@@ -230,21 +228,6 @@ class Base(DRFMixin, RichieCoursesConfigurationMixin, Configuration):
             "name": _("Partners selection : intro"),
             "plugins": ["CKEditorPlugin"],
         },
-
-#         "richie/homepage.html highlightcats": {
-#             "name": _("Highlighted categories"),
-#             "plugins": ["CategoryPlugin", "SectionPlugin"],
-#             "child_classes": {
-#                 "SectionPlugin": [
-#                     "BlogPostPlugin",
-#                     "CoursePlugin",
-#                     "CategoryPlugin",
-#                     "LinkPlugin",
-#                     "OrganizationPlugin",
-#                     "PersonPlugin",
-#                 ]
-#             },
-#         },
         # Single column page
         "richie/single-column.html maincontent": {
             "name": _("Main content"),
