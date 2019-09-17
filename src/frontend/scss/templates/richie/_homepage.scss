@@ -224,8 +224,8 @@
     @include flex-sb();
 
     &__cover {
-        @include aspect-ratio(930,502);
-        max-height: pxtoem(502);
+        @include aspect-ratio(930,550);
+        max-height: pxtoem(550);
         overflow: hidden;
 
         img {
@@ -291,6 +291,10 @@
 
             &__foot {
                 margin-top: 0;
+            }
+
+            &__content__wrapper__bio {
+                display: none;
             }
 
             &__content a:after,

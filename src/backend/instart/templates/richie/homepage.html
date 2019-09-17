@@ -67,54 +67,9 @@
 
         <div class="last-news__list__container">
 
-            <!-- TODO : mettre en place une boucle pour afficher les 2 dernières actualités -->
-
-            <a href="/en/news/innovation-and-e-learning/" class="blogpost-glimpse blogpost-glimpse--link blogpost-glimpse--draft">
-                <div class="blogpost-glimpse__content">
-                    <div class="blogpost-glimpse__header">
-                        <p class="blogpost-glimpse__header__date">
-                            Aug. 14, 2019
-                        </p>
-                    </div>
-                    <div class="blogpost-glimpse__content__wrapper">
-                        <h2 class="blogpost-glimpse__content__title">Innovation and e-learning</h2>
-                        <p>
-                            Nulla vitae elit libero, a pharetra augue. Vestibulum id ligula porta felis euismod semper. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-
-                        </p>
-                    </div>
-                    <div class="blogpost-glimpse__foot">
-                        <p class="btn btn--primary blogpost-glimpse__foot__cta">Read more</p>
-                    </div>
-                </div>
-            </a>
-
-            <a href="/en/news/innovation-and-e-learning/" class="blogpost-glimpse blogpost-glimpse--link blogpost-glimpse--draft">
-                <div class="blogpost-glimpse__content">
-                    <div class="blogpost-glimpse__header">
-                        <p class="blogpost-glimpse__header__date">
-                            Aug. 14, 2019
-                        </p>
-                    </div>
-                    <div class="blogpost-glimpse__content__wrapper">
-                        <h2 class="blogpost-glimpse__content__title">Innovation and e-learning</h2>
-                        <p>
-                            Nulla vitae elit libero, a pharetra augue. Vestibulum id ligula porta felis euismod semper. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-
-                        </p>
-                    </div>
-                    <div class="blogpost-glimpse__foot">
-                        <p class="btn btn--primary blogpost-glimpse__foot__cta">Read more</p>
-                    </div>
-                </div>
-            </a>
-
-            <!-- TODO END -->
+            {% placeholder "home_news" %}
 
         </div>
-
-
-
     </div>
 </section>
 
@@ -124,10 +79,10 @@
 
         <div class="courses-selection__head__content">
             <!-- TODO : mettre en place un placeholder pour le contenu -->
-            <h2 class="courses-selection__head__content__title">Courses selection</h2>
-            <p>Iussisse et propositum obstinatum quod non quod hoc quoque eius neminem numquam quod oblato hoc ob vel vitium intepescit obstinatum haec similia iussisse quod in exitiale accendente in intepescit non in quod et principes more exitiale aetatis principes exitiale quoque.</p>
+            <h2 class="courses-selection__head__content__title">{% trans "Courses selection" %}</h2>
+            {% placeholder "home_courses_intro" %}
             <div class="courses-selection__head__content__foot">
-                <a class="btn btn--primary" href="#">See all</a>
+                <a href="{% page_url 'courses' %}" class="btn btn--primary">{% trans 'See all' %}</a>
             </div>
             <!-- TODO END -->
         </div>
@@ -153,61 +108,9 @@
 
     <div class="courses-selection__list">
         <div class="courses-selection__list__content">
-            <!-- TODO : run a loop to display the 4 last courses (or 4 chosen courses ?) -->
-            <a class="course-glimpse course-glimpse--link" href="/en/courses/first-test-course-take-online/">
-                <div class="course-glimpse__media">
-                    <img alt="" sizes="300px" src="/media/filer_public_thumbnails/filer_public/9e/44/9e44fce3-ae0e-4b4e-b50f-1a57524a10ba/par-20090727-032img.jpg__300x170_q85_crop-smart_subsampling-2.jpg" srcset="/media/filer_public_thumbnails/filer_public/9e/44/9e44fce3-ae0e-4b4e-b50f-1a57524a10ba/par-20090727-032img.jpg__300x170_q85_crop-smart_subsampling-2_upscale.jpg 300w, /media/filer_public_thumbnails/filer_public/9e/44/9e44fce3-ae0e-4b4e-b50f-1a57524a10ba/par-20090727-032img.jpg__600x340_q85_crop-smart_subsampling-2_upscale.jpg 600w, /media/filer_public_thumbnails/filer_public/9e/44/9e44fce3-ae0e-4b4e-b50f-1a57524a10ba/par-20090727-032img.jpg__900x560_q85_crop-smart_subsampling-2_upscale.jpg 900w">
-                </div>
-                <div class="course-glimpse__content">
-                    <div class="course-glimpse__content__wrapper">
-                        <p class="course-glimpse__content__title">First test course to take online</p>
-                        <p>Instn</p>
-                    </div>
-                </div>
-                <div class="course-glimpse__footer">
-                    <p class="course-glimpse__footer__date">Starting on<br><span>Sep 29, 2019</span></p>
-                    <div class="course-glimpse__footer__cta">
-                        <button class="button">Enroll now</button>
-                    </div>
-                </div>
-            </a>
-            <a class="course-glimpse course-glimpse--link" href="/en/courses/courses-title-04/">
-                <div class="course-glimpse__media">
-                    <img alt="" sizes="300px" src="/media/filer_public_thumbnails/filer_public/53/5a/535ae083-4cf7-4e46-9f6c-e36c9777b692/par-20130620-036img.jpg__300x170_q85_crop-smart_subsampling-2.jpg" srcset="/media/filer_public_thumbnails/filer_public/53/5a/535ae083-4cf7-4e46-9f6c-e36c9777b692/par-20130620-036img.jpg__300x170_q85_crop-smart_subsampling-2_upscale.jpg 300w, /media/filer_public_thumbnails/filer_public/53/5a/535ae083-4cf7-4e46-9f6c-e36c9777b692/par-20130620-036img.jpg__600x340_q85_crop-smart_subsampling-2_upscale.jpg 600w, /media/filer_public_thumbnails/filer_public/53/5a/535ae083-4cf7-4e46-9f6c-e36c9777b692/par-20130620-036img.jpg__900x560_q85_crop-smart_subsampling-2_upscale.jpg 900w">
-                </div>
-                <div class="course-glimpse__content">
-                    <div class="course-glimpse__content__wrapper">
-                        <p class="course-glimpse__content__title">Course's title 04</p>
-                        <p>Instn</p>
-                    </div>
-                </div>
-                <div class="course-glimpse__footer"><p class="course-glimpse__footer__date">To be scheduled</p></div>
-            </a>
-            <a class="course-glimpse course-glimpse--link" href="/en/courses/courses-title-09/">
-                <div class="course-glimpse__media">
-                    <img alt="" sizes="300px" src="/media/filer_public_thumbnails/filer_public/13/92/1392d332-1bd0-4e71-acc2-19c284df1c71/par-20130819-023img.jpg__300x170_q85_crop-smart_subsampling-2.jpg" srcset="/media/filer_public_thumbnails/filer_public/13/92/1392d332-1bd0-4e71-acc2-19c284df1c71/par-20130819-023img.jpg__300x170_q85_crop-smart_subsampling-2_upscale.jpg 300w, /media/filer_public_thumbnails/filer_public/13/92/1392d332-1bd0-4e71-acc2-19c284df1c71/par-20130819-023img.jpg__600x340_q85_crop-smart_subsampling-2_upscale.jpg 600w, /media/filer_public_thumbnails/filer_public/13/92/1392d332-1bd0-4e71-acc2-19c284df1c71/par-20130819-023img.jpg__900x560_q85_crop-smart_subsampling-2_upscale.jpg 900w">
-                </div>
-                <div class="course-glimpse__content">
-                    <div class="course-glimpse__content__wrapper">
-                        <p class="course-glimpse__content__title">Course's title 09</p>
-                        <p>Instn</p>
-                    </div>
-                </div>
-                <div class="course-glimpse__footer"><p class="course-glimpse__footer__date">To be scheduled</p></div>
-            </a>
-            <a class="course-glimpse course-glimpse--link" href="/en/courses/courses-title/">
-                <div class="course-glimpse__media">
-                    <img alt="" sizes="300px" src="/media/filer_public_thumbnails/filer_public/ce/89/ce890ea3-a5e6-485f-b479-41a2b0ebe5d5/par-20170428-047img.jpg__300x170_q85_crop-smart_subsampling-2.jpg" srcset="/media/filer_public_thumbnails/filer_public/ce/89/ce890ea3-a5e6-485f-b479-41a2b0ebe5d5/par-20170428-047img.jpg__300x170_q85_crop-smart_subsampling-2_upscale.jpg 300w, /media/filer_public_thumbnails/filer_public/ce/89/ce890ea3-a5e6-485f-b479-41a2b0ebe5d5/par-20170428-047img.jpg__600x340_q85_crop-smart_subsampling-2_upscale.jpg 600w, /media/filer_public_thumbnails/filer_public/ce/89/ce890ea3-a5e6-485f-b479-41a2b0ebe5d5/par-20170428-047img.jpg__900x560_q85_crop-smart_subsampling-2_upscale.jpg 900w">
-                </div>
-                <div class="course-glimpse__content">
-                    <div class="course-glimpse__content__wrapper">
-                        <p class="course-glimpse__content__title">Course's title</p>
-                        <p>Instn</p>
-                    </div>
-                </div>
-                <div class="course-glimpse__footer"><p class="course-glimpse__footer__date">To be scheduled</p></div>
-            </a>
-            <!-- TODO : END -->
+
+            {% placeholder "courses_selection" %}
+
         </div>
     </div>
 
@@ -234,64 +137,23 @@
     </div>
 
     <div class="experts-selection__list">
-        <!-- TODO : run a loop to display the 2 chosen experts and set convenient placeholders-->
-        <h2 class="experts-selection__list__title">Experts</h2>
+        <h2 class="experts-selection__list__title">{% trans "Experts" %}</h2>
         <div class="experts-selection__list__content">
 
             <div class="experts-selection__list__content__items">
-                <div class="person-glimpse">
-                    <a class="person-glimpse__media" href="/en/experts/vincent-minier/" tabindex="-1" aria-hidden="true">
-                        <img
-                        src="/media/filer_public_thumbnails/filer_public/2e/e9/2ee948dc-388b-4604-9dad-f14fd960a45c/vincent-minier.jpg__200x200_q85_crop_subsampling-2_upscale.jpg"
-                        srcset="
-          /media/filer_public_thumbnails/filer_public/2e/e9/2ee948dc-388b-4604-9dad-f14fd960a45c/vincent-minier.jpg__200x200_q85_crop_subsampling-2_upscale.jpg 200w,
-          /media/filer_public_thumbnails/filer_public/2e/e9/2ee948dc-388b-4604-9dad-f14fd960a45c/vincent-minier.jpg__400x400_q85_crop_subsampling-2_upscale.jpg 400w," sizes="200px" alt="">
-                    </a>
-                    <div class="person-glimpse__content">
-                        <div class="person-glimpse__content__wrapper">
-                            <a href="/en/experts/vincent-minier/">
-                                <h3 class="person-glimpse__content__wrapper__title">Vincent Minier</h3>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="person-glimpse__foot">
-                        <div class="person-glimpse__foot__categories">
-                            <a class="category-plugin-tag" href="/en/categories/subject/astrophysics/">Astrophysics</a>
-                            <a class="category-plugin-tag" href="/en/categories/subject/quantum-physics/">Quantum physics</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="person-glimpse">
-                    <a class="person-glimpse__media" href="/en/experts/francois-marc/" tabindex="-1" aria-hidden="true">
-                        <img
-                        src="/media/filer_public_thumbnails/filer_public/8e/70/8e703571-3557-4198-a175-78d97b91d952/m-t-elgassier-acz2hic-idk-unsplash.jpg__200x200_q85_crop_subsampling-2_upscale.jpg"
-                        srcset="/media/filer_public_thumbnails/filer_public/8e/70/8e703571-3557-4198-a175-78d97b91d952/m-t-elgassier-acz2hic-idk-unsplash.jpg__200x200_q85_crop_subsampling-2_upscale.jpg 200w,
-          /media/filer_public_thumbnails/filer_public/8e/70/8e703571-3557-4198-a175-78d97b91d952/m-t-elgassier-acz2hic-idk-unsplash.jpg__400x400_q85_crop_subsampling-2_upscale.jpg 400w,
-          /media/filer_public_thumbnails/filer_public/8e/70/8e703571-3557-4198-a175-78d97b91d952/m-t-elgassier-acz2hic-idk-unsplash.jpg__600x600_q85_crop_subsampling-2_upscale.jpg 600w
-        " sizes="200px" alt="">
-                    </a>
-                    <div class="person-glimpse__content">
-                        <div class="person-glimpse__content__wrapper">
-                            <a href="/en/experts/francois-marc/"><h3 class="person-glimpse__content__wrapper__title">François Marc</h3></a>
-                        </div>
-                    </div>
-                    <div class="person-glimpse__foot">
-                        <div class="person-glimpse__foot__categories">
-                            <a class="category-plugin-tag" href="/en/categories/subject/astrophysics/">Astrophysics</a>
-                        </div>
-                    </div>
-                </div>
+
+                {% placeholder "experts_selection" %}
+
             </div>
 
             <div class="experts-selection__list__content__text">
-                <p>Iussisse et propositum obstinatum quod non quod hoc quoque eius neminem numquam quod oblato hoc ob vel vitium intepescit obstinatum haec similia iussisse quod in exitiale accendente in intepescit.</p>
+                {% placeholder "experts_selection_intro" %}
             </div>
 
         </div>
         <div class="experts-selection__list__foot">
-            <a class="btn btn--primary" href="#">See all</a>
+            <a href="{% page_url 'persons' %}" class="btn btn--primary">{% trans 'See all' %}</a>
         </div>
-        <!-- TODO END -->
     </div>
 
 </section>
@@ -299,7 +161,6 @@
 <section class="partners">
 
     <div class="partners__intro">
-        <!-- TODO : rendre editable -->
         <div class="partners__intro__icons">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89.281 52.301"><g transform="translate(-651.653 -286.565)"><path d="M721.384,324.665a18.55,18.55,0,1,0,0-37.1h-23.56v.038c-.253-.01-.5-.038-.757-.038a18.55,18.55,0,0,0,0,37.1c.256,0,.5-.028.757-.038v.038Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"/><path d="M727.654,308.688a2.573,2.573,0,0,0,0-5.146h-3.268v.005c-.035,0-.07-.005-.1-.005a2.573,2.573,0,1,0,0,5.146c.035,0,.07,0,.1,0v0Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"/><line x1="10.319" transform="translate(729.615 306.115)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"/><path d="M721.707,306.115h-5.427v-18.55" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"/><line y1="18.55" transform="translate(716.281 306.115)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"/><path d="M678.517,306.115H669.38s-8.1-.429-8.1,7.235v15.812s.357,8.7-9.63,8.7" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"/></g>
             </svg>
@@ -313,24 +174,24 @@
                 </g>
             </svg>
         </div>
-        <h2 class="partners__intro__title">Digitalisez vos formations et expertises</h2>
+        <h2 class="partners__intro__title">{% trans "Digitalisez vos formations et expertises" %}</h2>
         <div class="partners__intro__content">
-            <p>Iussisse et propositum obstinatum quod non quod hoc quoque eius neminem numquam quod oblato hoc ob vel vitium intepescit obstinatum haec similia iussisse quod in exitiale accendente in intepescit non in quod et principes more exitiale aetatis principes exitiale quoque.</p>
+            {% placeholder "partners_intro" %}
         </div>
         <div class="partners__intro__foot">
-            <a href="#" class="btn btn--primary">Commencer</a>
+            <!-- TODO : where does this link go ? -->
+            <a href="{% page_url 'persons' %}" class="btn btn--primary">{% trans 'Begin' %}</a>
+            <!-- TODO : END -->
         </div>
-        <!-- TODO : END -->
     </div>
 
     <div class="partners__selection">
-        <!-- TODO : rendre editable -->
-        <h2 class="partners__selection__title">Partners</h2>
+        <h2 class="partners__selection__title">{% trans "Partners" %}</h2>
         <div class="partners__selection__content">
-            <p>Iussisse et propositum obstinatum quod non quod hoc quoque eius neminem numquam quod oblato hoc ob vel vitium intepescit obstinatum haec similia iussisse quod in exitiale accendente in intepescit non in quod et principes more exitiale aetatis principes exitiale quoque.</p>
+            {% placeholder "partners_selection_intro" %}
         </div>
-        <!-- TODO : END -->
-        <!-- TODO : selection de 4 partners -->
+
+        <!-- TODO : 4 partners selection : is there a plugin for this object ? or maybe we can make it with the person object ? -->
         <div class="partner-glimpse-list">
             <div class="partner-glimpse">
                 <h3 class="partner-glimpse__title"><a href="#">Partner's name</a></h3>
@@ -347,7 +208,9 @@
         </div>
         <!-- TODO : END -->
         <div class="partners__selection__foot">
-            <a href="#" class="btn btn--primary">See all</a>
+            <!-- TODO : where does this link go ? -->
+            <a href="{% page_url 'persons' %}" class="btn btn--primary">{% trans 'See all' %}</a>
+            <!-- TODO : END -->
         </div>
 
     </div>

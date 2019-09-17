@@ -173,7 +173,7 @@ class Base(DRFMixin, RichieCoursesConfigurationMixin, Configuration):
         ("richie/section/section.html", _("Default")),
         ("richie/section/section_cadenced.html", _("Highlighted items")),
         ("richie/section/section_with_right_cover.html", _("Section with right cover")),
-        ("richie/section/section_with_right_cover.html", _("Section with left cover")),
+        ("richie/section/section_with_left_cover.html", _("Section with left cover")),
     )
 
     CMS_PLACEHOLDER_CONF = {
@@ -183,20 +183,68 @@ class Base(DRFMixin, RichieCoursesConfigurationMixin, Configuration):
             "plugins": ["CategoryPlugin"],
             "limits": {"CategoryPlugin": 6},
         },
-        "richie/homepage.html highlightcats": {
-            "name": _("Highlighted categories"),
-            "plugins": ["CategoryPlugin", "SectionPlugin"],
-            "child_classes": {
-                "SectionPlugin": [
-                    "BlogPostPlugin",
-                    "CoursePlugin",
-                    "CategoryPlugin",
-                    "LinkPlugin",
-                    "OrganizationPlugin",
-                    "PersonPlugin",
-                ]
-            },
+        "richie/homepage.html home_categories_picture": {
+            "name": _("Highlighted categories block : cover"),
+            "plugins": ["SimplePicturePlugin"],
+            "limits": {"SimplePicturePlugin": 1},
         },
+        "richie/homepage.html last_news_picture": {
+            "name": _("News block : cover"),
+            "plugins": ["SimplePicturePlugin"],
+            "limits": {"SimplePicturePlugin": 1},
+        },
+        "richie/homepage.html home_news": {
+            "name": _("Highlighted news"),
+            "plugins": ["BlogPostPlugin"],
+            "limits": {"BlogPostPlugin": 2},
+        },
+        "richie/homepage.html home_courses_intro": {
+            "name": _("Courses selection : intro"),
+            "plugins": ["CKEditorPlugin"],
+        },
+        "richie/homepage.html courses_selection_picture": {
+            "name": _("Courses selection : cover"),
+            "plugins": ["SimplePicturePlugin"],
+            "limits": {"SimplePicturePlugin": 1},
+        },
+        "richie/homepage.html courses_selection": {
+            "name": _("Highlighted courses"),
+            "plugins": ["CoursePlugin"],
+            "limits": {"CoursePlugin": 4},
+        },
+        "richie/homepage.html experts_selection_picture": {
+            "name": _("Experts selection : cover"),
+            "plugins": ["SimplePicturePlugin"],
+            "limits": {"SimplePicturePlugin": 1},
+        },
+        "richie/homepage.html experts_selection": {
+            "name": _("Highlighted experts"),
+            "plugins": ["PersonPlugin"],
+            "limits": {"PersonPlugin": 2},
+        },
+        "richie/homepage.html experts_selection_intro": {
+            "name": _("Experts selection : intro"),
+            "plugins": ["CKEditorPlugin"],
+        },
+        "richie/homepage.html partners_selection_intro": {
+            "name": _("Partners selection : intro"),
+            "plugins": ["CKEditorPlugin"],
+        },
+
+#         "richie/homepage.html highlightcats": {
+#             "name": _("Highlighted categories"),
+#             "plugins": ["CategoryPlugin", "SectionPlugin"],
+#             "child_classes": {
+#                 "SectionPlugin": [
+#                     "BlogPostPlugin",
+#                     "CoursePlugin",
+#                     "CategoryPlugin",
+#                     "LinkPlugin",
+#                     "OrganizationPlugin",
+#                     "PersonPlugin",
+#                 ]
+#             },
+#         },
         # Single column page
         "richie/single-column.html maincontent": {
             "name": _("Main content"),
