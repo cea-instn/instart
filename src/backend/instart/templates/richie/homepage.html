@@ -3,17 +3,17 @@
 {% block content %}
 {% spaceless %}
 
-<section class="cats-selection">
+<section class="homepage__cats-selection">
 
-    <div class="cats-selection__list">
+    <div class="homepage__cats-selection__list">
 
-        <h1 class="cats-selection__list__title">{% trans "Develop and evaluate your skills" %}</h1>
+        <h1 class="homepage__cats-selection__list__title">{% trans "Develop and evaluate your skills" %}</h1>
 
         {% with form_factor="tag" %}
         {% if current_page.publisher_is_draft or not current_page|is_empty_placeholder:"home_categories" %}
-        <div class="cats-selection__list__tags">
+        <div class="homepage__cats-selection__list__tags">
             {% page_placeholder "home_categories" current_page or %}
-            <span class="cats-selection__list__tags__empty">{% trans 'No categories yet.' %}</span>
+            <span class="homepage__cats-selection__list__tags__empty">{% trans 'No categories yet.' %}</span>
             {% endpage_placeholder %}
         </div>
         {% endif %}
@@ -21,9 +21,9 @@
 
     </div>
 
-    <div class="cats-selection__cover">
+    <div class="homepage__cats-selection__cover">
         {% get_placeholder_plugins "home_categories_picture" as plugins or %}
-        <p class="cats-selection__cover__empty">{% trans "Cover" %}</p>
+        <p class="homepage__cats-selection__cover__empty">{% trans "Cover" %}</p>
         {% endget_placeholder_plugins %}
         {% blockplugin plugins.0 %}
         <img
@@ -41,10 +41,10 @@
 
 </section>
 
-<section class="last-news">
-    <div class="last-news__cover">
+<section class="homepage__last-news">
+    <div class="homepage__last-news__cover">
         {% get_placeholder_plugins "last_news_picture" as plugins or %}
-        <p class="last-news__cover__empty">{% trans "Cover" %}</p>
+        <p class="homepage__last-news__cover__empty">{% trans "Cover" %}</p>
         {% endget_placeholder_plugins %}
         {% blockplugin plugins.0 %}
         <img
@@ -59,13 +59,13 @@
         />
         {% endblockplugin %}
     </div>
-    <div class="last-news__list">
-        <div class="last-news__list__head">
-            <h2 class="last-news__list__head__title">{% trans "News" %}</h2>
+    <div class="homepage__last-news__list">
+        <div class="homepage__last-news__list__head">
+            <h2 class="homepage__last-news__list__head__title">{% trans "News" %}</h2>
             <a href="{% page_url 'blogposts' %}" class="btn btn--primary link-news">{% trans 'See all posts' %}</a>
         </div>
 
-        <div class="last-news__list__container">
+        <div class="homepage__last-news__list__container">
 
             {% placeholder "home_news" %}
 
@@ -73,23 +73,23 @@
     </div>
 </section>
 
-<section class="courses-selection">
+<section class="homepage__courses-selection">
 
-    <div class="courses-selection__head">
+    <div class="homepage__courses-selection__head">
 
-        <div class="courses-selection__head__content">
+        <div class="homepage__courses-selection__head__content">
             <!-- TODO : mettre en place un placeholder pour le contenu -->
-            <h2 class="courses-selection__head__content__title">{% trans "Courses selection" %}</h2>
+            <h2 class="homepage__courses-selection__head__content__title">{% trans "Courses selection" %}</h2>
             {% placeholder "home_courses_intro" %}
-            <div class="courses-selection__head__content__foot">
+            <div class="homepage__courses-selection__head__content__foot">
                 <a href="{% page_url 'courses' %}" class="btn btn--primary">{% trans 'See all' %}</a>
             </div>
             <!-- TODO END -->
         </div>
 
-        <div class="courses-selection__head__cover">
+        <div class="homepage__courses-selection__head__cover">
             {% get_placeholder_plugins "courses_selection_picture" as plugins or %}
-            <p class="courses-selection__head__cover__empty">{% trans "Cover" %}</p>
+            <p class="homepage__courses-selection__head__cover__empty">{% trans "Cover" %}</p>
             {% endget_placeholder_plugins %}
             {% blockplugin plugins.0 %}
             <img
@@ -106,8 +106,8 @@
         </div>
     </div>
 
-    <div class="courses-selection__list">
-        <div class="courses-selection__list__content">
+    <div class="homepage__courses-selection__list">
+        <div class="homepage__courses-selection__list__content">
 
             {% placeholder "courses_selection" %}
 
@@ -116,11 +116,11 @@
 
 </section>
 
-<section class="experts-selection">
+<section class="homepage__experts-selection">
 
-    <div class="experts-selection__cover">
+    <div class="homepage__experts-selection__cover">
         {% get_placeholder_plugins "experts_selection_picture" as plugins or %}
-        <p class="courses-selection__head__cover__empty">{% trans "Cover" %}</p>
+        <p class="homepage__experts-selection__head__cover__empty">{% trans "Cover" %}</p>
         {% endget_placeholder_plugins %}
         {% blockplugin plugins.0 %}
         <img
@@ -136,32 +136,32 @@
         {% endblockplugin %}
     </div>
 
-    <div class="experts-selection__list">
-        <h2 class="experts-selection__list__title">{% trans "Experts" %}</h2>
-        <div class="experts-selection__list__content">
+    <div class="homepage__experts-selection__list">
+        <h2 class="homepage__experts-selection__list__title">{% trans "Experts" %}</h2>
+        <div class="homepage__experts-selection__list__content">
 
-            <div class="experts-selection__list__content__items">
+            <div class="homepage__experts-selection__list__content__items">
 
                 {% placeholder "experts_selection" %}
 
             </div>
 
-            <div class="experts-selection__list__content__text">
+            <div class="homepage__experts-selection__list__content__text">
                 {% placeholder "experts_selection_intro" %}
             </div>
 
         </div>
-        <div class="experts-selection__list__foot">
+        <div class="homepage__experts-selection__list__foot">
             <a href="{% page_url 'persons' %}" class="btn btn--primary">{% trans 'See all' %}</a>
         </div>
     </div>
 
 </section>
 
-<section class="partners">
+<section class="homepage__partners">
 
-    <div class="partners__intro">
-        <div class="partners__intro__icons">
+    <div class="homepage__partners__intro">
+        <div class="homepage__partners__intro__icons">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89.281 52.301"><g transform="translate(-651.653 -286.565)"><path d="M721.384,324.665a18.55,18.55,0,1,0,0-37.1h-23.56v.038c-.253-.01-.5-.038-.757-.038a18.55,18.55,0,0,0,0,37.1c.256,0,.5-.028.757-.038v.038Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"/><path d="M727.654,308.688a2.573,2.573,0,0,0,0-5.146h-3.268v.005c-.035,0-.07-.005-.1-.005a2.573,2.573,0,1,0,0,5.146c.035,0,.07,0,.1,0v0Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"/><line x1="10.319" transform="translate(729.615 306.115)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"/><path d="M721.707,306.115h-5.427v-18.55" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"/><line y1="18.55" transform="translate(716.281 306.115)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"/><path d="M678.517,306.115H669.38s-8.1-.429-8.1,7.235v15.812s.357,8.7-9.63,8.7" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"/></g>
             </svg>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 91.07 56.516"><g transform="translate(-500.912 -287.548)"><path d="M537.2,300.18l26.531,15.625L537.2,331.431Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"/><rect width="89.07" height="54.516" transform="translate(501.912 288.548)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"/></g>
@@ -174,20 +174,20 @@
                 </g>
             </svg>
         </div>
-        <h2 class="partners__intro__title">{% trans "Digitalisez vos formations et expertises" %}</h2>
-        <div class="partners__intro__content">
+        <h2 class="homepage__partners__intro__title">{% trans "Digitalisez vos formations et expertises" %}</h2>
+        <div class="homepage__partners__intro__content">
             {% placeholder "partners_intro" %}
         </div>
-        <div class="partners__intro__foot">
+        <div class="homepage__partners__intro__foot">
             <!-- TODO : where does this link go ? -->
             <a href="{% page_url 'persons' %}" class="btn btn--primary">{% trans 'Begin' %}</a>
             <!-- TODO : END -->
         </div>
     </div>
 
-    <div class="partners__selection">
-        <h2 class="partners__selection__title">{% trans "Partners" %}</h2>
-        <div class="partners__selection__content">
+    <div class="homepage__partners__selection">
+        <h2 class="homepage__partners__selection__title">{% trans "Partners" %}</h2>
+        <div class="homepage__partners__selection__content">
             {% placeholder "partners_selection_intro" %}
         </div>
 
@@ -207,7 +207,7 @@
             </div>
         </div>
         <!-- TODO : END -->
-        <div class="partners__selection__foot">
+        <div class="homepage__partners__selection__foot">
             <!-- TODO : where does this link go ? -->
             <a href="{% page_url 'persons' %}" class="btn btn--primary">{% trans 'See all' %}</a>
             <!-- TODO : END -->

@@ -1,4 +1,4 @@
-.cats-selection {
+.homepage__cats-selection {
     @include flex-sb();
 
     &__list {
@@ -52,7 +52,7 @@
     }
 }
 
-.last-news {
+.homepage__last-news {
     @include flex-sb();
 
     &__cover {
@@ -113,7 +113,7 @@
     }
 }
 
-.courses-selection {
+.homepage__courses-selection {
 
     &__head {
         @include flex-sb();
@@ -219,7 +219,7 @@
     }
 }
 
-.experts-selection {
+.homepage__experts-selection {
     background-image: linear-gradient(to bottom, #097ab7, #205a8b, #1e3d60, #152239, #010416);
     @include flex-sb();
 
@@ -357,7 +357,7 @@
     }
 }
 
-.partners {
+.homepage__partners {
     @include flex-sb();
 
     &__intro {
