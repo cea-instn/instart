@@ -184,6 +184,12 @@
   }
 }
 
+@mixin flex-sb {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
 // --------------------------------
 
 // Margin
@@ -662,6 +668,15 @@
 
 .media-wrapper--4\:3 {
   padding-bottom: 75%; // 4:3
+}
+
+@mixin fitcover {
+    height: 100%;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 100%;
 }
 
 // --------------------------------

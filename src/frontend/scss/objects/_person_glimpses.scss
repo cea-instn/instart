@@ -113,7 +113,7 @@
     }
 
     &__content__wrapper__title {
-        font-size: pxtoem(20);
+        font-size: 1em;
         margin-bottom: 1em;
     }
 
@@ -163,5 +163,44 @@
         &:nth-of-type(odd) {
             padding-right: pxtoem(154);
         }
+    }
+}
+
+// Partner glimpse
+//
+
+// Common container for glimpse list
+
+.partner-glimpse-list {
+    @include flex-sb();
+
+    @include breakpoint(lg) {
+        flex-wrap: nowrap;
+    }
+}
+
+.partner-glimpse {
+    width: 22%;
+
+    &__title {
+        font-size: 1rem;
+        font-weight: bold;
+        padding-bottom: 2em;
+        position: relative;
+
+        a {
+            text-decoration: none;
+        }
+
+        &:after {
+            background: var(--color-primary);
+            bottom: 0;
+            content: '';
+            display: block;
+            height: 3px;
+            position: absolute;
+            width: 46px;
+        }
+
     }
 }

@@ -169,6 +169,68 @@ class Base(DRFMixin, RichieCoursesConfigurationMixin, Configuration):
         ("richie/single_column.html", _("Single column")),
     )
 
+    RICHIE_SECTION_TEMPLATES = (
+        ("richie/section/section.html", _("Default")),
+        ("richie/section/section_cadenced.html", _("Highlighted items")),
+    )
+
+    CMS_PLACEHOLDER_CONF = {
+        **RichieCoursesConfigurationMixin.CMS_PLACEHOLDER_CONF,
+        # Homepage
+        "richie/homepage.html home_categories": {
+            "name": _("Highlighted categories"),
+            "plugins": ["CategoryPlugin"],
+            "limits": {"CategoryPlugin": 6},
+        },
+        "richie/homepage.html home_categories_picture": {
+            "name": _("Highlighted categories block : cover"),
+            "plugins": ["SimplePicturePlugin"],
+            "limits": {"SimplePicturePlugin": 1},
+        },
+        "richie/homepage.html last_news_picture": {
+            "name": _("News block : cover"),
+            "plugins": ["SimplePicturePlugin"],
+            "limits": {"SimplePicturePlugin": 1},
+        },
+        "richie/homepage.html home_news": {
+            "name": _("Highlighted news"),
+            "plugins": ["BlogPostPlugin"],
+            "limits": {"BlogPostPlugin": 2},
+        },
+        "richie/homepage.html home_courses_intro": {
+            "name": _("Courses selection : intro"),
+            "plugins": ["CKEditorPlugin"],
+        },
+        "richie/homepage.html courses_selection_picture": {
+            "name": _("Courses selection : cover"),
+            "plugins": ["SimplePicturePlugin"],
+            "limits": {"SimplePicturePlugin": 1},
+        },
+        "richie/homepage.html courses_selection": {
+            "name": _("Highlighted courses"),
+            "plugins": ["CoursePlugin"],
+            "limits": {"CoursePlugin": 4},
+        },
+        "richie/homepage.html experts_selection_picture": {
+            "name": _("Experts selection : cover"),
+            "plugins": ["SimplePicturePlugin"],
+            "limits": {"SimplePicturePlugin": 1},
+        },
+        "richie/homepage.html experts_selection": {
+            "name": _("Highlighted experts"),
+            "plugins": ["PersonPlugin"],
+            "limits": {"PersonPlugin": 2},
+        },
+        "richie/homepage.html experts_selection_intro": {
+            "name": _("Experts selection : intro"),
+            "plugins": ["CKEditorPlugin"],
+        },
+        "richie/homepage.html partners_selection_intro": {
+            "name": _("Partners selection : intro"),
+            "plugins": ["CKEditorPlugin"],
+        },
+    }
+
     MIDDLEWARE = (
         "cms.middleware.utils.ApphookReloadMiddleware",
         "django.middleware.security.SecurityMiddleware",
