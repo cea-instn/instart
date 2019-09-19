@@ -1,0 +1,71 @@
+.solutions__broadcast,
+.solutions__contact {
+    @include flex-sb();
+
+    &__intro {
+        @include make-left-padding();
+        background-image: linear-gradient(to bottom, #13243c, #1c1a2c, #1b131d, #130a10, #000000);
+        padding-bottom: rem-calc(50px);
+        padding-right: pxtopc(154,1860);
+        padding-top: calc(var(--space-lg) * 2);
+
+        &__icons {
+            margin-bottom: calc(var(--space-sm) * 2);
+        }
+
+        &__icons {
+            @include flex-sb();
+            align-items: center;
+            max-width: pxtoem(402);
+
+            svg {
+                max-height: pxtoem(50);
+                width: pxtoem(89);
+            }
+        }
+
+        &__content {
+            h2, h3, h4 {
+                @include section-title();
+                margin-bottom: var(--space-sm);
+            }
+            ul {
+                margin: rem-calc(20px) 0;
+            }
+            li {
+                background: url('../../images/arrow-marker.svg') 0 center no-repeat;
+                background-size: 30px 7px;
+                padding-left: rem-calc(44px);
+            }
+            .btn {
+                margin-top: calc(var(--space-sm) * 2);
+            }
+        }
+    }
+    &__cover {
+        @include aspect-ratio(930,600);
+        max-height: pxtoem(600);
+        overflow: hidden;
+
+        img {
+            @include fitcover();
+        }
+    }
+
+
+    @include breakpoint(md) {
+        &__intro,
+        &__cover {
+            width: 50%;
+        }
+    }
+
+    @include breakpoint(lg) {
+        &__intro {
+            padding-right: pxtoem(154);
+        }
+        &__cover {
+            padding-left: pxtoem(154);
+        }
+    }
+}
