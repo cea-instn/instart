@@ -166,6 +166,7 @@ class Base(DRFMixin, RichieCoursesConfigurationMixin, Configuration):
         ("search/search.html", _("Search")),
         ("richie/child_pages_list.html", _("List of child pages")),
         ("richie/homepage.html", _("Homepage")),
+        ("richie/solutions.html", _("Solutions")),
         ("richie/single_column.html", _("Single column")),
     )
 
@@ -227,6 +228,25 @@ class Base(DRFMixin, RichieCoursesConfigurationMixin, Configuration):
         },
         "richie/homepage.html partners_selection_intro": {
             "name": _("Partners selection : intro"),
+            "plugins": ["CKEditorPlugin"],
+        },
+        # Solutions
+        "richie/solutions.html solutions_contact_picture": {
+            "name": _("Contact block : cover"),
+            "plugins": ["SimplePicturePlugin"],
+            "limits": {"SimplePicturePlugin": 1},
+        },
+        "richie/solutions.html solutions_contact_intro": {
+            "name": _("Contact block : intro"),
+            "plugins": ["CKEditorPlugin"],
+        },
+        "richie/solutions.html solutions_broadcast_picture": {
+            "name": _("Broadcast block : cover"),
+            "plugins": ["SimplePicturePlugin"],
+            "limits": {"SimplePicturePlugin": 1},
+        },
+        "richie/solutions.html solutions_broadcast_intro": {
+            "name": _("Broadcast block : intro"),
             "plugins": ["CKEditorPlugin"],
         },
     }

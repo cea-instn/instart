@@ -1,0 +1,92 @@
+{% extends "richie/base.html" %}
+{% load cms_tags extra_tags i18n thumbnail %}
+{% block content %}
+{% spaceless %}
+
+<section class="solutions__contact">
+
+    <div class="solutions__contact__intro">
+        <div class="solutions__contact__intro__icons">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 91.07 56.516">
+                <g transform="translate(-500.912 -287.548)"><path d="M537.2,300.18l26.531,15.625L537.2,331.431Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"/><rect width="89.07" height="54.516" transform="translate(501.912 288.548)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"/></g>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 88.54 48.874">
+                <path fill="#fff" d="M8.722 26.167a3.942 3.942 0 1 0 3.938 3.937 3.945 3.945 0 0 0-3.938-3.937zm0 5.935a1.993 1.993 0 1 1 1.989-2 2 2 0 0 1-1.989 2z"/>
+                <path fill="#fff" d="M84.398 0l-.809.35c-.76.332-14.043 6.072-24.54 10.994H0v37.53h61.505V25.637c10.077-6.37 25.524-17.159 26.314-17.7l.721-.511zM15.369 46.925H1.949V13.293h13.42zm44.187 0H17.318V13.293h37.648c-2.4 1.169-4.483 2.222-6.013 3.07a46.136 46.136 0 0 0-13.176 10.73l-.332.419v.01l-.068.077-8.771 9.356 12.689-2.339.078-.009h.019l.536-.059a46.083 46.083 0 0 0 16.061-5.574c1-.556 2.213-1.277 3.567-2.115zm1.949-23.6c-.672.429-1.325.838-1.949 1.228-1.754 1.1-3.3 2.037-4.522 2.719a46.356 46.356 0 0 1-14.677 5.253l-2.631-4.717a46.482 46.482 0 0 1 12.182-9.736c2.212-1.238 5.682-2.933 9.59-4.775.662-.312 1.325-.624 2.007-.936 8.859-4.113 19.131-8.6 22.055-9.872l2.427 4.346c-3.109 2.16-15.584 10.802-24.482 16.486z"/>
+            </svg>
+
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 63.8 35.2">
+                <style>.color-svg-white{fill:#ffffff;}</style>
+                <g>
+                    <path class="color-svg-white" d="M40.5,35.2c-0.3,0-2.7-0.1-5-2.4c-1.5-1.5-3-1.7-3.5-1.8c-0.5,0.1-2.1,0.3-3.5,1.8c-2.4,2.4-5,2.4-5.1,2.4H10.2 C0.4,35.2,0,27.9,0,27.8l0-15c0-2,2.9-3.2,3.5-3.4l0.2-0.1l28.5-0.1l28.1,0.1l0.2,0.1c0.6,0.2,3.5,1.4,3.5,3.4v15 c0,0,0.1,2.5-1.8,4.6c-1.8,1.9-4.5,2.8-8.3,2.8H40.5C40.5,35.2,40.5,35.2,40.5,35.2z M31.9,29L31.9,29c0.9,0.1,2.9,0.4,4.9,2.4 c1.8,1.8,3.5,1.8,3.6,1.8h0h13.2c3.1,0,5.4-0.7,6.8-2.2c1.4-1.5,1.3-3.2,1.3-3.2l0-15c0-0.3-1-1.1-2-1.5l-28.1-0.1L4,11.3 c-1.1,0.4-2,1.2-2,1.5v15c0,0.2,0.3,5.4,8.1,5.4h13.2c0.1,0,1.8,0,3.6-1.8C29,29.4,31.1,29.1,31.9,29L31.9,29z M54,23.9 c-2.9,0-5.2-2.3-5.2-5.2c0-2.9,2.3-5.2,5.2-5.2s5.2,2.3,5.2,5.2C59.2,21.5,56.9,23.9,54,23.9z M54,15.4c-1.8,0-3.2,1.4-3.2,3.2 s1.4,3.2,3.2,3.2c1.8,0,3.2-1.4,3.2-3.2C57.2,16.9,55.8,15.4,54,15.4z"/>
+                    <path class="color-svg-white" d="M10.4,11L9,9.6C15.1,3.4,23.3,0,31.9,0c8.6,0,16.7,3.4,22.8,9.4l-1.4,1.4C47.6,5.2,40,2,31.9,2C23.8,2,16.2,5.2,10.4,11z"/>
+                </g>
+            </svg>
+        </div>
+        <div class="solutions__contact__intro__content">
+            {% placeholder "solutions_contact_intro" %}
+        </div>
+    </div>
+
+    <div class="solutions__contact__cover">
+        {% get_placeholder_plugins "solutions_contact_picture" as plugins or %}
+        <p class="solutions__contact__cover__empty">{% trans "Cover" %}</p>
+        {% endget_placeholder_plugins %}
+        {% blockplugin plugins.0 %}
+        <img
+                src="{% thumbnail instance.picture 500x500 subject_location=instance.picture.subject_location %}"
+                srcset="
+                      {% thumbnail instance.picture 500x500 subject_location=instance.picture.subject_location %} 500w,
+                      {% if instance.picture.width >= 1000 %}{% thumbnail instance.picture 1000x1000 subject_location=instance.picture.subject_location %} 1000w,{% endif %}
+                      {% if instance.picture.width >= 2000 %}{% thumbnail instance.picture 2000x2000 subject_location=instance.picture.subject_location %} 2000w{% endif %}
+                    "
+                sizes="650px"
+                alt="{% if instance.picture.default_alt_text %}{{ instance.picture.default_alt_text }}{% else %}{% trans 'homepage cover image' %}{% endif %}"
+        />
+        {% endblockplugin %}
+    </div>
+
+</section>
+
+<section class="solutions__broadcast">
+
+    <div class="solutions__broadcast__cover">
+        {% get_placeholder_plugins "solutions_broadcast_picture" as plugins or %}
+        <p class="solutions__contact__cover__empty">{% trans "Cover" %}</p>
+        {% endget_placeholder_plugins %}
+        {% blockplugin plugins.0 %}
+        <img
+                src="{% thumbnail instance.picture 500x500 subject_location=instance.picture.subject_location %}"
+                srcset="
+                      {% thumbnail instance.picture 500x500 subject_location=instance.picture.subject_location %} 500w,
+                      {% if instance.picture.width >= 1000 %}{% thumbnail instance.picture 1000x1000 subject_location=instance.picture.subject_location %} 1000w,{% endif %}
+                      {% if instance.picture.width >= 2000 %}{% thumbnail instance.picture 2000x2000 subject_location=instance.picture.subject_location %} 2000w{% endif %}
+                    "
+                sizes="650px"
+                alt="{% if instance.picture.default_alt_text %}{{ instance.picture.default_alt_text }}{% else %}{% trans 'homepage cover image' %}{% endif %}"
+        />
+        {% endblockplugin %}
+    </div>
+
+    <div class="solutions__broadcast__intro">
+        <div class="solutions__broadcast__intro__icons">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89.281 52.301">
+                <g transform="translate(-651.653 -286.565)"><path d="M721.384,324.665a18.55,18.55,0,1,0,0-37.1h-23.56v.038c-.253-.01-.5-.038-.757-.038a18.55,18.55,0,0,0,0,37.1c.256,0,.5-.028.757-.038v.038Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"/><path d="M727.654,308.688a2.573,2.573,0,0,0,0-5.146h-3.268v.005c-.035,0-.07-.005-.1-.005a2.573,2.573,0,1,0,0,5.146c.035,0,.07,0,.1,0v0Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"/><line x1="10.319" transform="translate(729.615 306.115)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"/><path d="M721.707,306.115h-5.427v-18.55" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"/><line y1="18.55" transform="translate(716.281 306.115)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"/><path d="M678.517,306.115H669.38s-8.1-.429-8.1,7.235v15.812s.357,8.7-9.63,8.7" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"/></g>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75 52.002">
+                <path fill="#fff" d="M67.656 14.79H62.1c-8.38 0-15.725.028-22.316.058A20.344 20.344 0 0 0 6.745 5.076a19.653 19.653 0 0 0-6.723 14 19.813 19.813 0 0 0-.003 1.826v.115c.012.176.027.349.041.518l.035.419c.038.363.088.717.151 1.169.057.371.132.731.212 1.1.02.088.051.172.072.259a19.521 19.521 0 0 0 8.2 11.843c.029.02.055.043.085.063.3.2.6.389.906.571a17.509 17.509 0 0 0 1.939 1.012l.016.007h.013c.461.216.933.412 1.411.59a10.9 10.9 0 0 1-4.626 2.333l-4.157.954 4.148.99a13.357 13.357 0 0 0 3.095.365 13.035 13.035 0 0 0 8.74-3.356 20.446 20.446 0 0 0 3.633-.353v1.463a7.32 7.32 0 0 0 7.344 7.214h4.795a7.836 7.836 0 0 0 9.655 3.258l2.295-.917-2.29-.927a5.7 5.7 0 0 1-2.051-1.414H67.66A7.32 7.32 0 0 0 75 40.961V22.01a7.308 7.308 0 0 0-7.344-7.22zM20.231 37.854c-.085 0-.168 0-.255-.006l-.484-.041-.344.331a10.927 10.927 0 0 1-6.015 2.953 12.855 12.855 0 0 0 2.2-1.825h.008l.422-.425.031-.03 1.241-1.21-1.708-.453a18.02 18.02 0 0 1-2.762-.977 15.2 15.2 0 0 1-1.726-.9 21.313 21.313 0 0 1-.822-.518A17.976 17.976 0 0 1 2.5 23.801c-.068-.318-.137-.638-.2-1.039-.047-.333-.094-.666-.126-.975l-.073-.94c-.01-.3-.019-.609-.019-.923 0-.256.011-.511.021-.764a17.7 17.7 0 0 1 6.05-12.612 18.165 18.165 0 0 1 12.065-4.547q.393 0 .788.016a18.036 18.036 0 0 1 16.967 14.157c.075.346.124.691.179 1.036.041.272.092.541.122.817.019.171.022.34.036.51.036.456.068.913.068 1.378v.04a17.915 17.915 0 0 1-9.416 15.676l-.206.109a18.383 18.383 0 0 1-3.671 1.441 18.246 18.246 0 0 1-4.854.673zm52.686 3.1a5.271 5.271 0 0 1-5.261 5.22h-27.5l.671 1.414a7.656 7.656 0 0 0 1.79 2.4 5.691 5.691 0 0 1-4.96-3.233l-.278-.585h-6.1a5.272 5.272 0 0 1-5.265-5.217v-1.935c.035-.01.068-.024.1-.035.275-.082.541-.183.812-.277.373-.128.747-.256 1.108-.4.123-.051.242-.109.363-.162a19.779 19.779 0 0 0 12.061-18.136v-.082c0-.068-.009-.133-.01-.2-.007-.5-.029-1-.075-1.511-.021-.251-.054-.5-.084-.746-.027-.208-.037-.413-.071-.621 6.475-.029 13.685-.056 21.875-.056h5.557a5.262 5.262 0 0 1 5.263 5.223z"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 50">
+                <path fill="#fff" d="M39.543 29.6a5.466 5.466 0 0 0-4.028 1.768l-8.048-4.148a5.309 5.309 0 0 0 .237-3.847l7.757-4.655a5.377 5.377 0 1 0-1.375-3.569 5.306 5.306 0 0 0 .372 1.943L26.8 21.69a5.462 5.462 0 0 0-3.339-2V10.7a5.458 5.458 0 1 0-1.925 0v8.987a5.462 5.462 0 0 0-3.339 2l-7.558-4.535a5.307 5.307 0 0 0 .376-1.956 5.446 5.446 0 1 0-1.384 3.579l7.664 4.6a5.295 5.295 0 0 0 .237 3.847l-8.049 4.149A5.376 5.376 0 1 0 10.914 35a5.307 5.307 0 0 0-.4-2.012l8.12-4.188a5.465 5.465 0 0 0 2.9 1.5v8.987a5.457 5.457 0 1 0 1.925 0v-8.979a5.465 5.465 0 0 0 2.9-1.5l8.117 4.184a5.3 5.3 0 0 0-.4 2.013 5.457 5.457 0 1 0 5.457-5.4zm0-17.944a3.493 3.493 0 1 1-3.531 3.493 3.516 3.516 0 0 1 3.531-3.489zM5.56 18.691A3.493 3.493 0 1 1 9.092 15.2a3.516 3.516 0 0 1-3.532 3.491zm-.1 19.8A3.492 3.492 0 1 1 8.988 35a3.515 3.515 0 0 1-3.531 3.493zM18.969 5.4A3.532 3.532 0 1 1 22.5 8.89a3.515 3.515 0 0 1-3.531-3.49zm7.063 39.2a3.532 3.532 0 1 1-3.532-3.49 3.516 3.516 0 0 1 3.532 3.49zM22.5 28.492A3.492 3.492 0 1 1 26.032 25a3.515 3.515 0 0 1-3.532 3.492zm17.043 10A3.492 3.492 0 1 1 43.074 35a3.515 3.515 0 0 1-3.531 3.493z"/>
+            </svg>
+        </div>
+        <div class="solutions__broadcast__intro__content">
+            {% placeholder "solutions_broadcast_intro" %}
+        </div>
+    </div>
+
+</section>
+
+
+{% endspaceless %}
+{% endblock content %}
