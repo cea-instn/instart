@@ -372,6 +372,7 @@ class Base(DRFMixin, RichieCoursesConfigurationMixin, Configuration):
         "cms.middleware.page.CurrentPageMiddleware",
         "cms.middleware.toolbar.ToolbarMiddleware",
         "cms.middleware.language.LanguageCookieMiddleware",
+        "dj_pagination.middleware.PaginationMiddleware",
     )
 
     INSTALLED_APPS = (
@@ -409,6 +410,7 @@ class Base(DRFMixin, RichieCoursesConfigurationMixin, Configuration):
         "richie.plugins.simple_picture",
         "richie.plugins.simple_text_ckeditor",
         # Third party apps
+        "dj_pagination",
         "dockerflow.django",
         "parler",
         "rest_framework",
