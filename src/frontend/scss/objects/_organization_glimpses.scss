@@ -1,111 +1,105 @@
-// Overridable & namespaced global variables
-$richie-org-glimpse-list-maxwidth-constraint: true !default;
-$richie-org-glimpse-list-margin: 0 auto !default;
-$richie-org-glimpse-list-padding: 1rem 0 !default;
-$richie-org-glimpse-list-title-margin: null !default;
-$richie-org-glimpse-list-title-padding: 0.5rem !default;
-
-$richie-org-glimpse-content-margin: 0 auto !default;
-$richie-org-glimpse-content-padding: 1rem 0 !default;
-
-$richie-org-glimpse-item-gutter: 0.625rem !default;
-$richie-org-glimpse-item-padding: 1.25rem !default;
-$richie-org-glimpse-item-background: $white !default;
-$richie-org-glimpse-item-border: 1px solid $gray80 !default;
-$richie-org-glimpse-item-border-hover: 1px solid $firebrick6 !default;
-$richie-org-glimpse-item-border-radius: 0.25rem !default;
-
-$richie-org-glimpse-item-title-fontcolor: $black !default;
-$richie-org-glimpse-item-title-textalign: center !default;
-
-$richie-org-glimpse-item-empty-fontcolor: $gray40 !default;
-$richie-org-glimpse-item-empty-textalign: left !default;
-
 .organization-glimpse-list {
-    @if $richie-org-glimpse-list-maxwidth-constraint {
-        @include make-container-max-widths();
-    }
+    @include make-container-max-widths();
     display: flex;
-    margin: $richie-org-glimpse-list-margin;
-    padding: $richie-org-glimpse-list-padding;
+    margin: 0 auto;
+    padding: 1rem 0;
     flex-direction: row;
     flex-wrap: wrap;
 
     &__title {
         @include sv-flex(1, 0, 100%);
-        margin: $richie-org-glimpse-list-title-margin;
-        padding: $richie-org-glimpse-list-title-padding;
+        margin: 0;
+        padding: 0.5rem;
     }
 
     // Special row when there is no entry
     &__empty {
         @include sv-flex(1, 0, auto);
         font-style: italic;
-        padding: $richie-org-glimpse-list-title-padding;
-        color: $richie-org-glimpse-item-empty-fontcolor;
-        text-align: $richie-org-glimpse-item-empty-textalign;
+        padding: 0.5rem;
+        color: var(--color-contrast-low);
         background: transparent;
     }
 }
 
 .organization-glimpse {
     $list-item-selector: &;
+    // Cell base width for lowest breakpoint
+    @include sv-flex(
+                    1,
+                    0,
+                    100%
+    );
+
+    background: linear-gradient(0deg, var(--color-primary-darker) 0%, var(--color-primary) 100%);
     display: flex;
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: calc(100% - #{$richie-org-glimpse-item-gutter * 2});
-    margin: $richie-org-glimpse-item-gutter;
-    padding: $richie-org-glimpse-item-padding;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-content: space-between;
-    background: $richie-org-glimpse-item-background;
-    border: $richie-org-glimpse-item-border;
-    border-radius: $richie-org-glimpse-item-border-radius;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0;
+    padding: pxtoem(24) 1rem;
+    text-decoration: none;
 
-    @include breakpoint(sm) {
-        flex-basis: calc(50% - #{$richie-org-glimpse-item-gutter * 2});
-    }
-
-    @include breakpoint(xl) {
-        flex-basis: calc(25% - #{$richie-org-glimpse-item-gutter * 2});
-    }
 
     &__logo {
-        position: relative;
-        width: 100%;
-        margin-bottom: 1rem;
-        padding-bottom: 56.25%; // Aspect ratio 16/9
+        width: pxtoem(109);
 
-        & > img {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            object-position: center;
+        img {
+            margin: 0 auto;
         }
-
-        @include m-o-media_empty($background: $gray97);
     }
 
     &__title {
-        flex-grow: 1;
-        flex-shrink: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: $richie-org-glimpse-item-title-textalign;
-        color: $richie-org-glimpse-item-title-fontcolor;
+        color: var(--color-white);
+        padding: 0 0 0 pxtoem(20);
+        width: calc(100% - 6.8125em); // 109px
+
+        &:before {
+            background: url('../../images/icon-plus.svg') center center no-repeat;
+            background-size: 12px;
+            content: '';
+            display: block;
+            height: rem-calc(30px);
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: transform 300ms ease-out;
+            transform: rotate(0deg);
+            width: rem-calc(30px);
+            z-index: 2;
+        }
     }
 
     &:hover,
     &:focus {
-        border: $richie-org-glimpse-item-border-hover;
-        color: $richie-org-glimpse-item-title-fontcolor;
         cursor: pointer;
+    }
+
+    // Responsive adjustments
+    @include breakpoint(xs) {
+        @include make-inner-paddings();
+    }
+
+    @include breakpoint(md) {
+        @include sv-flex(
+                        1,
+                        0,
+                        50%
+        );
+        &:nth-of-type(even) {
+            @include make-right-padding();
+        }
+        &:nth-of-type(odd) {
+            background: linear-gradient(180deg, var(--color-primary-darker) 0%, var(--color-primary) 100%);
+            @include make-left-padding();
+        }
+    }
+
+    @include breakpoint(lg) {
+        &:nth-of-type(even) {
+            padding-left: pxtoem(154);
+        }
+        &:nth-of-type(odd) {
+            padding-right: pxtoem(154);
+        }
     }
 }
