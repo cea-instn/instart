@@ -11,33 +11,30 @@ $richie-org-detail-logo-width: 12rem !default;
     $logo-width-xl: $logo-width-base * 5 / 3;
     $logo-height-xl: $logo-width-xl * 9 / 16;
 
-    @include make-container();
-    @include make-container-max-widths();
+    @include flex-sb();
     padding-bottom: 1rem;
-    background: var(--richie-content-container-bg);
 
-    &__banner {
-        @include make-row();
-        width: 100vw;
-        height: $logo-height-base;
+    &__head {
+        @include flex-sb();
+        background: linear-gradient(0deg, #0F466D 0%, var(--color-primary) 100%);
+        margin: 0;
+        padding: rem-calc(30px) 1rem;
+        width: 100%;
 
-        @include breakpoint(md) {
-            width: auto;
-            height: $logo-height-md;
+        &__title {
+            @include page-title;
+        }
+        &__logo {
+            width: pxtoem(109);
+
+            img {
+                display: block;
+            }
         }
 
-        @include breakpoint(xl) {
-            height: $logo-height-xl;
+        @include breakpoint(xs) {
+            @include make-inner-paddings();
         }
-
-        & > img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
-
-        @include m-o-media_empty($background: $gray97);
     }
 
     &__logo {

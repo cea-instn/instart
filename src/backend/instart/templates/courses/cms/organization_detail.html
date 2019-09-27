@@ -10,26 +10,30 @@
 {% with organization=current_page.organization header_level=2 %}
 <div class="organization-detail">
 
-    <div class="organization-detail__logo">
-        {% get_placeholder_plugins "logo" as plugins or %}
-        <div class="organization-detail__logo__empty">{% trans "Logo" %}</div>
-        {% endget_placeholder_plugins %}
-        {% blockplugin plugins.0 %}
-        <img
-                src="{% thumbnail instance.picture 200x113 upscale subject_location=instance.picture.subject_location %}"
-                srcset="
+    <div class="organization-detail__head">
+
+        <h1 class="organization-detail__head__title">{% render_model request.current_page "title" %}</h1>
+        <div class="organization-detail__head__logo">
+            {% get_placeholder_plugins "logo" as plugins or %}
+            <div class="organization-detail__logo__empty">{% trans "Logo" %}</div>
+            {% endget_placeholder_plugins %}
+            {% blockplugin plugins.0 %}
+            <img
+                    src="{% thumbnail instance.picture 200x113 upscale subject_location=instance.picture.subject_location %}"
+                    srcset="
           {% thumbnail instance.picture 200x113 upscale subject_location=instance.picture.subject_location %} 200w,
           {% if instance.picture.width >= 400 %}{% thumbnail instance.picture 400x225 upscale subject_location=instance.picture.subject_location %} 400w,{% endif %}
           {% if instance.picture.width >= 600 %}{% thumbnail instance.picture 600x338 upscale subject_location=instance.picture.subject_location %} 600w{% endif %}
           {% if instance.picture.width >= 800 %}{% thumbnail instance.picture 800x450 upscale subject_location=instance.picture.subject_location %} 800w{% endif %}
         "
-                sizes="12rem, (min-width: 768px) 16rem, (min-width: 1200px) 20rem"
-                alt="{% if instance.picture.default_alt_text %}{{ instance.picture.default_alt_text }}{% else %}{% trans 'organization logo' %}{% endif %}"
-        />
-        {% endblockplugin %}
+                    sizes="12rem, (min-width: 768px) 16rem, (min-width: 1200px) 20rem"
+                    alt="{% if instance.picture.default_alt_text %}{{ instance.picture.default_alt_text }}{% else %}{% trans 'organization logo' %}{% endif %}"
+            />
+            {% endblockplugin %}
+        </div>
+
     </div>
 
-    <h1 class="organization-detail__title">{% render_model request.current_page "title" %}</h1>
 
     {% if current_page.publisher_is_draft or not current_page|is_empty_placeholder:"categories" %}
     <div class="organization-detail__categories">
