@@ -1,8 +1,5 @@
-// Overridable & namespaced global variables
-$richie-org-detail-logo-width: 12rem !default;
-
 .organization-detail {
-    $logo-width-base: $richie-org-detail-logo-width;
+    $logo-width-base: 12rem;
     $logo-height-base: $logo-width-base * 9 / 16;
 
     $logo-width-md: $logo-width-base * 4 / 3;
@@ -12,7 +9,6 @@ $richie-org-detail-logo-width: 12rem !default;
     $logo-height-xl: $logo-width-xl * 9 / 16;
 
     @include flex-sb();
-    padding-bottom: 1rem;
 
     &__head {
         @include flex-sb();
@@ -23,6 +19,10 @@ $richie-org-detail-logo-width: 12rem !default;
 
         &__title {
             @include page-title;
+
+            &:before {
+                transform: translate(-100%, -50%);
+            }
         }
         &__logo {
             width: pxtoem(109);
@@ -43,7 +43,7 @@ $richie-org-detail-logo-width: 12rem !default;
         background: $white;
         border: 1px solid darken($gray80, 20%);
 
-        width: $logo-width-base;
+        width: 12rem;
         height: $logo-height-base;
         margin: (-$logo-height-base / 2) auto 1rem;
         padding: 0.5rem;
@@ -82,15 +82,108 @@ $richie-org-detail-logo-width: 12rem !default;
     }
 
     &__content {
-        clear: both;
-        @include make-row();
-        padding-left: var(--grid-gutter-width);
-        padding-right: var(--grid-gutter-width);
+        // Cell base width for lowest breakpoint
+        @include sv-flex(
+                        1,
+                        0,
+                        100%
+        );
 
-        &__description,
-        &__courses {
-            @include make-col-ready();
-            @include make-col(12);
+        background: linear-gradient(0deg, var(--color-primary-darker) 0%, var(--color-primary) 100%);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 0;
+        padding: pxtoem(30) 1rem;
+        text-decoration: none;
+
+        &__description {
+            padding-bottom: pxtoem(65);
+
+        }
+
+        @include breakpoint(xs) {
+            @include make-inner-paddings();
         }
     }
+}
+
+.organization-cats {
+    @include breakpoint(lg) {
+        width: pxtopc(538,1368);
+    }
+
+    .organization-detail__categories {
+        margin-bottom: var(--space-xl);
+    }
+
+    .person-glimpse-list__title {
+        background: none;
+        padding: 0;
+        font-size: pxtoem(20);
+        margin-bottom: 2em;
+        padding: 0;
+        text-transform: uppercase;
+
+        &:before {
+            display: none;
+        }
+    }
+
+    .person-glimpse {
+        background: none;
+        margin-bottom: var(--space-lg);
+        padding: 0;
+
+        &__content {
+            a:after,
+            a:before {
+                display: none;
+            }
+        }
+
+        &__foot {
+            display: none;
+        }
+
+        // Responsive adjustments
+        @include breakpoint(md) {
+            @include sv-flex(
+                            1,
+                            0,
+                            100%
+            );
+        }
+    }
+}
+.organization-courses {
+    width: pxtopc(538,1368);
+
+    .course-glimpse {
+        @include sv-flex(
+                        1,
+                        0,
+                        48%
+        );
+        margin-left: 4%;
+
+        &:nth-of-type(2n + 1) {
+            margin-left: 0;
+        }
+
+        &:nth-of-type(3n + 1) {
+            margin-left: inherit;
+        }
+    }
+    .course-glimpse-list {
+        padding-top: 0;
+
+        &__title {
+            font-size: pxtoem(20);
+            margin-bottom: 2em;
+            padding: 0;
+            text-transform: uppercase;
+        }
+    }
+
 }
