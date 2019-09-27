@@ -14,6 +14,10 @@ $richie-caesura-button-border-hover: 1px solid $firebrick3 !default;
     background-image: linear-gradient(to bottom, #13243c, #1c1a2c, #1b131d, #130a10, #000000);
 }
 
+.breadcrumbs {
+    display: none;
+}
+
 // Caesura block for single centered button on its own row
 .button-caesura {
     display: flex;
