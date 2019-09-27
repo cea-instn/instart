@@ -11,15 +11,6 @@
         margin: 0;
         padding: 0.5rem;
     }
-
-    // Special row when there is no entry
-    &__empty {
-        @include sv-flex(1, 0, auto);
-        font-style: italic;
-        padding: 0.5rem;
-        color: var(--color-contrast-low);
-        background: transparent;
-    }
 }
 
 .organization-glimpse {
