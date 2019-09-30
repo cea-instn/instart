@@ -249,6 +249,21 @@ class Base(DRFMixin, RichieCoursesConfigurationMixin, Configuration):
             "name": _("Broadcast block : intro"),
             "plugins": ["CKEditorPlugin"],
         },
+        # Organization detail
+        "courses/cms/organization_detail.html logo": {
+            "name": _("Logo"),
+            "plugins": ["SimplePicturePlugin"],
+            "limits": {"SimplePicturePlugin": 1},
+        },
+        "courses/cms/organization_detail.html categories": {
+            "name": _("Categories"),
+            "plugins": ["CategoryPlugin"],
+        },
+        "courses/cms/organization_detail.html description": {
+            "name": _("Description"),
+            "plugins": ["CKEditorPlugin"],
+            "limits": {"CKEditorPlugin": 1},
+        },
     }
     RICHIE_FILTERS_CONFIGURATION = [
         (
