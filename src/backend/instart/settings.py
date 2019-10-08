@@ -161,6 +161,8 @@ class Base(DRFMixin, RichieCoursesConfigurationMixin, Configuration):
         ("courses/cms/blogpost_list.html", _("Blog post list")),
         ("courses/cms/blogpost_detail.html", _("Blog post page")),
         ("courses/cms/blogpost_detail_two_columns.html", _("Blog post page with two columns")),
+        ("courses/cms/program_detail.html", _("Program page")),
+        ("courses/cms/program_list.html", _("Program list")),
         ("courses/cms/person_detail.html", _("Person page")),
         ("courses/cms/person_list.html", _("Person list")),
         ("search/search.html", _("Search")),
