@@ -112,7 +112,6 @@ $richie-course-detail-aside-with-large: 30% !default;
                     position: absolute;
                     width: rem-calc(110px);
                 }
-
             }
         }
 
@@ -441,21 +440,8 @@ $richie-course-detail-aside-with-large: 30% !default;
                 margin: 0;
 
                 &__figure {
-                    height: 28px;
                     margin-bottom: 0;
                     padding-bottom: 0;
-                    width: 45px;
-
-                    &__caption {
-                        left: 55px;
-                        position: absolute;
-                    }
-
-                    &__image {
-                        top: 50%;
-                        object-position: left;
-                        transform: translateY(-50%);
-                    }
                 }
             }
         }
