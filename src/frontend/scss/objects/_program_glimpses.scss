@@ -1,0 +1,190 @@
+// Program glimpses
+//
+// A flex grid of program entries
+
+// Available object settings
+
+
+
+
+.program-glimpse-list {
+    @include make-inner-paddings();
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 0 auto;
+    padding-top: calc(var(--space-lg) * 2);
+
+    &__title {
+        @include page-title;
+        margin: 0 0 rem-calc(45px);
+        padding: 0;
+        width: 100%;
+
+        &:before {
+            transform: translate(rem-calc(-250px),-50%);
+        }
+    }
+}
+
+.program-glimpse {
+    $glimpse-item-selector: &;
+    display: block;
+    text-decoration: none;
+    width: 100%;
+
+    // Apply card styles for elements
+    @include m-o-card(
+            $border: 0,
+            $background: var(--color-white),
+            $media-width: null,
+            $media-margin: 0,
+            $caption-width: 60%,
+            $caption-margin: 0,
+            $caption-padding: 0.6rem 0.5rem,
+            $caption-fontsize: 0.9rem,
+            $caption-background: var(--color-contrast-lower),
+            $wrapper-padding: 0.6rem 0.2rem,
+            $foot-divider: null,
+            $methodology: 'bem'
+    );
+
+    margin: 0 0 var(--space-md);
+
+    &__content {
+        color: var(--color-primary);
+        font-size: 0.9rem;
+        line-height: 1.2;
+        text-align: left;
+
+        &__wrapper {
+            padding: var(--component-padding);
+        }
+
+        &__title {
+            color: var(--color-primary);
+            font-size: 1rem;
+            font-weight: 900;
+            line-height: calc(19 / 16);
+            letter-spacing: 0.075em;
+            margin: 0 0 0.5rem;
+            text-transform: uppercase;
+        }
+    }
+
+    &__media {
+        &__caption {
+            text-transform: uppercase;
+            font-weight: bold;
+            line-height: 1.1;
+            text-align: left;
+        }
+
+        @include m-o-media_empty(
+                $width: 100%,
+                $height: 14vh,
+                $background: $gray97,
+                $absolute: false
+        );
+    }
+
+    // A little specific makeup onto footer elements
+    &__footer {
+
+        &__date {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            font-weight: bold;
+            letter-spacing: 0.075em;
+            line-height: 1.4;
+            justify-content: center;
+            margin: 0;
+            padding: 1rem 1.25rem;
+            width: 100%;
+        }
+
+        &__cta {
+            @include sv-flex-cell-width(100%);
+            display: flex;
+
+            .button {
+                background-color: var(--color-primary-dark);
+                border: 0;
+                border-top: 1px solid var(--color-primary-darker);
+                color: var(--color-white);
+                cursor: pointer;
+                font-size: 1rem;
+                font-weight: bold;
+                letter-spacing: 0.075em;
+                line-height: 1.4;
+                margin: 0;
+                padding: 1rem 0.5rem;
+                transition: background 200ms linear;
+                width: 100%;
+            }
+        }
+    }
+
+    &:hover,
+    &:focus {
+        border: 0;
+
+        #{$glimpse-item-selector}__foot__cta .button {
+            background: var(--color-primary-light);
+        }
+    }
+
+    // Responsive adjustments
+    @include media-breakpoint-up(md) {
+        margin-left: 2%;
+        width: 49%;
+
+        &:nth-of-type(2n + 1) {
+            margin-left: 0;
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        width: 32%;
+
+        &:nth-of-type(2n + 1) {
+            margin-left: 2%;
+        }
+        &:nth-of-type(3n + 1) {
+            margin-left: 0;
+        }
+    }
+
+    @include media-breakpoint-up(xl) {
+        margin: 0 0 var(--space-lg) 4%;
+        width: 22%;
+
+        &:nth-of-type(2n + 1),
+        &:nth-of-type(3n + 1) {
+            margin-left: 4%;
+        }
+        &:nth-of-type(4n + 1) {
+            margin-left: 0;
+        }
+    }
+
+    // Special row when there is no entry
+    &--empty {
+        @include sv-flex(
+                        1,
+                        0,
+                        calc(100% - (var(--grid-gutter-width) * 2))
+        );
+        padding: 1rem;
+        font-style: italic;
+        color: var(--color-contrast-low);
+        text-align: center;
+        cursor: default;
+
+        &:hover,
+        &:focus {
+            border: 0;
+        }
+    }
+}
