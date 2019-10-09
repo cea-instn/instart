@@ -10,6 +10,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+- Upgrade terraform syntax to 0.12
 - Upgrade to Richie 1.6.1
 - Upgrade to Richie 1.5.2
 

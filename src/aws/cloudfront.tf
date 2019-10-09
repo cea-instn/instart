@@ -87,7 +87,7 @@ resource "aws_cloudfront_distribution" "instart_cloudfront_distribution" {
     }
   }
 
-  tags {
+  tags = {
     Environment = "${terraform.workspace}"
   }
 

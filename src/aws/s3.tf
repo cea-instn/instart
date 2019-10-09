@@ -11,7 +11,7 @@ resource "aws_s3_bucket" "instart_static" {
     max_age_seconds = 3600
   }
 
-  tags {
+  tags = {
     Name        = "instart-static"
     Environment = "${terraform.workspace}"
   }
@@ -34,7 +34,7 @@ resource "aws_s3_bucket" "instart_media" {
     enabled = true
   }
 
-  tags {
+  tags = {
     Name        = "instart-media"
     Environment = "${terraform.workspace}"
   }
