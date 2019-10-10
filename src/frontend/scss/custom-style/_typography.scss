@@ -98,3 +98,10 @@ mark {
     font-weight: 500;
     line-height: calc(38 / 30);
 }
+
+.course-glimpse-list__title {
+    font-size: pxtoem(20);
+    margin-bottom: 2em;
+    padding: 0;
+    text-transform: uppercase;
+}
