@@ -63,30 +63,12 @@ $richie-course-detail-aside-with-large: 30% !default;
         }
 
         &__title {
-            font-size: rem-calc(30px);
-            font-weight: 500;
-            letter-spacing: 0.075em;
-            line-height: calc(38 / 30);
+            @include page-title();
             margin: 0;
             padding: 0;
-            position: relative;
-            text-transform: uppercase;
 
             + .course-detail__content__row {
                 margin-top: var(--space-xs);
-            }
-
-            &:before {
-                background: url('../../images/arrow-marker.svg') rem-calc(-55px) 0 no-repeat;
-                background-size: cover;
-                content: '';
-                display: block;
-                height: 70px;
-                left: 0;
-                position: absolute;
-                top: 50%;
-                transform: translate(-100%,-50%);
-                width: 278px;
             }
         }
 
