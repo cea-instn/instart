@@ -28,7 +28,7 @@ nosetests.xml
 coverage.xml
 
 # Built statics
-src/backend/instart/static/richie/css/main.css
+src/backend/instart/static/instart/css/main.css
 
 # Site media
 data/
