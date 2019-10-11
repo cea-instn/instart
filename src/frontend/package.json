@@ -5,18 +5,15 @@
   "scripts": {
     "prettier": "prettier '**/*.+(css|scss)'",
     "prettier-write": "prettier --write '**/*.+(css|scss)'",
-    "sass": "node-sass --include-path node_modules scss/_main.scss ../backend/instart/static/richie/css/main.css",
-    "sass-production": "node-sass --include-path node_modules --output-style compressed scss/_main.scss ../backend/instart/static/richie/css/main.css",
+    "sass": "node-sass --include-path node_modules scss/_main.scss ../backend/instart/static/instart/css/main.css",
+    "sass-production": "node-sass --include-path node_modules --output-style compressed scss/_main.scss ../backend/instart/static/instart/css/main.css",
     "watch-sass": "nodemon -e scss -x 'yarn sass'"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/openfun/instart-learning.git"
   },
-  "keywords": [
-    "MOOC",
-    "CMS"
-  ],
+  "keywords": ["MOOC", "CMS"],
   "author": {
     "name": "Open FUN (France Université Numérique)",
     "email": "fun.dev@fun-mooc.fr"
@@ -32,6 +29,6 @@
     "node-sass": "4.11.0",
     "nodemon": "1.18.10",
     "prettier": "1.16.4",
-    "richie-education": "1.9.2"
+    "richie-education": "1.11.0"
   }
 }
