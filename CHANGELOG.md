@@ -13,6 +13,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - Upgrade terraform syntax to 0.12
 - Upgrade to Richie 1.11.0
 
+### Fixed
+
+- Load main css from the instart static namespace
+
 ### Security
 
 - Upgrade lodash to 4.17.15, and lodash.mergewith to 4.6.2.
