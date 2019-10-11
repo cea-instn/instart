@@ -46,7 +46,7 @@ COPY ./src/backend /app/
 COPY ./docker/files/usr/local/bin/entrypoint /usr/local/bin/entrypoint
 
 # Copy distributed application's statics
-COPY --from=front-builder /builder/src/backend/instart/static/richie /app/src/backend/instart/static/richie
+COPY --from=front-builder /builder/src/backend/instart/static/instart /app/src/backend/instart/static/instart
 
 WORKDIR /app
 
