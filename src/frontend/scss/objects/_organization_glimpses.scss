@@ -94,3 +94,60 @@
         }
     }
 }
+
+
+
+// Partner glimpse
+//
+
+// Common container for glimpse list
+
+.partner-glimpse-list {
+    @include flex-sb();
+
+    @include breakpoint(lg) {
+        flex-wrap: nowrap;
+    }
+    .organization-glimpse {
+        @include sv-flex(
+                        1,
+                        0,
+                        22%
+        );
+
+        background: none;
+        color: var(--color-primary);
+        display: block;
+        padding: 0;
+        width: 22%;
+
+        &__logo {
+            display: none;
+        }
+
+        &__title {
+            color: var(--color-primary);
+            font-size: 1rem;
+            font-weight: bold;
+            padding-bottom: 2em;
+            padding-left: 0;
+            position: relative;
+            width: auto;
+
+            &:before {
+                display: none;
+            }
+
+            &:after {
+                background: var(--color-primary);
+                bottom: 0;
+                content: '';
+                display: block;
+                height: 3px;
+                position: absolute;
+                width: 46px;
+            }
+
+        }
+    }
+}
