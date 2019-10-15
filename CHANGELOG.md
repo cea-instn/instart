@@ -16,6 +16,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ### Fixed
 
 - Load main css from the instart static namespace
+- Sass build copy now targets the appropriate path in the production image
 
 ### Security
 
