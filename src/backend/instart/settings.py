@@ -232,6 +232,11 @@ class Base(DRFMixin, RichieCoursesConfigurationMixin, Configuration):
             "name": _("Partners selection : intro"),
             "plugins": ["CKEditorPlugin"],
         },
+        "richie/homepage.html partners_selection": {
+            "name": _("Highlighted partners"),
+            "plugins": ["OrganizationPlugin"],
+            "limits": {"OrganizationPlugin": 4},
+        },
         # Solutions
         "richie/solutions.html solutions_contact_picture": {
             "name": _("Contact block : cover"),
