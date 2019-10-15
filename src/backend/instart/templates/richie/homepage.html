@@ -78,13 +78,11 @@
     <div class="homepage__courses-selection__head">
 
         <div class="homepage__courses-selection__head__content">
-            <!-- TODO : mettre en place un placeholder pour le contenu -->
             <h2 class="homepage__courses-selection__head__content__title">{% trans "Courses selection" %}</h2>
             {% placeholder "home_courses_intro" %}
             <div class="homepage__courses-selection__head__content__foot">
                 <a href="{% page_url 'courses' %}" class="btn btn--primary">{% trans 'See all' %}</a>
             </div>
-            <!-- TODO END -->
         </div>
 
         <div class="homepage__courses-selection__head__cover">
@@ -179,9 +177,7 @@
             {% placeholder "partners_intro" %}
         </div>
         <div class="homepage__partners__intro__foot">
-            <!-- TODO : where does this link go ? -->
-            <a href="{% page_url 'persons' %}" class="btn btn--primary">{% trans 'Begin' %}</a>
-            <!-- TODO : END -->
+            <a href="{% page_url 'organizations' %}" class="btn btn--primary">{% trans 'Begin' %}</a>
         </div>
     </div>
 
@@ -191,26 +187,11 @@
             {% placeholder "partners_selection_intro" %}
         </div>
 
-        <!-- TODO : 4 partners selection : is there a plugin for this object ? or maybe we can make it with the person object ? -->
         <div class="partner-glimpse-list">
-            <div class="partner-glimpse">
-                <h3 class="partner-glimpse__title"><a href="#">Partner's name</a></h3>
-            </div>
-            <div class="partner-glimpse">
-                <h3 class="partner-glimpse__title"><a href="#">Partner's name</a></h3>
-            </div>
-            <div class="partner-glimpse">
-                <h3 class="partner-glimpse__title"><a href="#">Partner's name</a></h3>
-            </div>
-            <div class="partner-glimpse">
-                <h3 class="partner-glimpse__title"><a href="#">Partner's name</a></h3>
-            </div>
+            {% placeholder "partners_selection" %}
         </div>
-        <!-- TODO : END -->
         <div class="homepage__partners__selection__foot">
-            <!-- TODO : where does this link go ? -->
-            <a href="{% page_url 'persons' %}" class="btn btn--primary">{% trans 'See all' %}</a>
-            <!-- TODO : END -->
+            <a href="{% page_url 'organizations' %}" class="btn btn--primary">{% trans 'See all' %}</a>
         </div>
 
     </div>
