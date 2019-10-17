@@ -17,6 +17,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Load main css from the instart static namespace
 - Sass build copy now targets the appropriate path in the production image
+- Fix CKeditor static files to work with a CDN
 
 ### Security
 
