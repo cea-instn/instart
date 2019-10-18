@@ -76,9 +76,7 @@ jobs:
       - checkout
       # Generate a version.json file describing app release
       - <<: *generate-version-file
-      # Activate docker-in-docker (with layers caching enabled)
-      - setup_remote_docker:
-          docker_layer_caching: true
+      - setup_remote_docker
       - run:
           name: Build production image
           command: make env.d/aws && make ci-build
@@ -141,9 +139,7 @@ jobs:
       - checkout
       # Generate a version.json file describing app release
       - <<: *generate-version-file
-      # Activate docker-in-docker (with layers caching enabled)
-      - setup_remote_docker:
-          docker_layer_caching: true
+      - setup_remote_docker
       - run:
           name: Build production image
           command: |
