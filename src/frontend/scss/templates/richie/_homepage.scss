@@ -184,11 +184,11 @@
         @include flex-sb();
 
         &__content {
-            @include make-left-padding();
             background-image: linear-gradient(to bottom, #e5f4ff, #d2e8f8, #bfdbf1, #accfea, #99c3e3);
             color: var(--color-primary);
             padding-bottom: rem-calc(50px);
-            padding-right: pxtopc(154,1860);
+            padding-left: 5%;
+            padding-right: 5%;
             padding-top: calc(var(--space-lg) * 2);
 
             &__title {
@@ -207,6 +207,7 @@
             @include aspect-ratio(930,401);
             max-height: pxtoem(401);
             overflow: hidden;
+            width: 100%;
 
             img {
                 @include fitcover();
@@ -268,6 +269,9 @@
 
     @include breakpoint(md) {
         &__head {
+            &__content {
+                padding-right: pxtopc(154,1860);
+            }
             &__cover,
             &__content {
                 width: 50%;
