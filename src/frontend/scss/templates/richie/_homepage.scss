@@ -221,28 +221,24 @@
         padding-top: calc(var(--space-lg) * 2);
 
         &__content {
-            @include make-container();
-            @include make-container-max-widths();
+            padding: 0 5%;
             @include flex-sb();
+        }
+
+        // Fix issue with cms hidden placeholder element which trouble alignment
+        .cms-placeholder {
+            display: none;
         }
     }
 
     .course-glimpse {
         // Responsive adjustments
-        @include breakpoint(md) {
-            @include sv-flex(
-                            1,
-                            0,
-                            100%
-            );
+        @include breakpoint(xs) {
+            width: 48%;
         }
 
         @include breakpoint(md) {
-            @include sv-flex(
-                            1,
-                            0,
-                            48%
-            );
+            width: 32%;
             margin-left: 4%;
 
             &:nth-of-type(2n + 1) {
@@ -251,11 +247,7 @@
         }
 
         @include breakpoint(lg) {
-            @include sv-flex(
-                            1,
-                            0,
-                            22%
-            );
+            width: 22%;
             margin-left: 3%;
 
             &:nth-of-type(2n + 1) {
@@ -270,11 +262,18 @@
     @include breakpoint(md) {
         &__head {
             &__content {
+                @include make-left-padding();
                 padding-right: pxtopc(154,1860);
             }
             &__cover,
             &__content {
                 width: 50%;
+            }
+        }
+        &__list {
+            &__content {
+                @include make-container();
+                @include make-container-max-widths();
             }
         }
     }
