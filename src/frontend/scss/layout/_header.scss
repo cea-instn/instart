@@ -275,12 +275,16 @@
     &.is-open {
         #{$topbar-selector}__menu {
             display: flex;
+            position: absolute;
+            top: 100%;
         }
     }
 }
 
 .topbar__menu__list:first-child {
     .topbar__menu__list__item__link {
-        padding: 1.938rem 1rem 1.75rem;
+        @include breakpoint(lg) {
+            padding: 1.938rem 1rem 1.75rem;
+        }
     }
 }
