@@ -4,7 +4,8 @@
     &__list {
         @include make-left-padding();
         background-image: linear-gradient(to bottom, #097ab7, #205a8b, #1e3d60, #152239, #010416);
-        padding-top: calc(var(--space-lg) * 2);
+        order: 2;
+        padding:  calc(var(--space-lg) * 2) 5%;
 
         &__title {
             @include page-title();
@@ -24,10 +25,19 @@
                 display: block;
                 margin: 0 0 1em;
                 padding: 0 rem-calc(20px) 0 rem-calc(60px);
-                width: 40%;
+                width: 100%;
 
-                &:nth-child(even) {
-                    padding: 0 rem-calc(20px) 0 rem-calc(60px);
+                @include breakpoint(sm) {
+                    padding-left: rem-calc(40px);
+                    width: 45%;
+                }
+                @include breakpoint(md) {
+                    padding-left: rem-calc(60px);
+                    width: 100%;
+                }
+                @include breakpoint(lg) {
+                    padding-left: rem-calc(40px);
+                    width: 45%;
                 }
             }
         }
@@ -36,8 +46,10 @@
 
     &__cover {
         @include aspect-ratio(930,389);
-        max-height: pxtoem(389);
+        max-height: pxtoem(433);
+        order: 1;
         overflow: hidden;
+        width: 100%;
 
         img {
             @include fitcover();
@@ -45,9 +57,24 @@
     }
 
     @include breakpoint(md) {
+        &__list {
+            order: 1;
+        }
+        &__cover {
+            order: 2;
+        }
         &__cover,
         &__list {
             width: 50%;
+        }
+    }
+
+    @include breakpoint(lg) {
+        &__list {
+            padding-bottom:  calc(var(--space-lg) * 1.5);
+        }
+        &__cover {
+            max-height: pxtoem(389);
         }
     }
 }
