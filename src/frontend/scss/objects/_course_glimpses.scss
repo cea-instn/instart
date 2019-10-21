@@ -34,6 +34,7 @@
     $glimpse-item-selector: &;
     margin-bottom: var(--space-lg);
     text-decoration: none;
+    width: 100%;
 
     // Apply card styles for elements
     @include m-o-card(

@@ -235,10 +235,6 @@
         // Responsive adjustments
         @include breakpoint(xs) {
             width: 48%;
-        }
-
-        @include breakpoint(md) {
-            width: 32%;
             margin-left: 4%;
 
             &:nth-of-type(2n + 1) {
@@ -246,7 +242,8 @@
             }
         }
 
-        @include breakpoint(lg) {
+
+        @include breakpoint(md) {
             width: 22%;
             margin-left: 3%;
 
