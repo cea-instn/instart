@@ -292,6 +292,7 @@
         @include aspect-ratio(930,550);
         max-height: pxtoem(550);
         overflow: hidden;
+        width: 100%;
 
         img {
             @include fitcover();
@@ -299,10 +300,7 @@
     }
 
     &__list {
-        @include make-right-padding();
-        padding-left: pxtopc(154,1860);
-        padding-bottom: rem-calc(50px);
-        padding-top: calc(var(--space-lg) * 2);
+        padding:  calc(var(--space-lg) * 2) 5% rem-calc(50px);
 
         &__title {
             @include section-title();
@@ -318,6 +316,7 @@
 
             &__items {
                 @include flex-sb();
+                margin-bottom: var(--space-md);
             }
 
             &__text {
@@ -337,19 +336,47 @@
                 }
             }
 
+            @include breakpoint(md) {
+                flex-wrap: wrap;
+
+                &__items,
+                &__text {
+                    width: 100%;
+                }
+            }
+
+            @include breakpoint(lg) {
+                flex-wrap: nowrap;
+
+                &__items {
+                    flex-wrap: nowrap;
+                    margin-bottom: 0;
+                    width: pxtopc(259,514);
+                }
+
+                &__text {
+                    width: pxtopc(233,514);
+                }
+            }
         }
 
         .person-glimpse {
+            @include sv-flex(
+                            1,
+                            0,
+                            46%
+            );
             background: none;
             flex-direction: column;
             justify-content: flex-start;
-            padding: 0 1em 0 0;
+            padding: 0;
 
             .category-plugin-tag {
                 background: none;
                 color: var(--color-primary);
-                display: inline-block;
+                display: block;
                 font-style: italic;
+                margin-bottom: 0.25em;
                 padding: 0;
                 white-space: unset;
             }
@@ -372,17 +399,18 @@
                 padding-right: 0;
 
                 &__content {
-                    padding: 0;
-                    width: 100%; // 109px
-                }
-
-                &__media {
-                    img {
-                        max-width: pxtoem(109);
-                    }
+                    padding: 1rem 0 0;
+                    width: 100%;
                 }
             }
             @include breakpoint(md) {
+                &__media {
+                    img {
+                        max-width: 100%;
+                    }
+                }
+            }
+            @include breakpoint(lg) {
                 @include sv-flex(
                                 1,
                                 0,
@@ -397,19 +425,12 @@
                     padding-left: 0;
                     padding-right: 0;
                 }
-            }
-            @include breakpoint(lg) {
-                &:nth-of-type(even) {
-                    padding-left: 0;
-                }
-                &:nth-of-type(odd) {
-                    padding-right: 0;
+                &__media {
+                    img {
+                        max-width: pxtoem(109);
+                    }
                 }
             }
-        }
-
-        .person-glimpse__content__wrapper__title {
-            margin-bottom: 0;
         }
     }
 
@@ -418,6 +439,19 @@
         &__cover,
         &__list {
             width: 50%;
+        }
+        &__list {
+            @include make-right-padding();
+            padding-left: pxtopc(154,1860);
+        }
+        &__cover {
+            max-height: pxtoem(650);
+        }
+    }
+
+    @include breakpoint(lg) {
+        &__cover {
+            max-height: pxtoem(550);
         }
     }
 }

@@ -113,7 +113,7 @@
     }
 
     &__content__wrapper__title {
-        font-size: 1em;
+        font-size: rem-calc(14px);
         margin-bottom: 1em;
     }
 
@@ -130,14 +130,13 @@
         @include make-inner-paddings();
 
         &__content {
-            padding: 0 0 0 pxtoem(30);
+            padding: 1rem 0 0 pxtoem(30);
             width: calc(100% - 6.8125em); // 109px
         }
 
         &__media {
             img {
                 display: block;
-                max-width: pxtoem(109);
             }
         }
     }
@@ -154,6 +153,15 @@
         &:nth-of-type(odd) {
             background: linear-gradient(180deg, var(--color-primary-darker) 0%, var(--color-primary) 100%);
             @include make-left-padding();
+        }
+        &__content__wrapper__title {
+            margin-bottom: 1em;
+        }
+
+        &__media {
+            img {
+                max-width: pxtoem(109);
+            }
         }
     }
 
