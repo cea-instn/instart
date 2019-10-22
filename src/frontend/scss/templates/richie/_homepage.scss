@@ -459,16 +459,19 @@
 .homepage__partners {
     @include flex-sb();
 
-    &__intro {
-        @include make-left-padding();
-        background-image: linear-gradient(to bottom, #13243c, #1c1a2c, #1b131d, #130a10, #000000);
-        padding-bottom: rem-calc(50px);
-        padding-right: pxtopc(154,1860);
-        padding-top: calc(var(--space-lg) * 2);
+    &__intro,
+    &__selection {
+        padding: calc(var(--space-lg) * 2) 5% rem-calc(50px);
+    }
 
-        &__icons,
+    &__intro {
+        background-image: linear-gradient(to bottom, #13243c, #1c1a2c, #1b131d, #130a10, #000000);
+
+        &__icons {
+            margin-bottom: calc(var(--space-md) * 2);
+        }
         &__title {
-            margin-bottom: rem-calc(68px);
+            margin-bottom: var(--space-md);
         }
 
         &__icons {
@@ -477,7 +480,8 @@
             max-width: pxtoem(402);
 
             svg {
-                width: pxtoem(89);
+                max-width: pxtoem(89);
+                width: 20%;
             }
         }
 
@@ -486,22 +490,18 @@
         }
 
         &__foot {
-            margin-top: calc(var(--space-xl) * 2);
+            margin-top: calc(var(--space-md) * 2);
         }
     }
     &__selection {
-        @include make-right-padding();
         background-image: linear-gradient(to bottom, #e5f4ff, #d2e8f8, #bfdbf1, #accfea, #99c3e3);
         color: var(--color-primary);
-        padding-bottom: rem-calc(50px);
-        padding-left: pxtopc(154,1860);
-        padding-top: calc(var(--space-lg) * 2);
 
         &__title {
-            margin-bottom: rem-calc(60px);
+            margin-bottom: var(--space-md);
         }
         &__content {
-            margin-bottom: rem-calc(90px);
+            margin-bottom: calc(var(--space-md) * 2);
         }
 
         &__title {
@@ -512,7 +512,7 @@
             }
         }
         .partner-glimpse-list {
-            margin-bottom: calc(var(--space-xl) * 2);
+            margin-bottom: var(--space-xl);
         }
     }
 
@@ -521,6 +521,38 @@
         &__intro,
         &__selection {
             width: 50%;
+        }
+        &__intro {
+            @include make-left-padding();
+            padding-right: pxtopc(154,1860);
+
+            &__icons {
+                margin-bottom: var(--space-xl);
+
+                svg {
+                    width: pxtoem(89);
+                }
+            }
+
+            &__foot {
+                margin-top: var(--space-xl);
+            }
+        }
+        &__selection {
+            @include make-right-padding();
+            padding-left: pxtopc(154,1860);
+
+            &__title {
+                margin-bottom: var(--space-lg);
+            }
+
+            &__content {
+                margin-bottom: calc(var(--space-lg) * 2);
+            }
+
+            .partner-glimpse-list {
+                margin-bottom: calc(var(--space-lg) * 2);
+            }
         }
     }
 
