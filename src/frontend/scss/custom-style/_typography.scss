@@ -72,7 +72,7 @@ mark {
 // --------------------------------
 
 @mixin page-title {
-    font-size: rem-calc(30px);
+    font-size: rem-calc(24px);
     font-weight: 500;
     line-height: calc(38 / 30);
     position: relative;
@@ -90,6 +90,10 @@ mark {
         top: 50%;
         transform: translate(-100%,-50%);
         width: 278px;
+    }
+
+    @include breakpoint(sm) {
+        font-size: rem-calc(30px);
     }
 }
 

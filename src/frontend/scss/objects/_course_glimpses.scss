@@ -34,13 +34,7 @@
     $glimpse-item-selector: &;
     margin-bottom: var(--space-lg);
     text-decoration: none;
-
-    // Cell base width for lowest breakpoint
-    @include sv-flex(
-                    1,
-                    0,
-                    100%
-    );
+    width: 100%;
 
     // Apply card styles for elements
     @include m-o-card(
@@ -191,11 +185,7 @@
 
     // Responsive adjustments
     @include breakpoint(md) {
-        @include sv-flex(
-                        1,
-                        0,
-                        48%
-        );
+        width: 48%;
         margin-left: 4%;
 
         &:nth-of-type(2n + 1) {
@@ -204,11 +194,7 @@
     }
 
     @include breakpoint(lg) {
-        @include sv-flex(
-                        1,
-                        0,
-                        31%
-        );
+        width: 31%;
         margin-left: 3.5%;
 
         &:nth-of-type(2n + 1) {
@@ -221,11 +207,7 @@
 
     // Special row when there is no entry
     &--empty {
-        @include sv-flex(
-                        1,
-                        0,
-                        100%
-        );
+        width: 100%;
         padding: 1rem;
         font-style: italic;
         color: $gray40;
