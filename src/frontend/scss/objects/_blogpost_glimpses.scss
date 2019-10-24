@@ -12,11 +12,14 @@
     padding-top: calc(var(--space-lg) * 2);
 
     &__title {
-        @include make-inner-paddings();
         @include page-title;
         margin: 0 0 rem-calc(45px);
-        padding: 0;
+        padding: 0 5%;
         width: 100%;
+
+        @include breakpoint(md) {
+            @include make-inner-paddings();
+        }
     }
 }
 
@@ -98,14 +101,6 @@
         @include sv-flex(
                         1,
                         0,
-                        100%
-        );
-    }
-
-    @include breakpoint(lg) {
-        @include sv-flex(
-                        1,
-                        0,
                         50%
         );
 
@@ -122,19 +117,6 @@
 
     // Special row when there is no entry
     &--empty {
-        @include sv-flex(
-                        1,
-                        0,
-                        100%
-        );
-        padding: 1rem;
-        font-style: italic;
-        color: $gray40;
-        text-align: center;
-        cursor: default;
-
-        &:hover,
-        &:focus {
-        }
+        display: none;
     }
 }
