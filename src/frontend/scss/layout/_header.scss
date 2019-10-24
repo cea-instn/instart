@@ -1,14 +1,17 @@
 // Main body header
 
 .topbar {
-    @include make-container();
-    @include make-container-max-widths();
     $topbar-selector: &;
     display: flex;
     flex-direction: column;
-    padding: 0 1rem;
+    padding: 0 5%;
     position: relative;
     z-index: 200;
+
+    @include breakpoint(md) {
+        @include make-container();
+        @include make-container-max-widths();
+    }
 
     @include breakpoint(lg) {
         align-items: flex-end;
