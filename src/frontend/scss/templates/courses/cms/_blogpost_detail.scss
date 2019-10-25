@@ -1,8 +1,5 @@
 .blogpost-detail {
-    @include make-container();
-    @include make-container-max-widths();
-    padding-top: calc(var(--space-lg) * 2);
-    padding-bottom: calc(var(--space-lg) * 2);
+    padding: calc(var(--space-lg) * 2) 5%;
 
     .col-6\@md {
 
@@ -103,5 +100,10 @@
         @include breakpoint(md) {
             padding-right: var(--grid-gutter-width);
         }
+    }
+
+    @include breakpoint(md) {
+        @include make-container();
+        @include make-container-max-widths();
     }
 }
