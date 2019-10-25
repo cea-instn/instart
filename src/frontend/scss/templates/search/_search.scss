@@ -98,7 +98,7 @@ $richie-template-search-title-padding: null !default;
 .search__results {
     background-color: var(--color-primary-darker);
     flex-grow: 1;
-    padding: 2rem 1rem;
+    padding: 2rem 5%;
 
     .cms-ready & {
         background-image: linear-gradient(to bottom, #13243c, #1c1a2c, #1b131d, #130a10, #000000);
@@ -109,6 +109,16 @@ $richie-template-search-title-padding: null !default;
         font-weight: 500;
         margin-bottom: var(--space-sm);
         text-transform: uppercase;
+    }
+
+    @include breakpoint(xs) {
+        .course-glimpse-list {
+            @include flex-sb();
+            max-width: none;
+        }
+        .course-glimpse {
+            width: 48%;
+        }
     }
 
     @include breakpoint(sm) {
