@@ -18,7 +18,6 @@ $richie-template-search-title-padding: null !default;
 }
 
 .search-template {
-    @include make-outter-paddings();
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -72,28 +71,53 @@ $richie-template-search-title-padding: null !default;
             z-index: 1;
         }
     }
+    @include breakpoint(md) {
+        @include make-outter-paddings();
+    }
 }
 
 .search__filters {
     display: none;
     flex-grow: 1;
-    padding: 2rem 1rem;
+    padding: 2rem 5%;
 
     .cms-ready & {
         background-image: linear-gradient(to top, #13243c, #1a385a, #1d4d79, #1b6499, #0a7cbb);
         display: block;
     }
 
+    &__toggle {
+        align-items: center;
+        background: var(--color-primary);
+        border: none;
+        color: var(--color-white);
+        cursor: pointer;
+        display: flex;
+        padding: var(--space-xs) var(--space-md);
+        text-transform: uppercase;
+
+        svg {
+            margin-right: 1em;
+        }
+
+        .offscreen {
+            line-height: 1;
+        }
+    }
+
     @include breakpoint(sm) {
         padding: rem-calc(75px) 1rem 3rem;
         width: calc((404 / 1392) * 100%);
+    }
+    @include breakpoint(md) {
+
     }
 }
 
 .search__results {
     background-color: var(--color-primary-darker);
     flex-grow: 1;
-    padding: 2rem 1rem;
+    padding: 2rem 5%;
 
     .cms-ready & {
         background-image: linear-gradient(to bottom, #13243c, #1c1a2c, #1b131d, #130a10, #000000);
@@ -104,6 +128,16 @@ $richie-template-search-title-padding: null !default;
         font-weight: 500;
         margin-bottom: var(--space-sm);
         text-transform: uppercase;
+    }
+
+    @include breakpoint(xs) {
+        .course-glimpse-list {
+            @include flex-sb();
+            max-width: none;
+        }
+        .course-glimpse {
+            width: 48%;
+        }
     }
 
     @include breakpoint(sm) {
@@ -117,6 +151,9 @@ $richie-template-search-title-padding: null !default;
 }
 
 .search-filters-pane {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 800ms ease-out;
 
     &__title {
         color: var(--color-white);
@@ -142,6 +179,16 @@ $richie-template-search-title-padding: null !default;
     &__clear {
         color: var(--color-white);
         display: block;
+    }
+
+    .search__filters--active & {
+        margin-bottom: 2em;
+        max-height: 200vh;
+    }
+
+    @include breakpoint(md) {
+        margin-bottom: 0;
+        max-height: unset;
     }
 }
 
