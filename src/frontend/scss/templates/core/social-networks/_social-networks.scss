@@ -5,6 +5,7 @@
     justify-content: center;
 
     &__item {
+        align-items: center;
         background: var(--color-primary-dark);
         border-radius: 100%;
         color: $white;
