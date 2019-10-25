@@ -18,7 +18,6 @@ $richie-template-search-title-padding: null !default;
 }
 
 .search-template {
-    @include make-outter-paddings();
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -72,12 +71,15 @@ $richie-template-search-title-padding: null !default;
             z-index: 1;
         }
     }
+    @include breakpoint(md) {
+        @include make-outter-paddings();
+    }
 }
 
 .search__filters {
     display: none;
     flex-grow: 1;
-    padding: 2rem 1rem;
+    padding: 2rem 5%;
 
     .cms-ready & {
         background-image: linear-gradient(to top, #13243c, #1a385a, #1d4d79, #1b6499, #0a7cbb);
@@ -87,6 +89,9 @@ $richie-template-search-title-padding: null !default;
     @include breakpoint(sm) {
         padding: rem-calc(75px) 1rem 3rem;
         width: calc((404 / 1392) * 100%);
+    }
+    @include breakpoint(md) {
+
     }
 }
 
