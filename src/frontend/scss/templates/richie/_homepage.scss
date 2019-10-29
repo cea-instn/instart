@@ -385,6 +385,16 @@
                 margin-top: 0;
             }
 
+            &__content__wrapper__title {
+                font-size: rem-calc(14px);
+                margin-bottom: 1em;
+                padding-right: 0;
+
+                @include breakpoint(xs) {
+                    font-size: rem-calc(14px);
+                }
+            }
+
             &__content__wrapper__bio {
                 display: none;
             }
