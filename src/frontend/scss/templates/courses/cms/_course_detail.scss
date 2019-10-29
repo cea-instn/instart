@@ -1,27 +1,14 @@
-$richie-course-detail-content-width-large: 70% !default;
-
-$richie-course-detail-row-title-fontcolor: $dodgerblue3 !default;
-
-$richie-course-detail-categories-empty-fontcolor: $gray40 !default;
-$richie-course-detail-categories-empty-textalign: center !default;
-
-$richie-course-detail-organizations-item-gutter: 0.625rem !default;
-
-$richie-course-detail-license-margin: 1rem 0 0 0 !default;
-$richie-course-detail-license-title-margin: 0 0 0.75rem 0 !default;
-$richie-course-detail-license-title-fontcolor: $dodgerblue3 !default;
-
-$richie-course-detail-aside-with-large: 30% !default;
-
 .course-detail {
-    @include make-container();
-    @include make-container-max-widths();
     margin: 0 auto;
-    padding-top: rem-calc(60px);
+    padding: rem-calc(60px) 5% 0;
 
     .person-glimpse + .person-glimpse {
-        margin-left: rem-calc(30px);
         margin-top: 0;
+    }
+
+    @include breakpoint(md) {
+        @include make-container();
+        @include make-container-max-widths();
     }
 
     @include breakpoint(lg) {
@@ -31,7 +18,11 @@ $richie-course-detail-aside-with-large: 30% !default;
     }
 
     &__header {
-        margin: 0 0 pxtoem(110);
+        margin: 0 0 var(--space-xl);
+
+        @include breakpoint(md) {
+            margin: 0 0 pxtoem(110);
+        }
 
         @include breakpoint(lg) {
             display: flex;
@@ -45,7 +36,7 @@ $richie-course-detail-aside-with-large: 30% !default;
         background: var(--richie-content-container-bg);
 
         @include breakpoint(lg) {
-            @include sv-flex-cell-width($richie-course-detail-content-width-large);
+            @include sv-flex-cell-width(70%);
             padding-right: pxtopc(169,1360);
         }
 
@@ -189,12 +180,12 @@ $richie-course-detail-aside-with-large: 30% !default;
             &__placeholder {
                 @include sv-flex(1, 0, 100%);
                 font-style: italic;
-                color: $richie-course-detail-categories-empty-fontcolor;
-                text-align: $richie-course-detail-categories-empty-textalign;
+                color: var(--color-white);
+                text-align: center;
                 background: transparent;
 
                 &:hover {
-                    color: $richie-course-detail-categories-empty-fontcolor;
+                    color: var(--color-white);
                 }
             }
         }
@@ -244,7 +235,7 @@ $richie-course-detail-aside-with-large: 30% !default;
 
             &__title {
                 margin-bottom: rem-calc(60px);
-                margin-top: rem-calc(140px);
+                margin-top: var(--space-xl);
                 padding: 1em 0;
 
                 &:before {
@@ -256,12 +247,17 @@ $richie-course-detail-aside-with-large: 30% !default;
                     top: 0;
                     width: rem-calc(110px);
                 }
+
+                @include breakpoint(md) {
+                    margin-top: rem-calc(140px);
+                }
             }
 
             &__items {
                 align-items: flex-start;
                 display: flex;
-                flex-wrap: wrap;
+                flex-wrap: nowrap;
+                justify-content: space-between;
                 width: 100%;
             }
 
@@ -270,7 +266,7 @@ $richie-course-detail-aside-with-large: 30% !default;
             }
 
             .person-glimpse {
-                @include sv-flex(0, 0);
+                @include sv-flex(0, 0, 49%);
                 background: none;
                 border: none;
                 flex-direction: column;
@@ -280,6 +276,7 @@ $richie-course-detail-aside-with-large: 30% !default;
                 &__media {
                     img {
                         border-radius: 0;
+                        display: block;
                     }
                 }
 
@@ -365,11 +362,15 @@ $richie-course-detail-aside-with-large: 30% !default;
 
     &__aside {
         @include sv-flex-cell-width(100%);
-        margin: 0;
+        margin: var(--space-md) 0 0;
         padding: 0;
 
+        @include breakpoint(md) {
+            margin: 0;
+        }
+
         @include breakpoint(lg) {
-            @include sv-flex-cell-width(#{$richie-course-detail-aside-with-large});
+            @include sv-flex-cell-width(30%);
         }
 
         &__main-org-logo {
