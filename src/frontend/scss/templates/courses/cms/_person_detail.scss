@@ -13,10 +13,11 @@ $richie-person-detail-media-size: 10rem;
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 0;
-    padding: pxtoem(30) 1rem;
+    padding: pxtoem(30) 5%;
     text-decoration: none;
 
     &__content {
+        @extend .text-component;
         padding-bottom: pxtoem(65);
 
         @include breakpoint(lg) {
@@ -60,7 +61,10 @@ $richie-person-detail-media-size: 10rem;
         }
 
         // Responsive adjustments
-        @include breakpoint(sm) {
+        @include breakpoint(xs) {
+            .course-glimpse-list {
+                max-width: unset;
+            }
             .blogpost-glimpse,
             .course-glimpse {
                 @include sv-flex(
@@ -93,7 +97,7 @@ $richie-person-detail-media-size: 10rem;
                 }
 
                 &:nth-of-type(3n + 1) {
-                    margin-left: inherit;
+                    margin-left: 0;
                 }
             }
         }
@@ -152,7 +156,7 @@ $richie-person-detail-media-size: 10rem;
         }
     }
 
-    @include breakpoint(xs) {
+    @include breakpoint(md) {
         @include make-inner-paddings();
     }
 }
