@@ -11,14 +11,13 @@
         justify-content: center;
         margin: 0 auto;
         order: 1;
-
-        @include breakpoint(md) {
-            order: 2;
-        }
+        width: 100%;
 
         @include breakpoint(lg) {
-            margin: 0 5rem;
+            order: 2;
+            width: auto;
         }
+
 
         &__list {
             width: 100%;
@@ -27,7 +26,11 @@
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
-            justify-content: space-evenly;
+            justify-content: flex-start;
+
+            @include breakpoint(sm) {
+                justify-content: center;
+            }
 
             @include breakpoint(lg) {
                 justify-content: space-between;
@@ -45,7 +48,7 @@
 
                 &__link {
                     display: block;
-                    padding: 0.5rem;
+                    padding: 0.3rem;
                     font-weight: normal;
                     color: var(--color-primary-darker);
                     text-decoration: none;
@@ -66,15 +69,15 @@
 
         &:first-of-type {
             order: 2;
-            width: rem-calc(131px);
+            width: rem-calc(100px);
 
-            @include breakpoint(md) {
+            @include breakpoint(lg) {
                 order: 1;
             }
         }
         &:last-of-type {
             order: 3;
-            width: rem-calc(82px);
+            width: rem-calc(60px);
         }
 
         &__link {
@@ -86,12 +89,16 @@
 }
 
 .body-footer-inner {
-    @include make-container();
-    @include make-container-max-widths();
     align-items: center;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 0 1rem;
+    padding: 0 5%;
+
+    @include breakpoint(md) {
+        @include make-container();
+        @include make-container-max-widths();
+        padding: 0 1rem;
+    }
 }
