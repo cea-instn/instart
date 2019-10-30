@@ -12,17 +12,17 @@
         @include page-title;
         background: linear-gradient(0deg, #0F466D 0%, var(--color-primary) 100%);
         margin: 0;
-        padding: rem-calc(30px) 1rem;
+        padding: rem-calc(30px) 5%;
         width: 100%;
 
-
-        @include breakpoint(xs) {
-            @include make-inner-paddings();
-        }
 
         @include breakpoint(sm) {
             padding-top: rem-calc(60px);
             padding-bottom: rem-calc(45px);
+        }
+
+        @include breakpoint(md) {
+            @include make-inner-paddings();
         }
     }
 }
@@ -40,15 +40,15 @@
 
     background: linear-gradient(0deg, var(--color-primary-darker) 0%, var(--color-primary) 100%);
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
-    justify-content: space-between;
     margin: 0;
-    padding: pxtoem(24) 1rem;
+    padding: pxtoem(24) 5%;
     text-decoration: none;
 
     &__media {
         img {
-            margin: 0 auto;
+            display: block;
         }
     }
 
@@ -65,18 +65,22 @@
             position: relative;
             text-decoration: none;
 
-            &:before {
-                background: url('../../images/icon-plus.svg') center center no-repeat;
-                background-size: 12px;
+            &:before,
+            &:after {
                 content: '';
                 display: block;
                 height: rem-calc(30px);
                 position: absolute;
                 right: 0;
-                top: 0;
+                top: rem-calc(-6px);
+                width: rem-calc(30px);
+            }
+
+            &:before {
+                background: url('../../images/icon-plus.svg') center center no-repeat;
+                background-size: 12px;
                 transition: transform 300ms ease-out;
                 transform: rotate(0deg);
-                width: rem-calc(30px);
                 z-index: 2;
             }
             &:hover:before {
@@ -85,14 +89,7 @@
 
             &:after {
                 background-color: var(--color-primary);
-                content: '';
-                display: block;
-                height: rem-calc(30px);
-                position: absolute;
-                right: 0;
-                top: 0;
                 transition: background-color 200ms linear;
-                width: rem-calc(30px);
                 z-index: 1;
             }
             &:hover:after {
@@ -102,7 +99,7 @@
     }
 
     &__foot {
-        margin-top: pxtoem(65);
+        margin-top: var(--space-lg);
         width: 100%;
 
         .category-plugin-tag {
@@ -113,8 +110,13 @@
     }
 
     &__content__wrapper__title {
-        font-size: rem-calc(14px);
+        font-size: rem-calc(16px);
         margin-bottom: 1em;
+        padding-right: rem-calc(50px);
+
+        @include breakpoint(xs) {
+            font-size: rem-calc(18px);
+        }
     }
 
     &__content__wrapper__categories {
@@ -127,21 +129,27 @@
 
     // Responsive adjustments
     @include breakpoint(xs) {
-        @include make-inner-paddings();
-
-        &__content {
-            padding: 1rem 0 0 pxtoem(30);
-            width: calc(100% - 6.8125em); // 109px
-        }
+        @include sv-flex(
+                        1,
+                        0,
+                        50%
+        );
 
         &__media {
             img {
                 display: block;
             }
         }
+        &:nth-of-type(odd) {
+            background: linear-gradient(180deg, var(--color-primary-darker) 0%, var(--color-primary) 100%);
+        }
     }
 
     @include breakpoint(md) {
+        @include make-inner-paddings();
+        flex-direction: row;
+        justify-content: space-between;
+
         @include sv-flex(
                         1,
                         0,
@@ -151,9 +159,19 @@
             @include make-right-padding();
         }
         &:nth-of-type(odd) {
-            background: linear-gradient(180deg, var(--color-primary-darker) 0%, var(--color-primary) 100%);
             @include make-left-padding();
         }
+        &__content {
+            padding: 0 0 0 pxtoem(30);
+            width: calc(100% - 6.8125em); // 109px
+
+            a:before,
+            a:after {
+                right: pxtoem(-30);
+                top: 0;
+            }
+        }
+
         &__content__wrapper__title {
             margin-bottom: 1em;
         }

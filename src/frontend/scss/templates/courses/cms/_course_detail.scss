@@ -293,15 +293,28 @@ $richie-course-detail-aside-with-large: 30% !default;
                     a {
                         color: var(--color-white);
                         text-decoration: none;
+
+                        &:before,
+                        &:after {
+                            display: none;
+                        }
                     }
 
                     &__title {
                         color: var(--color-white);
-                        font-size: 1em;
+                        font-size: rem-calc(14px);
                         margin-top: pxtoem(13);
+                        padding-right: 0;
 
                         &:hover {
                             color: var(--color-primary);
+                        }
+
+                        @include breakpoint(xs) {
+                            font-size: rem-calc(14px);
+                        }
+                        @include breakpoint(md) {
+                            margin-bottom: 0;
                         }
                     }
 
@@ -318,13 +331,22 @@ $richie-course-detail-aside-with-large: 30% !default;
 
                 .category-plugin-tag {
                     background: none;
-                    color: var(--color-primary-light);
-                    font-size: 1em;
+                    color: var(--color-primary);
+                    display: block;
                     font-style: italic;
+                    margin-bottom: 0.25em;
                     padding: 0;
+                    white-space: unset;
 
                     &:hover {
-                        color: var(--color-primary);
+                        color: var(--color-primary-light);
+                    }
+                }
+
+                @include breakpoint(md) {
+                    &__content {
+                        padding: 0;
+                        width: 100%;
                     }
                 }
 
