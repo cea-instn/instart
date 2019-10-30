@@ -5,16 +5,16 @@
         @include page-title;
         background: linear-gradient(0deg, #0F466D 0%, var(--color-primary) 100%);
         margin: 0;
-        padding: rem-calc(30px) 1rem;
+        padding: rem-calc(30px) 5%;
         width: 100%;
-
-        @include breakpoint(xs) {
-            @include make-inner-paddings();
-        }
 
         @include breakpoint(sm) {
             padding-top: rem-calc(60px);
             padding-bottom: rem-calc(45px);
+        }
+
+        @include breakpoint(md) {
+            @include make-inner-paddings();
         }
     }
 
