@@ -14,7 +14,7 @@
         @include flex-sb();
         background: linear-gradient(0deg, #0F466D 0%, var(--color-primary) 100%);
         margin: 0;
-        padding: rem-calc(30px) 1rem;
+        padding: rem-calc(30px) 5%;
         width: 100%;
 
         &__title {
@@ -32,7 +32,7 @@
             }
         }
 
-        @include breakpoint(xs) {
+        @include breakpoint(md) {
             @include make-inner-paddings();
         }
     }
@@ -94,7 +94,7 @@
         flex-wrap: wrap;
         justify-content: space-between;
         margin: 0;
-        padding: pxtoem(30) 1rem;
+        padding: pxtoem(30) 5%;
         text-decoration: none;
 
         &__description {
@@ -102,7 +102,7 @@
 
         }
 
-        @include breakpoint(xs) {
+        @include breakpoint(md) {
             @include make-inner-paddings();
         }
     }
@@ -157,26 +157,33 @@
     }
 }
 .organization-courses {
-    width: pxtopc(538,1368);
 
     .course-glimpse {
-        @include sv-flex(
-                        1,
-                        0,
-                        48%
-        );
-        margin-left: 4%;
+        @include breakpoint(xs) {
+            @include sv-flex(
+                            1,
+                            0,
+                            48%
+            );
+            margin-left: 4%;
 
-        &:nth-of-type(2n + 1) {
-            margin-left: 0;
-        }
+            &:nth-of-type(2n + 1) {
+                margin-left: 0;
+            }
 
-        &:nth-of-type(3n + 1) {
-            margin-left: inherit;
+            &:nth-of-type(3n + 1) {
+                margin-left: inherit;
+            }
         }
     }
     .course-glimpse-list {
         padding-top: 0;
-    }
 
+        &__title {
+            padding-left: 0;
+        }
+    }
+    @include breakpoint(md) {
+        width: pxtopc(538,1368);
+    }
 }
