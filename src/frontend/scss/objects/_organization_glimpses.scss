@@ -27,8 +27,9 @@
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 0;
-    padding: pxtoem(24) 1rem;
+    padding: pxtoem(24) 5%;
     text-decoration: none;
+    width: 100%;
 
 
     &__logo {
@@ -67,20 +68,23 @@
 
     // Responsive adjustments
     @include breakpoint(xs) {
-        @include make-inner-paddings();
-    }
-
-    @include breakpoint(md) {
         @include sv-flex(
                         1,
                         0,
                         50%
         );
+        &:nth-of-type(odd) {
+            background: linear-gradient(180deg, var(--color-primary-darker) 0%, var(--color-primary) 100%);
+        }
+    }
+
+    @include breakpoint(md) {
+        @include make-inner-paddings();
+
         &:nth-of-type(even) {
             @include make-right-padding();
         }
         &:nth-of-type(odd) {
-            background: linear-gradient(180deg, var(--color-primary-darker) 0%, var(--color-primary) 100%);
             @include make-left-padding();
         }
     }
