@@ -1,27 +1,14 @@
-$richie-course-detail-content-width-large: 70% !default;
-
-$richie-course-detail-row-title-fontcolor: $dodgerblue3 !default;
-
-$richie-course-detail-categories-empty-fontcolor: $gray40 !default;
-$richie-course-detail-categories-empty-textalign: center !default;
-
-$richie-course-detail-organizations-item-gutter: 0.625rem !default;
-
-$richie-course-detail-license-margin: 1rem 0 0 0 !default;
-$richie-course-detail-license-title-margin: 0 0 0.75rem 0 !default;
-$richie-course-detail-license-title-fontcolor: $dodgerblue3 !default;
-
-$richie-course-detail-aside-with-large: 30% !default;
-
 .course-detail {
-    @include make-container();
-    @include make-container-max-widths();
     margin: 0 auto;
-    padding-top: rem-calc(60px);
+    padding: rem-calc(60px) 5% 0;
 
     .person-glimpse + .person-glimpse {
-        margin-left: rem-calc(30px);
         margin-top: 0;
+    }
+
+    @include breakpoint(md) {
+        @include make-container();
+        @include make-container-max-widths();
     }
 
     @include breakpoint(lg) {
@@ -31,7 +18,11 @@ $richie-course-detail-aside-with-large: 30% !default;
     }
 
     &__header {
-        margin: 0 0 pxtoem(110);
+        margin: 0 0 var(--space-xl);
+
+        @include breakpoint(md) {
+            margin: 0 0 pxtoem(110);
+        }
 
         @include breakpoint(lg) {
             display: flex;
@@ -45,12 +36,16 @@ $richie-course-detail-aside-with-large: 30% !default;
         background: var(--richie-content-container-bg);
 
         @include breakpoint(lg) {
-            @include sv-flex-cell-width($richie-course-detail-content-width-large);
+            @include sv-flex-cell-width(70%);
             padding-right: pxtopc(169,1360);
         }
 
         &--two {
-            padding-bottom: rem-calc(150px);
+            padding-bottom: var(--space-lg);
+
+            @include breakpoint(lg) {
+                padding-bottom: var(--space-xxl);
+            }
         }
 
         &__snapshot {
@@ -189,12 +184,12 @@ $richie-course-detail-aside-with-large: 30% !default;
             &__placeholder {
                 @include sv-flex(1, 0, 100%);
                 font-style: italic;
-                color: $richie-course-detail-categories-empty-fontcolor;
-                text-align: $richie-course-detail-categories-empty-textalign;
+                color: var(--color-white);
+                text-align: center;
                 background: transparent;
 
                 &:hover {
-                    color: $richie-course-detail-categories-empty-fontcolor;
+                    color: var(--color-white);
                 }
             }
         }
@@ -244,7 +239,7 @@ $richie-course-detail-aside-with-large: 30% !default;
 
             &__title {
                 margin-bottom: rem-calc(60px);
-                margin-top: rem-calc(140px);
+                margin-top: var(--space-xl);
                 padding: 1em 0;
 
                 &:before {
@@ -261,25 +256,32 @@ $richie-course-detail-aside-with-large: 30% !default;
             &__items {
                 align-items: flex-start;
                 display: flex;
-                flex-wrap: wrap;
+                flex-wrap: nowrap;
+                justify-content: space-between;
                 width: 100%;
+
+                @include breakpoint(sm) {
+                    justify-content: flex-start;
+                }
             }
 
             .link-persons {
-                margin-top: pxtoem(54);
+                margin-top: var(--space-xs);
             }
 
             .person-glimpse {
-                @include sv-flex(0, 0);
+                @include sv-flex(0, 0, 45%);
                 background: none;
                 border: none;
                 flex-direction: column;
+                margin-bottom: var(--space-lg);
                 padding: 0;
 
 
                 &__media {
                     img {
                         border-radius: 0;
+                        display: block;
                     }
                 }
 
@@ -303,7 +305,7 @@ $richie-course-detail-aside-with-large: 30% !default;
                     &__title {
                         color: var(--color-white);
                         font-size: rem-calc(14px);
-                        margin-top: pxtoem(13);
+                        margin: 0;
                         padding-right: 0;
 
                         &:hover {
@@ -314,7 +316,7 @@ $richie-course-detail-aside-with-large: 30% !default;
                             font-size: rem-calc(14px);
                         }
                         @include breakpoint(md) {
-                            margin-bottom: 0;
+                            margin-top: var(--space-sm);
                         }
                     }
 
@@ -343,17 +345,23 @@ $richie-course-detail-aside-with-large: 30% !default;
                     }
                 }
 
+                &__foot {
+                    margin-top: var(--space-md);
+                }
+
+                @include breakpoint(sm) {
+                    @include sv-flex(0, 0, 30%);
+                    margin-right: 1em;
+                }
+
                 @include breakpoint(md) {
+                    @include sv-flex(0, 0, 20%);
+
                     &__content {
                         padding: 0;
                         width: 100%;
                     }
                 }
-
-                @include breakpoint(lg) {
-                    width: pxtoem(109);
-                }
-
             }
         }
 
@@ -365,11 +373,15 @@ $richie-course-detail-aside-with-large: 30% !default;
 
     &__aside {
         @include sv-flex-cell-width(100%);
-        margin: 0;
-        padding: 0;
+        margin: var(--space-md) 0 0;
+        padding: 0 0 var(--space-xl);
+
+        @include breakpoint(md) {
+            margin: 0;
+        }
 
         @include breakpoint(lg) {
-            @include sv-flex-cell-width(#{$richie-course-detail-aside-with-large});
+            @include sv-flex-cell-width(30%);
         }
 
         &__main-org-logo {
@@ -418,8 +430,8 @@ $richie-course-detail-aside-with-large: 30% !default;
             dl {
                 display: flex;
                 flex-wrap: wrap;
-                margin: 1em 0;
-                width: 49%;
+                margin: 1em 0 0;
+                width: 100%;
             }
 
             dt {
@@ -436,7 +448,7 @@ $richie-course-detail-aside-with-large: 30% !default;
 
             &__icons {
                 margin: 1em 0;
-                width: 49%;
+                width: 100%;
             }
             .category-plugin-icon {
                 color: var(--color-white);
@@ -444,14 +456,33 @@ $richie-course-detail-aside-with-large: 30% !default;
                 margin: 0;
 
                 &__figure {
+                    justify-content: flex-start;
                     margin-bottom: 0;
                     padding-bottom: 0;
+
+                    &__image {
+                        margin-left: var(--space-xs);
+                    }
+                }
+            }
+
+            @include breakpoint(xs) {
+                dl {
+                    margin: 1em 0;
+                    width: 49%;
+                }
+                &__icons {
+                    width: 49%;
                 }
             }
         }
 
         &__social-networks {
-            display: none;
+            margin-bottom: var(--space-lg);
+        }
+
+        .social-network-badges {
+            justify-content: flex-start;
         }
 
         &__run {
