@@ -1,14 +1,11 @@
 .program-detail {
-    @include make-container();
-    @include make-container-max-widths();
     @include flex-sb();
     margin: 0 auto;
-    padding-bottom: rem-calc(60px);
-    padding-top: rem-calc(60px);
+    padding: var(--space-xl) 5%;
 
     &__title {
         font-size: rem-calc(30px);
-        margin: 0;
+        margin: 0 0 var(--space-sm);
     }
 
     &__excerpt {
@@ -64,14 +61,16 @@
 
     &__courses-list {
         .course-glimpse-list {
+            margin-top: var(--space-xl);
             padding: 0;
 
             &__title {
+                margin-bottom: var(--space-sm);
                 padding: 0;
             }
         }
 
-        @include breakpoint(sm) {
+        @include breakpoint(xs) {
             .course-glimpse {
                 @include sv-flex(
                                 1,
@@ -89,22 +88,14 @@
         @include breakpoint(lg) {
             width: pxtopc(538,1368);
 
-            .course-glimpse {
-                @include sv-flex(
-                                1,
-                                0,
-                                48%
-                );
-                margin-left: 4%;
-
-                &:nth-of-type(2n + 1) {
-                    margin-left: 0;
-                }
-
-                &:nth-of-type(3n + 1) {
-                    margin-left: inherit;
-                }
+            .course-glimpse-list {
+                margin-top: 0;
             }
         }
+    }
+
+    @include breakpoint(md) {
+        @include make-container();
+        @include make-container-max-widths();
     }
 }
