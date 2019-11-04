@@ -3,11 +3,8 @@
     @include flex-sb();
 
     &__intro {
-        @include make-left-padding();
         background-image: linear-gradient(to bottom, #13243c, #1c1a2c, #1b131d, #130a10, #000000);
-        padding-bottom: rem-calc(50px);
-        padding-right: pxtopc(154,1860);
-        padding-top: calc(var(--space-lg) * 2);
+        padding:  calc(var(--space-lg) * 2) 5%  var(--space-xl);
 
         &__icons {
             margin-bottom: calc(var(--space-sm) * 2);
@@ -21,6 +18,11 @@
             svg {
                 max-height: pxtoem(50);
                 width: pxtoem(89);
+                max-width: pxtoem(60);
+
+                @include breakpoint(xs) {
+                    max-width: unset;
+                }
             }
         }
 
@@ -46,6 +48,7 @@
         @include aspect-ratio(930,600);
         max-height: pxtoem(600);
         overflow: hidden;
+        width: 100%;
 
         img {
             @include fitcover();
@@ -54,6 +57,11 @@
 
 
     @include breakpoint(md) {
+        &__intro {
+            @include make-left-padding();
+            padding-right: pxtopc(154,1860);
+        }
+
         &__intro,
         &__cover {
             width: 50%;
@@ -66,6 +74,22 @@
         }
         &__cover {
             padding-left: pxtoem(154);
+        }
+    }
+}
+
+.solutions__contact {
+    &__cover {
+        order: 1;
+    }
+    &__intro {
+        order: 2;
+    }
+
+    @include breakpoint(md) {
+        &__intro,
+        &__cover {
+            order: inherit;
         }
     }
 }
