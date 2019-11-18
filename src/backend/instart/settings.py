@@ -514,6 +514,10 @@ class Base(DRFMixin, RichieCoursesConfigurationMixin, Configuration):
         },
     }
 
+    # Login/registration related settings
+    LOGIN_REDIRECT_URL = "/"
+    LOGOUT_REDIRECT_URL = "/"
+
     # Elasticsearch
     RICHIE_ES_HOST = values.Value(
         "elasticsearch", environ_name="RICHIE_ES_HOST", environ_prefix=None
