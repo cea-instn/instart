@@ -27,7 +27,9 @@ urlpatterns = [
 ]
 
 urlpatterns += i18n_patterns(
-    url(r"^admin/", admin.site.urls), url(r"^", include("cms.urls"))  # NOQA
+    url(r"^admin/", admin.site.urls),
+    url(r"^accounts/", include("django.contrib.auth.urls")),
+    url(r"^", include("cms.urls"))  # NOQA
 )
 
 # This is only needed when using runserver.
