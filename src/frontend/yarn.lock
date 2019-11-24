@@ -6070,10 +6070,10 @@ ret@~0.1.10:
   resolved "https://registry.yarnpkg.com/ret/-/ret-0.1.15.tgz#b8a4825d5bdb1fc3f6f53c2bc33f81388681c7bc"
   integrity sha512-TTlYpa+OL+vMMNG24xSlQGEJ3B/RzEfUlLct7b5G/ytav+wPrplCpVMFuwzXbkecJrb6IYo1iFb0S9v37754mg==
 
-richie-education@1.14.0:
-  version "1.14.0"
-  resolved "https://registry.yarnpkg.com/richie-education/-/richie-education-1.14.0.tgz#23c81b45e93273c4cbbce3addc19249451075ee4"
-  integrity sha512-RipJw6cL7gpurySnTPP9z5T1MTKDi0KjNBM3f5D7+1erWA5zfoLLYST3WwykAbT+pbgOaU2uB8V+OB3sSzzwBw==
+richie-education@1.14.1:
+  version "1.14.1"
+  resolved "https://registry.yarnpkg.com/richie-education/-/richie-education-1.14.1.tgz#dc7a47b807ec8c5d6bf07d2d066c8ee1062aef53"
+  integrity sha512-vBo6NNbxy/kv8gOas0Df9xKOFKMIRY7WXvMoRUJ5bj72XZJeL3FWmOwCFRYyvaorfOS1Hha0qxZ17mJ5bvi1Cw==
   dependencies:
     "@babel/core" "7.7.2"
     "@babel/plugin-syntax-dynamic-import" "7.2.0"
