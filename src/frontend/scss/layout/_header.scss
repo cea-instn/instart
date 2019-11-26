@@ -291,3 +291,40 @@
         }
     }
 }
+
+.richie-react--user-login {
+    background: var(--color-primary);
+    color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    @include breakpoint(lg) {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        color: var(--color-primary);
+        background: var(--color-white);
+        width: auto;
+    }
+}
+
+.user-login {
+    a {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+        margin-left: 0.625rem;
+        padding-left: 0.563rem;
+        padding-right: 0.563rem;
+        text-decoration: none;
+        text-transform: uppercase;
+
+        @include breakpoint(lg) {
+            padding: 0.313rem 0.563rem 0.375rem;
+            font-size: 0.875rem;
+        }
+    }
+}
