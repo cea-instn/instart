@@ -5,7 +5,6 @@
     color: var(--color-primary-darker);
     background: var(--color-white);
 
-
     &__menu {
         display: flex;
         justify-content: center;
@@ -16,52 +15,6 @@
         @include breakpoint(lg) {
             order: 2;
             width: auto;
-        }
-
-
-        &__list {
-            width: 100%;
-            max-width: var(--max-width-xl);
-            margin: 1em auto;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: flex-start;
-
-            @include breakpoint(sm) {
-                justify-content: center;
-            }
-
-            @include breakpoint(lg) {
-                justify-content: space-between;
-                margin: 0;
-            }
-
-            &__item {
-                color: inherit;
-                display: flex;
-                font-size: 0.75rem;
-                margin: 0;
-                padding: 0;
-                text-align: center;
-                text-transform: uppercase;
-
-                &__link {
-                    display: block;
-                    padding: 0.3rem;
-                    font-weight: normal;
-                    color: var(--color-primary-darker);
-                    text-decoration: none;
-
-                    &:hover {
-                        color: var(--color-primary);
-                        text-decoration: none;
-                    }
-                    @include breakpoint(lg) {
-                        padding: 1rem 0.8rem;
-                    }
-                }
-            }
         }
     }
 
@@ -84,8 +37,51 @@
             display: block;
         }
     }
+}
 
+.section-list {
+    width: 100%;
+    max-width: var(--max-width-xl);
+    margin: 1em auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 
+    @include breakpoint(sm) {
+        justify-content: center;
+    }
+
+    @include breakpoint(lg) {
+        justify-content: space-between;
+        margin: 0;
+    }
+}
+
+.section-list__item {
+    color: inherit;
+    display: flex;
+    font-size: 0.75rem;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    text-transform: uppercase;
+
+    a {
+        display: block;
+        padding: 0.3rem;
+        font-weight: normal;
+        color: var(--color-primary-darker);
+        text-decoration: none;
+
+        &:hover {
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+        @include breakpoint(lg) {
+            padding: 1rem 0.8rem;
+        }
+    }
 }
 
 .body-footer-inner {
