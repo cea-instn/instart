@@ -8,20 +8,9 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-### Changed
+## [1.0.0] - 2019-11-27
 
-- Upgrade terraform syntax to 0.12
-- Upgrade to Richie 1.14.1
+- First release of Instart website to new.instart-learning.fr
 
-### Fixed
-
-- Load main css from the instart static namespace
-- Sass build copy now targets the appropriate path in the production image
-- Fix CKeditor static files to work with a CDN
-
-### Security
-
-- Upgrade npm dependencies from vulnerable to safe versions (`lodash`,
-  `lodash.mergewith`, `mixin-deep`, `set-value`).
-
-[unreleased]: https://github.com/openfun/instart-learning/master
+[unreleased]: https://github.com/cea-instn/instart/compare/v1.0.0...master
+[1.0.0]: https://github.com/cea-instn/instart/compare/20d992712078e6114b101f742c4437a7d5a0a795...v1.0.0
