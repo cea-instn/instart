@@ -460,18 +460,18 @@ class Base(DRFMixin, RichieCoursesConfigurationMixin, Configuration):
         1: [
             {
                 "public": True,
-                "code": "en",
-                "hide_untranslated": False,
-                "name": _("English"),
-                "fallbacks": ["fr"],
-                "redirect_on_fallback": True,
-            },
-            {
-                "public": True,
                 "code": "fr",
                 "hide_untranslated": False,
                 "name": _("French"),
                 "fallbacks": ["en"],
+                "redirect_on_fallback": True,
+            },
+            {
+                "public": True,
+                "code": "en",
+                "hide_untranslated": True,
+                "name": _("English"),
+                "fallbacks": ["fr"],
                 "redirect_on_fallback": True,
             },
         ],
