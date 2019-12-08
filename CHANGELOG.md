@@ -8,6 +8,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- Make french the default language and hide english from public site.
+
 ## [1.0.0] - 2019-11-27
 
 - First release of Instart website to new.instart-learning.fr
