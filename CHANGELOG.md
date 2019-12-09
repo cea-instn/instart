@@ -8,6 +8,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.0.1] - 2019-12-09
+
 ### Changed
 
 - Make french the default language and hide english from public site.
@@ -21,5 +23,6 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 - First release of Instart website to new.instart-learning.fr
 
-[unreleased]: https://github.com/cea-instn/instart/compare/v1.0.0...master
+[unreleased]: https://github.com/cea-instn/instart/compare/v1.0.1...master
+[1.0.1]: https://github.com/cea-instn/instart/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/cea-instn/instart/compare/20d992712078e6114b101f742c4437a7d5a0a795...v1.0.0

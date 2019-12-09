@@ -1,6 +1,6 @@
 {
   "name": "instart",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "description": "Richie-powered CMS for instart-learning.fr",
   "scripts": {
     "prettier": "prettier '**/*.+(css|scss)'",
