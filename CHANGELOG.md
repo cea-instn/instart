@@ -8,6 +8,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## Changed
+
+- Remove useless override of the `RICHIE_SECTION_TEMPLATES` setting.
+
 ## [1.0.1] - 2019-12-09
 
 ### Changed
