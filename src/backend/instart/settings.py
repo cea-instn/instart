@@ -172,11 +172,6 @@ class Base(DRFMixin, RichieCoursesConfigurationMixin, Configuration):
         ("richie/single_column.html", _("Single column")),
     )
 
-    RICHIE_SECTION_TEMPLATES = (
-        ("richie/section/section.html", _("Default")),
-        ("richie/section/section_cadenced.html", _("Highlighted items")),
-    )
-
     CMS_PLACEHOLDER_CONF = {
         **RichieCoursesConfigurationMixin.CMS_PLACEHOLDER_CONF,
         # Homepage
