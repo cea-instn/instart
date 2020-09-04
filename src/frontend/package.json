@@ -26,7 +26,7 @@
   "dependencies": {},
   "devDependencies": {
     "codyhouse-framework": "^2.1.2",
-    "node-sass": "4.11.0",
+    "node-sass": "4.13.1",
     "nodemon": "1.18.10",
     "prettier": "1.16.4",
     "richie-education": "1.14.1"
